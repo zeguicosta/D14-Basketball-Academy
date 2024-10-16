@@ -27,12 +27,12 @@ const Nav = () => {
                     <img className='w-20' src={Logo} alt="Logo" />
                 </div>
                 <div className='nav-links duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5'>
-                    <div className='flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 text-white font-medium'>
-                        <Link to='/' className='duration-100 hover:scale-105'>Início</Link>
-                        <Link to='/' className='duration-100 hover:scale-105'>Treinamentos</Link>
-                        <Link to='/' className='duration-100 hover:scale-105'>Sobre</Link>
-                        <Link to='/' className='duration-100 hover:scale-105'>Contato</Link>
-                        <Link to='/' className='duration-100 hover:scale-105'>Materiais</Link>
+                    <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
+                        <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Início</Link>
+                        <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Treinamentos</Link>
+                        <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Sobre</Link>
+                        <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Contato</Link>
+                        <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Materiais</Link>
                     </div>
                 </div>
                 <div className='flex items-center gap-[3vw] md:gap-[1vw]'>
