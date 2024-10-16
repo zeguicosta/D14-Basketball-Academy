@@ -6,9 +6,12 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Montserrat', 'sans-serif'], // Substitua "Roboto" pela fonte que você deseja usar
+      colors: {
+        customGreen: '#46951A',
       },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      }
     },
   },
   plugins: [],
