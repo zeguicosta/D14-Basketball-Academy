@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Logo from '../assets/logo.png'
 import Instagram from '../assets/instagram.png'
 import WhatsApp from '../assets/whatsapp.png'
@@ -9,11 +9,10 @@ import Close from '../assets/close.svg'
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = useRef(null);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
-        navLinks.classList.toggle('top-[9%]')
     }
     
     const openNewTab = (url) => {
@@ -26,7 +25,7 @@ const Nav = () => {
                 <div>
                     <img className='w-20' src={Logo} alt="Logo" />
                 </div>
-                <div className='nav-links duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5'>
+                <div className={`nav-links duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[60vh] left-0 ${isOpen ? 'top-[9%]' : 'top-[-100%]'} md:w-auto w-full flex items-center px-5`}>
                     <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
                         <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Início</Link>
                         <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Treinamentos</Link>
