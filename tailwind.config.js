@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'], // Substitua "Roboto" pela fonte que você deseja usar
+      },
+    },
   },
   plugins: [],
 }
