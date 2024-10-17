@@ -30,11 +30,11 @@ const Nav = () => {
                     {/* Links de navegação */}
                     <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
                         <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
-                            <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Início</Link>
-                            <Link to='/treinamentos' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Treinamentos</Link>
-                            <Link to='/sobre' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Sobre</Link>
-                            <Link to='/contato' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Contato</Link>
-                            <Link to='/materiais' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-700'>Materiais</Link>
+                            <Link to='/' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Início</Link>
+                            <Link to='/treinamentos' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Treinamentos</Link>
+                            <Link to='/sobre' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Sobre</Link>
+                            <Link to='/contato' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Contato</Link>
+                            <Link to='/materiais' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Materiais</Link>
                         </div>
                     </div>
 
