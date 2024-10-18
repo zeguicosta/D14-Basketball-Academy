@@ -20,7 +20,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className='fixed top-0 left-0 w-full bg-neutral-950 z-50'>
+            <nav className='fixed top-0 left-0 w-full bg-neutral-950 shadow-sm shadow-black/30 z-50'>
                 <div className='flex justify-between items-center w-[92%] mx-auto'>
                     {/* Logo */}
                     <div>
@@ -34,7 +34,7 @@ const Nav = () => {
                             <Link to='/treinamentos' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Treinamentos</Link>
                             <Link to='/sobre' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Sobre</Link>
                             <Link to='/contato' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Contato</Link>
-                            <Link to='/materiais' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Materiais</Link>
+                            <Link to='/loja' className='duration-300 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Loja</Link>
                         </div>
                     </div>
 
