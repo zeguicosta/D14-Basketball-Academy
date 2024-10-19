@@ -29,17 +29,17 @@ const Home = () => {
             <div id="sobre-nos" className="bg-neutral-100"></div>
             <div className="bg-neutral-100 h-auto min-h-fit flex flex-wrap justify-center px-8 py-32 items-center gap-6 text-center xl:text-left">
                 <div className="px-8">
-                    <h1 className="font-bold text-neutral-800 text-5xl mb-5 block animate-appearleft">Conheça a</h1>
-                    <h1 className="font-bold text-neutral-800 text-5xl block animate-appearleft">Nossa <span className="text-customGreen">Equipe</span></h1>
+                    <h1 className="font-bold text-neutral-800 text-5xl mb-5 block1 animate-appearleft">Conheça a</h1>
+                    <h1 className="font-bold text-neutral-800 text-5xl block1 animate-appearleft">Nossa <span className="text-customGreen">Equipe</span></h1>
 
-                    <p className="mt-8 text-neutral-800 block animate-appearleft">Descubra a história de cada um dos integrantes da D14.</p>
+                    <p className="mt-8 text-neutral-800 block1 animate-appearleft">Descubra a história de cada um dos integrantes da D14.</p>
 
                     <Link to='/sobre' >
-                        <button className="bg-neutral-800 rounded-sm text-white font-semibold px-10 py-3 mt-8 shadow-md shadow-neutral-800/30 duration-200 hover:bg-customGreen block animate-appearleft">Conhecer</button>
+                        <button className="bg-neutral-800 rounded-sm text-white font-semibold px-10 py-3 mt-8 shadow-md shadow-neutral-800/30 duration-200 hover:bg-customGreen block1 animate-appearleft">Conhecer</button>
                     </Link>
 
                     <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
-                        <Link className="mt-12 text-left shadow-lg h-auto w-72 px-10 py-11 rounded-md block animate-appearleft hover:bg-neutral-200 duration-200 cursor-pointer hover:invert" to='/sobre' >
+                        <Link className="mt-12 bg-white text-left shadow-lg h-auto w-72 px-10 py-11 rounded-md block1 animate-appearleft hover:bg-neutral-200 duration-200 cursor-pointer hover:invert" to='/sobre' >
                             <div>
                                 <img className="w-8" src={Especializacao} />
                                 <h3 className="font-bold text-[22px] py-4">Especialização</h3>
@@ -47,7 +47,7 @@ const Home = () => {
                             </div>
                         </Link>
 
-                        <Link className="mt-12 text-left shadow-lg h-auto w-72 px-10 py-11 rounded-md block animate-appearleft hover:bg-neutral-200 duration-200 cursor-pointer hover:invert" to='/sobre' >
+                        <Link className="mt-12 bg-white text-left shadow-lg h-auto w-72 px-10 py-11 rounded-md block1 animate-appearleft hover:bg-neutral-200 duration-200 cursor-pointer hover:invert" to='/sobre' >
                             <div>
                                 <img className="w-8" src={Filosofia} />
                                 <h3 className="font-bold text-[22px] py-4">Filosofia</h3>
@@ -64,10 +64,10 @@ const Home = () => {
 
             {/* Camps */}
             <div className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
-                <h1 className="text-5xl font-bold text-white block animate-appearleft">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
-                <p className="text-white px-10 2xl:px-96 w-auto block animate-appearleft">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
+                <h1 className="text-5xl font-bold text-white block1 animate-appearleft">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
+                <p className="text-white px-10 2xl:px-96 w-auto block1 animate-appearleft">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
 
-                <div className="flex gap-6 block animate-appearleft">
+                <div className="flex gap-6 block1 animate-appearleft">
                     <Link to='/treinamentos'>
                         <button className="bg-white text-neutral-800 font-semibold rounded-sm px-8 py-3 duration-200 hover:bg-customGreen hover:text-white">
                             Saiba Mais
@@ -81,7 +81,7 @@ const Home = () => {
                     </Link>
                 </div>
 
-                <div className="block animate-appearleft">
+                <div className="block1 animate-appearleft">
                     <video className="w-full lg:w-[1000px]" controls>
                         <source src={VideoCamp} type="video/mp4" />
                     </video>
