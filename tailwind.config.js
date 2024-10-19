@@ -32,6 +32,9 @@ export default {
           'from': { opacity: '0', transform: 'translate(100px)' },
           'to': { opacity: '1', transform: 'scale(0px)' }
         }
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to bottom, #222222 0%, #101010 28%)'
       }
     },
   },

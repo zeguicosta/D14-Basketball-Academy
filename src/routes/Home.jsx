@@ -28,14 +28,14 @@ const Home = () => {
             {/* Sobre Nós */}
             <div id="sobre-nos" className="bg-neutral-100"></div>
             <div className="bg-neutral-100 h-auto min-h-fit flex flex-wrap justify-center px-8 py-32 items-center gap-6 text-center xl:text-left">
-                <div className="px-8 block animate-appearleft">
-                    <h1 className="font-bold text-neutral-800 text-5xl mb-5">Conheça a</h1>
-                    <h1 className="font-bold text-neutral-800 text-5xl">Nossa <span className="text-customGreen">Equipe</span></h1>
+                <div className="px-8">
+                    <h1 className="font-bold text-neutral-800 text-5xl mb-5 block animate-appearleft">Conheça a</h1>
+                    <h1 className="font-bold text-neutral-800 text-5xl block animate-appearleft">Nossa <span className="text-customGreen">Equipe</span></h1>
 
-                    <p className="mt-8 text-neutral-800">Descubra a história de cada um dos integrantes da D14.</p>
+                    <p className="mt-8 text-neutral-800 block animate-appearleft">Descubra a história de cada um dos integrantes da D14.</p>
 
                     <Link to='/sobre' >
-                        <button className="bg-neutral-800 rounded-sm text-white font-semibold px-10 py-3 mt-8 shadow-md shadow-neutral-800/30 duration-200 hover:bg-customGreen">Conhecer</button>
+                        <button className="bg-neutral-800 rounded-sm text-white font-semibold px-10 py-3 mt-8 shadow-md shadow-neutral-800/30 duration-200 hover:bg-customGreen block animate-appearleft">Conhecer</button>
                     </Link>
 
                     <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
@@ -63,11 +63,11 @@ const Home = () => {
             </div>
 
             {/* Camps */}
-            <div className="h-auto bg-neutral-900 items-center justify-center text-center flex flex-col gap-10 py-32">
-                <h1 className="text-5xl font-bold text-white">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
-                <p className="text-white px-10 2xl:px-96 w-auto">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
+            <div className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
+                <h1 className="text-5xl font-bold text-white block animate-appearleft">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
+                <p className="text-white px-10 2xl:px-96 w-auto block animate-appearleft">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
 
-                <div className="flex gap-6">
+                <div className="flex gap-6 block animate-appearleft">
                     <Link to='/treinamentos'>
                         <button className="bg-white text-neutral-800 font-semibold rounded-sm px-8 py-3 duration-200 hover:bg-customGreen hover:text-white">
                             Saiba Mais
@@ -81,8 +81,8 @@ const Home = () => {
                     </Link>
                 </div>
 
-                <div>
-                    <video className="w-full" controls>
+                <div className="block animate-appearleft">
+                    <video className="w-full lg:w-[1000px]" controls>
                         <source src={VideoCamp} type="video/mp4" />
                     </video>
                 </div>
