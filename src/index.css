@@ -10,7 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-.block {
+.block1 {
     animation: appearleft linear;
     animation-timeline: view();
     animation-range: entry 0 cover 22%;
