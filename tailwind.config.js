@@ -20,12 +20,17 @@ export default {
         '100': '100',
       },
       animation: {
-        appear: 'appear linear'
+        appearleft: 'appearleft',
+        appearright: 'appearright'
       },
       keyframes: {
-        appear: {
-          'from': { opacity: '0', tranform: 'scale(0.5)' },
-          'to': { opacity: '1', tranform: 'scale(1)' }
+        appearleft: {
+          'from': { opacity: '0', transform: 'translate(-100px)' },
+          'to': { opacity: '1', transform: 'scale(0px)' }
+        },
+        appearright: {
+          'from': { opacity: '0', transform: 'translate(100px)' },
+          'to': { opacity: '1', transform: 'scale(0px)' }
         }
       }
     },

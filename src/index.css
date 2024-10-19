@@ -6,8 +6,18 @@
     @apply font-sans;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .block {
-    animation: appear linear;
+    animation: appearleft linear;
     animation-timeline: view();
-    animation-range: entry 30%;
+    animation-range: entry 0 cover 22%;
+}
+
+.block2 {
+    animation: appearright linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 22%;
 }
