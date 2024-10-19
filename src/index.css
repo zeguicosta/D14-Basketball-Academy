@@ -5,3 +5,9 @@
 * {
     @apply font-sans;
 }
+
+.block {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 30%;
+}

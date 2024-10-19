@@ -23,6 +23,8 @@ const Home = () => {
     return (
         <>
             {isLoading && <Splash fadeOut={fadeOut} />}
+
+            {/* Início */}
             <div className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center">
                 <h3 className="text-customGreen font-bold text-1xl sm:text-[18px] uppercase duration-500">Danilo Castro</h3>
                 <h1 className="text-white font-bold text-5xl sm:text-7xl xl:text-8xl duration-500">BASKETBALL</h1>
@@ -34,6 +36,11 @@ const Home = () => {
                 <button className="absolute bottom-10 animate-bounce">
                     <img src={Seta} className="w-8 rotate-90" />
                 </button>
+            </div>
+
+            {/* Sobre Nós */}
+            <div>
+                
             </div>
         </>
     )

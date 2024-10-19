@@ -18,6 +18,15 @@ export default {
         '80': '80',
         '90': '90',
         '100': '100',
+      },
+      animation: {
+        appear: 'appear linear'
+      },
+      keyframes: {
+        appear: {
+          'from': { opacity: '0', tranform: 'scale(0.5)' },
+          'to': { opacity: '1', tranform: 'scale(1)' }
+        }
       }
     },
   },
