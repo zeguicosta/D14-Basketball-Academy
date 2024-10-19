@@ -33,7 +33,7 @@ O uso do **linear-gradient** proporciona uma transição suave entre os tons de 
 
 ## 🎯 Execução
 
-5. Acesse o site em `d14basketballacademy.com.br` para visualizar a aplicação em execução.
+Acesse o site em `d14basketballacademy.com.br` para visualizar a aplicação em execução.
 
 ## 📞 Contato
 
