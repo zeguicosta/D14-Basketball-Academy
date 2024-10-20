@@ -13,11 +13,11 @@ body {
 .block1 {
     animation: appearleft linear;
     animation-timeline: view();
-    animation-range: entry 0 cover 22%;
+    animation-range: entry 0 cover 25%;
 }
 
 .block2 {
     animation: appearright linear;
     animation-timeline: view();
-    animation-range: entry 0 cover 22%;
+    animation-range: entry 0 cover 25%;
 }
