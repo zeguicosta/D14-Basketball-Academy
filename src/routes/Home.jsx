@@ -7,12 +7,13 @@ import VideoCamp from '../assets/campvideo.mp4'
 import Bola from '../assets/bola.png'
 import Legado from '../assets/legado.png'
 import Peso from '../assets/peso.png'
+import Accordion from '../components/Accordion'
 
 const Home = () => {
     return (
         <>
             {/* Início */}
-            <div className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center">
+            <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center">
                 <h3 className="text-customGreen font-bold text-1xl sm:text-[18px] uppercase duration-500">Danilo Castro</h3>
                 <h1 className="text-white font-bold text-5xl sm:text-7xl xl:text-8xl duration-500">BASKETBALL</h1>
                 <h1 className="text-white font-bold text-5xl sm:text-7xl xl:text-8xl duration-500">ACADEMY</h1>
@@ -26,11 +27,11 @@ const Home = () => {
                     className="absolute bottom-10 animate-bounce rounded-full shadow-md shadow-white/40 hover:shadow-lg">
                     <img src={Seta} className="w-8 rotate-90 hover:scale-110 duration-200" />
                 </button>
-            </div>
+            </section>
 
             {/* Equipe */}
             <div id="equipe" className="bg-neutral-100"></div>
-            <div className="bg-neutral-100 h-auto min-h-fit flex flex-wrap justify-center px-8 py-32 items-center gap-6 text-center xl:text-left">
+            <section className="bg-neutral-100 h-auto min-h-fit flex flex-wrap justify-center px-8 py-32 items-center gap-6 text-center xl:text-left">
                 <div className="px-8">
                     <h1 className="font-bold text-neutral-800 text-5xl mb-5 ">Conheça a</h1>
                     <h1 className="font-bold text-neutral-800 text-5xl ">Nossa <span className="text-customGreen">Equipe</span></h1>
@@ -63,10 +64,10 @@ const Home = () => {
                 <div className="px-8 mt-10 xl:mt-0">
                     <img className="shadow-md w-auto" src={Equipe} />
                 </div>
-            </div>
+            </section>
 
             {/* Camps */}
-            <div className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
+            <section className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
                 <h1 className="text-5xl font-bold text-white">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
                 <p className="text-white px-10 2xl:px-96 w-auto">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
 
@@ -89,10 +90,10 @@ const Home = () => {
                         <source src={VideoCamp} type="video/mp4" />
                     </video>
                 </div>
-            </div>
+            </section>
 
             {/* Sobre Nós */}
-            <div className="bg-neutral-100 h-auto min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
+            <section className="bg-neutral-100 h-auto min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
                 <h1 className="font-bold text-5xl"><span className="text-customGreen">Sobre</span> Nós</h1>
                 <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p>
 
@@ -125,7 +126,14 @@ const Home = () => {
                         </div>
                     </Link>
                 </div>
-            </div>
+            </section>
+
+            {/* Perguntas Frequentes */}
+            <section className="bg-neutral-100 border-t-2 border-t-neutral-200 h-auto min-h-fit justify-center px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-[400px] items-center text-neutral-800">
+                <div className="rounded-lg bg-white p-4">
+                    <Accordion />
+                </div>
+            </section>
         </>
     )
 }
