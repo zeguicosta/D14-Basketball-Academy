@@ -33,8 +33,8 @@ const Home = () => {
             <div id="equipe" className="bg-neutral-100"></div>
             <section className="bg-neutral-100 h-auto min-h-fit flex flex-wrap justify-center px-8 py-32 items-center gap-6 text-center xl:text-left">
                 <div className="px-8">
-                    <h1 className="font-bold text-neutral-800 text-5xl mb-5 ">Conheça a</h1>
-                    <h1 className="font-bold text-neutral-800 text-5xl ">Nossa <span className="text-customGreen">Equipe</span></h1>
+                    <h1 className="font-bold text-neutral-800 text-6xl mb-2 ">Conheça a</h1>
+                    <h1 className="font-bold text-neutral-800 text-6xl ">Nossa <span className="text-customGreen">Equipe</span></h1>
 
                     <p className="mt-8 text-neutral-800">Descubra a história de cada um dos integrantes da D14.</p>
 
@@ -68,7 +68,7 @@ const Home = () => {
 
             {/* Camps */}
             <section className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
-                <h1 className="text-5xl font-bold text-white">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
+                <h1 className="text-7xl font-bold text-white">Participe dos Nossos <span className="text-customGreen">Camps</span></h1>
                 <p className="text-white px-10 2xl:px-96 w-auto">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p>
 
                 <div className="flex gap-6">
@@ -94,7 +94,7 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-neutral-100 h-auto min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <h1 className="font-bold text-5xl"><span className="text-customGreen">Sobre</span> Nós</h1>
+                <h1 className="font-bold text-7xl"><span className="text-customGreen">Sobre</span> Nós</h1>
                 <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p>
 
                 <Link to='/sobre' >
@@ -110,7 +110,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <Link className="mt-8 bg-white text-left shadow-lg h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-xl hover:translate-y-1" to='/sobre' >
+                    <Link className="mt-12 xl:mt-8 bg-white text-left shadow-lg h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-xl hover:translate-y-1" to='/sobre' >
                         <div>
                             <img className="w-8" src={Legado} />
                             <h3 className="font-bold text-[22px] py-4">Legado</h3>
@@ -129,9 +129,25 @@ const Home = () => {
             </section>
 
             {/* Perguntas Frequentes */}
-            <section className="bg-neutral-100 border-t-2 border-t-neutral-200 h-auto min-h-fit justify-center px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-[400px] items-center text-neutral-800">
-                <div className="rounded-lg bg-white p-4">
-                    <Accordion />
+            <section className="bg-neutral-100 border-t-2 border-t-neutral-200 h-auto min-h-fit justify-center px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-0 items-center text-neutral-800 flex flex-col 2xl:flex-row gap-16">
+                <div className="items-center text-center 2xl:text-left mb-12">
+                    <h1 className="font-bold text-7xl"><span className="text-customGreen">Perguntas</span></h1>
+                    <h1 className="font-bold text-7xl mt-8">Frequentes</h1>
+                </div>
+                <div className="rounded-lg bg-white py-4 px-8">
+                    <Accordion title='Posso agendar uma aula experimental?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='Como faço para me inscrever?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='Quais são os níveis de habilidade aceitos?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='Quais são as idades aceitas?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='Quais são os horários do treinos?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='O que preciso levar para os treinos?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
+                    <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
+                    <Accordion title='A D14 participa de campeonatos?' answer='Sim, você tem direito à um treino gratuito conosco para garantir que é a decisão ideal para você.' />
                 </div>
             </section>
         </>
