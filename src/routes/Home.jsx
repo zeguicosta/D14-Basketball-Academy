@@ -151,8 +151,13 @@ const Home = () => {
             </section>
 
             {/* Chamada para ação */}
-            <section className="h-96">
-                
+            <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6">
+                <h3 className="font-bold text-5xl">Pronto para <span className="text-customGreen">Começar</span>?</h3>
+                <p className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</p>
+
+                <Link to='/contato'>
+                    <button className="bg-customGreen mt-4 rounded-sm text-white font-semibold px-10 py-3 shadow-md shadow-customGreen/30 duration-100 hover:bg-neutral-800 hover:shadow-neutral-800/40">Começar</button>
+                </Link>
             </section>
         </>
     )
