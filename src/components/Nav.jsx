@@ -30,24 +30,24 @@ const Nav = () => {
                     {/* Links de navegação */}
                     <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
                         <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
-                            <Link to='/' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Início</Link>
-                            <Link to='/treinamentos' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Treinamentos</Link>
-                            <Link to='/sobre' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Sobre</Link>
-                            <Link to='/contato' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Contato</Link>
-                            <Link to='/loja' className='duration-150 rounded-sm px-5 py-2 hover:bg-white hover:text-neutral-800'>Loja</Link>
+                            <Link to='/' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Início</Link>
+                            <Link to='/treinamentos' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Treinamentos</Link>
+                            <Link to='/sobre' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Sobre</Link>
+                            <Link to='/contato' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Contato</Link>
+                            <Link to='/loja' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Loja</Link>
                         </div>
                     </div>
 
                     {/* Ícones e Botão de Menu */}
-                    <div className='flex items-center gap-[3vw] md:gap-[1vw]'>
-                        <button onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
-                            <img src={Instagram} alt='Instagram' className='w-6 duration-100 hover:scale-110' />
+                    <div className='flex items-center gap-[5px]'>
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
+                            <img src={Instagram} alt='Instagram' className='w-6' />
                         </button>
-                        <button onClick={() => openNewTab('https://wa.me/seu-numero')}>
-                            <img src={WhatsApp} alt='WhatsApp' className='w-6 duration-100 hover:scale-110' />
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('https://wa.me/seu-numero')}>
+                            <img src={WhatsApp} alt='WhatsApp' className='w-6' />
                         </button>
-                        <button onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
-                            <img src={Gmail} alt='Gmail' className='w-6 duration-100 hover:scale-110' />
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
+                            <img src={Gmail} alt='Gmail' className='w-6' />
                         </button>
                         {/* Botão de Menu (hamburger) */}
                         <button className='w-8 cursor-pointer md:hidden' onClick={handleClick}>

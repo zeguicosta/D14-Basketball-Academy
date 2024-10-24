@@ -67,7 +67,7 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-neutral-100 h-auto min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <h1 className="font-bold text-7xl"><span className="text-customGreen">Sobre</span> Nós</h1>
+                <h1 className="font-bold text-7xl text-center md:px-10">Conheça nosso time e <span className="text-customGreen">História</span></h1>
                 {/* <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p> */}
 
                 <Link to='/sobre' >
