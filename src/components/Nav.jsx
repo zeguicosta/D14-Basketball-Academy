@@ -20,7 +20,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className='fixed top-0 left-0 w-full bg-neutral-950 shadow-sm shadow-black/30 z-50'>
+            <nav className='fixed top-0 left-0 w-full bg-neutral-900 shadow-sm shadow-black/40 z-50'>
                 <div className='flex justify-between items-center w-[92%] mx-auto'>
                     {/* Logo */}
                     <div>
@@ -28,25 +28,25 @@ const Nav = () => {
                     </div>
 
                     {/* Links de navegação */}
-                    <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
+                    <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-900 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
                         <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
-                            <Link to='/' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Início</Link>
-                            <Link to='/treinamentos' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Treinamentos</Link>
-                            <Link to='/sobre' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Sobre</Link>
-                            <Link to='/contato' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Contato</Link>
-                            <Link to='/loja' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700 hover:border-neutral-500'>Loja</Link>
+                            <Link to='/' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-800 hover:border-neutral-500'>Início</Link>
+                            <Link to='/treinamentos' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-800 hover:border-neutral-500'>Treinamentos</Link>
+                            <Link to='/sobre' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-800 hover:border-neutral-500'>Sobre</Link>
+                            <Link to='/contato' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-800 hover:border-neutral-500'>Contato</Link>
+                            <Link to='/loja' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-800 hover:border-neutral-500'>Loja</Link>
                         </div>
                     </div>
 
                     {/* Ícones e Botão de Menu */}
                     <div className='flex items-center gap-[5px]'>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-800' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
                             <img src={Instagram} alt='Instagram' className='w-6' />
                         </button>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('https://wa.me/seu-numero')}>
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-800' onClick={() => openNewTab('https://wa.me/seu-numero')}>
                             <img src={WhatsApp} alt='WhatsApp' className='w-6' />
                         </button>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-700' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
+                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-neutral-500 hover:bg-neutral-800' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
                             <img src={Gmail} alt='Gmail' className='w-6' />
                         </button>
                         {/* Botão de Menu (hamburger) */}

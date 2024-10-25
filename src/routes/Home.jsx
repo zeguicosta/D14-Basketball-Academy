@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom"
-import Seta from '../assets/seta2.png'
-import Equipe from '../assets/equipe.png'
-import Especializacao from '../assets/especializacao.png'
-import Filosofia from '../assets/filosofia.png'
 import VideoCamp from '../assets/campvideo.mp4'
 import Bola from '../assets/bola.png'
 import Legado from '../assets/legado.png'
@@ -14,11 +10,11 @@ const Home = () => {
         <>
             {/* Início */}
             <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center text-center">
-                <h3 className="text-white lg:mb-6 font-bold text-5xl sm:text-7xl 2xl:text-8xl uppercase duration-500">Danilo Castro</h3>
-                <h1 className="text-white font-bold text-5xl sm:text-7xl 2xl:text-8xl duration-500 px-8">BASKETBALL ACADEMY</h1>
-                <p className="text-white text-1xl mt-9 sm:mt-7 px-20 text-center duration-500">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
-                <Link to='/contato' className="mt-10 rounded-sm relative border-2 border-white bg-white py-2.5 px-8 font-medium uppercase text-neutral-800 transition-colors before:absolute before:left-0 before:top-0 before:-z-56 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-customGreen before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100 shadow-md shadow-white/30">
-                    <button className="font-semibold relative z-55">Participar</button>
+                <h3 className="text-white lg:mb-4 font-bold text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase">Danilo Castro</h3>
+                <h1 className="text-white font-bold text-5xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase">Basketball Academy</h1>
+                <p className="text-white text-1xl mt-9 px-20 text-center duration-500">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
+                <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3 duration-150 hover:bg-customGreen2/80">
+                    <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
                 </Link>
                 {/* <button onClick={() => { 
                     document.getElementById('equipe').scrollIntoView({behavior: 'smooth'});
@@ -67,34 +63,40 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-neutral-100 h-auto min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <h1 className="font-bold text-7xl text-center md:px-10">Conheça nosso time e <span className="text-customGreen">História</span></h1>
+                <h1 className="font-bold text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></h1>
                 {/* <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p> */}
 
                 <Link to='/sobre' >
-                    <button className="bg-customGreen mt-4 rounded-sm text-white font-semibold px-10 py-3 shadow-md shadow-customGreen/30 duration-100 hover:bg-neutral-800 hover:shadow-neutral-800/40">Saiba Mais</button>
+                    <button className="bg-customGreen border-2 border-lime-500/50 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-md shadow-customGreen/30 duration-100 hover:border-neutral-600 hover:bg-neutral-800 hover:shadow-neutral-800/40">Saiba Mais</button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
                     <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
-                            <img className="w-10" src={Bola} />
-                            <h3 className="font-bold text-[22px] py-4">História</h3>
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                                <img className="w-10" src={Bola} />
+                            </div>
+                            <h3 className="font-bold text-[22px] py-4 text-customGreen">História</h3>
                             <p>Conheça como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo desenvolvimento pessoal e valores essenciais para seus atletas.</p>
                         </div>
                     </Link>
 
                     <Link className="mt-12 xl:mt-8 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
-                            <img className="w-10" src={Legado} />
-                            <h3 className="font-bold text-[22px] py-4">Legado</h3>
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                                <img className="w-10" src={Legado} />
+                            </div>
+                            <h3 className="font-bold text-[22px] py-4 text-customGreen">Legado</h3>
                             <p>Veja como a D14 Basketball Academy  está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, a D14 ​já ​preparou 23 atletas que ​seguiram seus estudos nos ​Estados Unidos.</p>
                         </div>
                     </Link>
 
                     <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/treinamentos' >
                         <div>
-                            <img className="w-10" src={Filosofia} />
-                            <h3 className="font-bold text-[22px] py-4">Filosofia</h3>
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                                <img className="w-10" src={Peso} />
+                            </div>
+                            <h3 className="font-bold text-[22px] py-4 text-customGreen">Filosofia</h3>
                             <p>Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como disciplina, trabalho em equipe e resiliência.</p>
                         </div>
                     </Link>
@@ -152,7 +154,7 @@ const Home = () => {
 
             {/* Chamada para ação */}
             <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6">
-                <h3 className="font-bold text-5xl">Pronto para <span className="text-customGreen">Começar</span>?</h3>
+                <h3 className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</h3>
                 <p className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</p>
 
                 <Link to='/contato'>
