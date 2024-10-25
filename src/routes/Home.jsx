@@ -67,46 +67,46 @@ const Home = () => {
                 {/* <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p> */}
 
                 <Link to='/sobre' >
-                    <button className="bg-customGreen border-2 border-lime-500/50 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-md shadow-customGreen/30 duration-100 hover:border-neutral-600 hover:bg-neutral-800 hover:shadow-neutral-800/40">Saiba Mais</button>
+                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/60 shadow-custom-shadow duration-150 hover:bg-customGreen5">Saiba Mais</button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
                     <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Bola} />
                             </div>
-                            <h3 className="font-bold text-[22px] py-4 text-customGreen">História</h3>
-                            <p>Conheça como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo desenvolvimento pessoal e valores essenciais para seus atletas.</p>
+                            {/* <h3 className="font-bold text-[22px] py-4 text-customGreen">História</h3> */}
+                            <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-customGreen/80">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
                         </div>
                     </Link>
 
                     <Link className="mt-12 xl:mt-8 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Legado} />
                             </div>
-                            <h3 className="font-bold text-[22px] py-4 text-customGreen">Legado</h3>
-                            <p>Veja como a D14 Basketball Academy  está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, a D14 ​já ​preparou 23 atletas que ​seguiram seus estudos nos ​Estados Unidos.</p>
+                            {/* <h3 className="font-bold text-[22px] py-4 text-customGreen">Legado</h3> */}
+                            <p>A D14 Basketball Academy  está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, <span className="font-semibold text-customGreen/80">a D14 ​já ​preparou 23 atletas que ​seguiram seus estudos nos ​Estados Unidos.</span></p>
                         </div>
                     </Link>
 
                     <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/treinamentos' >
                         <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center">
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Peso} />
                             </div>
-                            <h3 className="font-bold text-[22px] py-4 text-customGreen">Filosofia</h3>
-                            <p>Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como disciplina, trabalho em equipe e resiliência.</p>
+                            {/* <h3 className="font-bold text-[22px] py-4 text-customGreen">Filosofia</h3> */}
+                            <p>Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como <span className="font-semibold text-customGreen/80">disciplina, trabalho em equipe e resiliência.</span></p>
                         </div>
                     </Link>
                 </div>
             </section>
 
             {/* Camps */}
-            <section className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-10 py-32">
-                <h1 className="text-7xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
-                {/* <p className="text-white px-10 2xl:px-96 w-auto">Os camps são eventos periódicos que contam com a presença de treinadores nacionais e internacionais, com vasta experiência, para oferecer um aprendizado único aos nossos alunos.</p> */}
+            <section className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-8 py-32">
+                <h1 className="text-6xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
+                <p className="text-white font-medium px-10 2xl:px-96 w-auto">Assista o vídeo abaixo para entender como funcionam nossos camps.<br></br>Se quiser acessar nossa lista de treinamentos clique no botão:</p>
 
                 <div className="flex gap-6">
                     <Link to='/treinamentos'>

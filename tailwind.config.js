@@ -9,7 +9,9 @@ export default {
       colors: {
         customGreen: '#46951A',
         customGreen2: '#0A9015',
-        customGreen3: '#0BA618'
+        customGreen3: '#0BA618',
+        customGreen4: '#54AE21',
+        customGreen5: '#408718'
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
@@ -36,7 +38,7 @@ export default {
         }
       },
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(to bottom, #222222 0%, #101010 28%)'
+        'custom-gradient': 'linear-gradient(to bottom, #222222 0%, #101010 40%)'
       },
       boxShadow: {
         'custom-shadow': '0px 0px 60px -12px rgba(50, 50, 93, 0.1), 0px 0px 36px -18px rgba(0, 0, 0, 0.1)'
