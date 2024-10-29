@@ -67,11 +67,11 @@ const Home = () => {
                 {/* <p>Entenda a nossa origem e o que nos motiva a transformar o desempenho dos alunos.</p> */}
 
                 <Link to='/sobre' >
-                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/60 shadow-custom-shadow duration-150 hover:bg-customGreen5">Saiba Mais</button>
+                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Saiba Mais</button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
-                    <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
+                    <Link className="mt-12 bg-white border-2 border-customGreen/40 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Bola} />
@@ -81,7 +81,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <Link className="mt-12 xl:mt-8 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
+                    <Link className="mt-12 xl:mt-8 bg-white border-2 border-customGreen/40 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Legado} />
@@ -91,7 +91,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <Link className="mt-12 bg-white border-2 border-neutral-200 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/treinamentos' >
+                    <Link className="mt-12 bg-white border-2 border-customGreen/40 text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-md hover:translate-y-1" to='/treinamentos' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Peso} />
@@ -103,30 +103,36 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Camps */}
-            <section className="h-auto bg-custom-gradient items-center justify-center text-center flex flex-col gap-8 py-32">
-                <h1 className="text-6xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
-                <p className="text-white font-medium px-10 2xl:px-96 w-auto">Assista o vídeo abaixo para entender como funcionam nossos camps.<br></br>Se quiser acessar nossa lista de treinamentos clique no botão:</p>
+            <section className="bg-custom-gradient">
+                {/* Treinamentos */}
+                <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-8 py-32">
+                    <div className="flex flex-col xl:flex-row 2xl:px-64 px-24 gap-6 xl:gap-16 items-center">
+                        <h1 className="text-6xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
+                        <div className="flex flex-col items-center xl:items-start gap-2">
+                            <p className="text-white font-medium w-auto">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
+                            <Link to='/treinamentos' >
+                                <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Treinos</button>
+                            </Link>
+                        </div>
+                    </div>
 
-                <div className="flex gap-6">
-                    <Link to='/treinamentos'>
-                        <button className="bg-customGreen shadow-customGreen/40 shadow-md text-white font-semibold rounded-sm px-8 py-3 duration-100 hover:bg-white hover:text-neutral-800 hover:shadow-white/30">
-                            Ver Treinos
-                        </button>
-                    </Link>
+                    <div className="mt-10">
+                        <video className="w-full lg:w-[1000px]" controls>
+                            <source src={VideoCamp} type="video/mp4" />
+                        </video>
+                    </div>
+                </section>
 
-                    <Link to='/contato' className="rounded-sm relative border-2 border-white bg-transparent py-2.5 px-8 font-medium uppercase text-white transition-colors before:absolute before:left-0 before:top-0 before:-z-56 before:h-full before:w-full before:origin-top-left before:scale-x-0 before:bg-customGreen before:transition-transform before:duration-300 before:content-[''] hover:text-white before:hover:scale-x-100">
-                        <button className="font-semibold relative z-56">
-                            Participar
-                        </button>
-                    </Link>
-                </div>
+                {/* Camps */}
+                <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-10 pb-32">
+                    <h1 className="text-6xl font-bold text-white">Veja por Dentro dos Nossos <span className="text-customGreen">Camps</span></h1>
 
-                <div className="mt-10">
-                    <video className="w-full lg:w-[1000px]" controls>
-                        <source src={VideoCamp} type="video/mp4" />
-                    </video>
-                </div>
+                    <div className="mt-10">
+                        <video className="w-full lg:w-[1000px]" controls>
+                            <source src={VideoCamp} type="video/mp4" />
+                        </video>
+                    </div>
+                </section>
             </section>
 
             {/* Perguntas Frequentes */}
@@ -157,8 +163,8 @@ const Home = () => {
                 <h3 className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</h3>
                 <p className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</p>
 
-                <Link to='/contato'>
-                    <button className="bg-customGreen mt-4 rounded-sm text-white font-semibold px-10 py-3 shadow-md shadow-customGreen/30 duration-100 hover:bg-neutral-800 hover:shadow-neutral-800/40">Começar</button>
+                <Link to='/treinamentos' >
+                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Começar</button>
                 </Link>
             </section>
         </>
