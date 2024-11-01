@@ -24,17 +24,22 @@ export default {
         '100': '100',
       },
       animation: {
-        appearleft: 'appearleft',
-        appearright: 'appearright'
+        appearup: 'appearup 1.5s ease-in-out',
+        appearleft: 'appearleft 1.5s ease-in-out',
+        appearstart: 'appearstart 1.5s ease-in-out 2.5s'
       },
       keyframes: {
-        appearleft: {
-          'from': { opacity: '0', transform: 'translate(-100px)' },
-          'to': { opacity: '1', transform: 'scale(0px)' }
+        appearup: {
+          'from': { opacity: '0', filter: 'blur(5px)', transform: 'translateY(-70%)' },
+          'to': { opacity: '1', filter: 'blur(0)', transform: 'translateY(0)' }
         },
-        appearright: {
-          'from': { opacity: '0', transform: 'translate(100px)' },
-          'to': { opacity: '1', transform: 'scale(0px)' }
+        appearleft: {
+          'from': { opacity: '0', filter: 'blur(5px)', transform: 'translateX(-100px)' },
+          'to': { opacity: '1', filter: 'blur(0)', transform: 'translateX(0)' }
+        },
+        appearstart: {
+          'from': { opacity: '0', filter: 'blur(5px)', transform: 'translateY(-80%)' },
+          'to': { opacity: '1', filter: 'blur(0)', transform: 'translateY(0)' }
         }
       },
       backgroundImage: {

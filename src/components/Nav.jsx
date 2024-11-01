@@ -29,12 +29,17 @@ const Nav = () => {
 
                     {/* Links de navegação */}
                     <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-900 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
-                        <div className='flex md:flex-row flex-col md:items-center md:gap-[1vw] gap-2 text-white font-medium'>
-                            <Link to='/' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-customGreen/70 hover:border-customGreen'>Início</Link>
-                            <Link to='/treinamentos' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-customGreen/70 hover:border-customGreen'>Treinamentos</Link>
-                            <Link to='/sobre' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-customGreen/70 hover:border-customGreen'>Sobre</Link>
-                            <Link to='/contato' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-customGreen/70 hover:border-customGreen'>Contato</Link>
-                            <Link to='/loja' className='duration-150 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-customGreen/70 hover:border-customGreen'>Loja</Link>
+                        <div className='flex md:flex-row flex-col md:items-center gap-2 text-white font-medium'>
+                            <Link to='/' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
+                            hover:bg-white'>Início</Link>
+                            <Link to='/treinamentos' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
+                            hover:bg-white'>Treinamentos</Link>
+                            <Link to='/sobre' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
+                            hover:bg-white'>Sobre</Link>
+                            <Link to='/contato' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
+                            hover:bg-white'>Contato</Link>
+                            <Link to='/loja' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
+                            hover:bg-white'>Loja</Link>
                         </div>
                     </div>
 
