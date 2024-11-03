@@ -1,5 +1,5 @@
 export const fadeInUp = {
-    initial: { opacity: 0, transform: 'translateY(-70%)' },
+    initial: { opacity: 0, transform: 'translateY(-30%)' },
     whileInView: { opacity: 1, transform: 'translateY(0)' },
     transition: { duration: 1, ease: 'easeInOut' }
 };
@@ -23,7 +23,7 @@ export const fadeInImage = {
 };
 
 export const fadeInStart = {
-    initial: { opacity: 0, transform: 'translateY(-70%)' },
+    initial: { opacity: 0, transform: 'translateY(-30%)' },
     whileInView: { opacity: 1, transform: 'translateY(0)' },
     transition: { duration: 1, ease: 'easeInOut' }
 };

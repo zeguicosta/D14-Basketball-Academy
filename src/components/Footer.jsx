@@ -8,7 +8,7 @@ const Footer = () => {
                 <p>Academia de basquete dedicada a quem deseja se destacar 
                 nas quadras.</p>
             </div>
-            <div className="flex gap-[8vw]">
+            <div className="flex gap-[10vh] sm:gap-[8vw] flex-col text-center sm:text-left sm:flex-row">
                 <div className="flex flex-col gap-10">
                     <h3 className="text-xl font-semibold">Sobre</h3>
                     <div className="flex flex-col gap-3">

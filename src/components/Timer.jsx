@@ -63,7 +63,7 @@ const Timer = () => {
 
     return (
         <div>
-            <div className="text-6xl font-medium flex gap-10">
+            <div className="text-3xl sm:text-5xl lg:6xl font-medium flex gap-5 sm:gap-10">
                 <div className="flex flex-col justify-center text-center gap-2">
                     {String(timeLeft.dias).padStart(2, '0')}
                     <h3 className="text-xl">Dias</h3>
