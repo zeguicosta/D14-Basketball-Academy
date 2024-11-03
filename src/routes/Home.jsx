@@ -10,6 +10,7 @@ import { useState } from "react"
 import { motion } from 'framer-motion'
 import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/animationSettings"
 import Timer from "../components/Timer"
+import FloatingPhone from "../components/FloatingPhone"
 
 const Home = () => {
     // const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,8 @@ const Home = () => {
             {/* Início */}
             <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center text-center">
                 <h3 className="text-white lg:mb-4 font-bold text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
-                <h1 className="text-white font-bold text-5xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase animate-appearstart">Basketball Academy</h1>
-                <p className="text-white text-1xl mt-9 px-20 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
+                <h1 className="text-white font-bold text-6xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase animate-appearstart">Basketball Academy</h1>
+                <p className="text-white mt-9 px-20 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
                 <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
                     <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
                 </Link>
@@ -108,7 +109,7 @@ const Home = () => {
                     <motion.h1 {...fadeInUp} className="text-5xl font-bold text-white">Como funcionam os nossos <span className="text-customGreen">Camps</span>?</motion.h1>
 
                     <Link to='/treinamentos' >
-                        <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Camps</motion.button>
+                        <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
                     </Link>
 
                     <motion.div {...fadeInImage} className="mt-4">
@@ -122,8 +123,8 @@ const Home = () => {
             {/* Perguntas Frequentes */}
             <section className="bg-neutral-100 border-t-2 border-t-neutral-200 h-auto min-h-fit justify-center px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-60 items-center text-neutral-800 flex flex-col 2xl:flex-row gap-16">
                 <motion.div {...fadeInLeft} className="items-center text-center 2xl:text-left mb-12">
-                    <h1 className="font-bold text-7xl"><span className="text-customGreen">Perguntas</span></h1>
-                    <h1 className="font-bold text-7xl mt-8">Frequentes</h1>
+                    <h1 className="font-bold text-6xl sm:text-7xl"><span className="text-customGreen">Perguntas</span></h1>
+                    <h1 className="font-bold text-6xl sm:text-7xl mt-8">Frequentes</h1>
                 </motion.div>
                 <motion.div {...fadeInRight} className="rounded-lg bg-white py-4 px-12">
                     <Accordion title='Posso agendar uma aula experimental?' answer='Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós.' />
@@ -144,18 +145,21 @@ const Home = () => {
             </section>
 
             {/* Cronômetro */}
-            <section className="h-96 border-t-2 bg-custom-gradient text-white flex flex-col items-center justify-center text-center gap-6">
+            <section className="lg:h-[70vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-24 lg:gap-[20vw] px-16">
                 <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
-                        <h1 className="text-5xl font-semibold">Próximo treino em</h1>                      
+                        <h1 className="text-6xl font-semibold"> <span className="text-customGreen">Próximo </span>Treino em</h1>                      
                     </div>
                     <Timer />
                 </motion.div>
+                <div>
+                    <FloatingPhone />
+                </div>
             </section>
 
             {/* Chamada para ação */}
-            <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6">
+            <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-7">
                 <motion.h3 {...fadeInUp} className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
                 <motion.p {...fadeInUp} className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
