@@ -9,15 +9,3 @@
 body {
     overflow-x: hidden;
 }
-
-/* .block1 {
-    animation: appearup linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 35%;
-}
-
-.block2 {
-    animation: appearleft linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 35%;
-} */

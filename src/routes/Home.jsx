@@ -7,6 +7,8 @@ import Accordion from '../components/Accordion'
 import TreinoImg from '../assets/treinoimg.jpg'
 import WhatsApp from '../assets/whatsapp.png'
 import { useState } from "react"
+import { motion } from 'framer-motion'
+import { fadeInLeft, fadeInUp } from "../constants/animationSettings"
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,42 +39,48 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-neutral-100 h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <h1 className="font-bold text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></h1>
+                <motion.h1 {...fadeInUp} className="font-bold text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></motion.h1>
 
                 <Link to='/sobre' >
-                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</button>
+                    <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
-                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/sobre' >
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Bola} />
-                            </div>
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                        <Link className="" to='/sobre' >
+                            <div>
+                                <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
+                                    <img className="w-10" src={Bola} />
+                                </div>
 
-                            <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-customGreen/80">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
-                        </div>
-                    </Link>
-
-                    <Link className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/sobre' >
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Legado} />
+                                <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-customGreen/80">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
                             </div>
-                            
-                            <p>A D14 Basketball Academy  está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, <span className="font-semibold text-customGreen/80">a D14 ​já ​preparou 23 atletas que ​seguiram seus estudos nos ​Estados Unidos.</span></p>
-                        </div>
-                    </Link>
+                        </Link>
+                    </motion.div>
 
-                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/treinamentos' >
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Peso} />
+                    <motion.div {...fadeInLeft} className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                        <Link to='/sobre' >
+                            <div>
+                                <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
+                                    <img className="w-10" src={Legado} />
+                                </div>
+                                
+                                <p>A D14 Basketball Academy  está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, <span className="font-semibold text-customGreen/80">a D14 ​já ​preparou 23 atletas que ​seguiram seus estudos nos ​Estados Unidos.</span></p>
                             </div>
-                            
-                            <p>Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como <span className="font-semibold text-customGreen/80">disciplina, trabalho em equipe e resiliência.</span></p>
-                        </div>
-                    </Link>
+                        </Link>
+                    </motion.div>
+
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                        <Link to='/treinamentos' >
+                            <div>
+                                <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
+                                    <img className="w-10" src={Peso} />
+                                </div>
+                                
+                                <p>Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como <span className="font-semibold text-customGreen/80">disciplina, trabalho em equipe e resiliência.</span></p>
+                            </div>
+                        </Link>
+                    </motion.div>
                 </div>
             </section>
 
