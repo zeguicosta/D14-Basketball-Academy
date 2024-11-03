@@ -9,6 +9,7 @@ import WhatsApp from '../assets/whatsapp.png'
 import { useState } from "react"
 import { motion } from 'framer-motion'
 import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/animationSettings"
+import Timer from "../components/Timer"
 
 const Home = () => {
     // const [isOpen, setIsOpen] = useState(false);
@@ -139,6 +140,17 @@ const Home = () => {
                     <Accordion title='O que preciso levar para os treinos?' answer='Sua vontade de ser melhor a cada treino. Ah, e roupa apropriada para prática esportiva. Amarrem bem o tênis e vamos nessa!' />
                     <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
                     <Accordion title='A D14 participa de campeonatos?' answer='Sim! Participamos de ligas amadoras em SP e Grande SP. Embora não seja a proposta principal da academia, acreditamos que a competição sempre trará bons frutos. Ninguém cresce em zona de conforto, vamos juntos!' />
+                </motion.div>
+            </section>
+
+            {/* Cronômetro */}
+            <section className="h-96 border-t-2 bg-custom-gradient text-white flex flex-col items-center justify-center text-center gap-6">
+                <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
+                        <h1 className="text-5xl font-semibold">Próximo treino em</h1>                      
+                    </div>
+                    <Timer />
                 </motion.div>
             </section>
 
