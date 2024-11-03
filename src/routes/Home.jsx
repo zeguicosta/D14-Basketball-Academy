@@ -8,21 +8,21 @@ import TreinoImg from '../assets/treinoimg.jpg'
 import WhatsApp from '../assets/whatsapp.png'
 import { useState } from "react"
 import { motion } from 'framer-motion'
-import { fadeInLeft, fadeInUp } from "../constants/animationSettings"
+import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/animationSettings"
 
 const Home = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = () => {
-        setIsOpen(!isOpen);
-    };
+    // const handleClick = () => {
+    //     setIsOpen(!isOpen);
+    // };
 
-    const openNewTab = (url) => {
-        window.open(url, '_blank', 'noopener,noreferrer');
-    };
+    // const openNewTab = (url) => {
+    //     window.open(url, '_blank', 'noopener,noreferrer');
+    // };
 
     return (
-        <>
+        <div data-scroll-speed="1">
             {/* <button onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}  className="fixed bottom-10 right-10 bg-customGreen border-2 border-customGreen4 p-3 rounded-full cursor-pointer">
                 <img className="w-8" src={WhatsApp} />
             </button> */}
@@ -32,7 +32,7 @@ const Home = () => {
                 <h3 className="text-white lg:mb-4 font-bold text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
                 <h1 className="text-white font-bold text-5xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase animate-appearstart">Basketball Academy</h1>
                 <p className="text-white text-1xl mt-9 px-20 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
-                <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80">
+                <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
                     <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
                 </Link>
             </section>
@@ -46,7 +46,7 @@ const Home = () => {
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
                         <Link className="" to='/sobre' >
                             <div>
                                 <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -58,7 +58,7 @@ const Home = () => {
                         </Link>
                     </motion.div>
 
-                    <motion.div {...fadeInLeft} className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                    <motion.div {...fadeInLeft} className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
                         <Link to='/sobre' >
                             <div>
                                 <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -70,7 +70,7 @@ const Home = () => {
                         </Link>
                     </motion.div>
 
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
                         <Link to='/treinamentos' >
                             <div>
                                 <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -87,7 +87,7 @@ const Home = () => {
             <section className="bg-custom-gradient">
                 {/* Treinamentos */}
                 <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 py-32">
-                    <div className="flex flex-col xl:flex-row 2xl:px-64 px-24 gap-6 xl:gap-16 items-center">
+                    <motion.div {...fadeInUp} className="flex flex-col xl:flex-row 2xl:px-64 px-24 gap-6 xl:gap-16 items-center">
                         <h1 className="text-6xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
                         <div className="flex flex-col items-center xl:items-start gap-2">
                             <p className="text-white font-medium 2xl:w-[700px]">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
@@ -95,36 +95,36 @@ const Home = () => {
                                 <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Treinos</button>
                             </Link>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="mt-10">
+                    <motion.div  {...fadeInImage} className="mt-10">
                         <img src={TreinoImg} className="w-full px-6 md:px-14 lg:w-[1200px]" />
-                    </div>
+                    </motion.div>
                 </section>
 
                 {/* Camps */}
                 <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-10 pb-32">
-                    <h1 className="text-5xl font-bold text-white">Quer Descobrir Tudo Sobre os <span className="text-customGreen">Camps</span>?</h1>
+                    <motion.h1 {...fadeInUp} className="text-5xl font-bold text-white">Como funcionam os nossos <span className="text-customGreen">Camps</span>?</motion.h1>
 
                     <Link to='/treinamentos' >
-                        <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Camps</button>
+                        <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Camps</motion.button>
                     </Link>
 
-                    <div className="mt-4">
+                    <motion.div {...fadeInImage} className="mt-4">
                         <video className="w-full px-6 md:px-14 lg:w-[1200px]" controls>
                             <source src={VideoCamp} type="video/mp4" />
                         </video>
-                    </div>
+                    </motion.div>
                 </section>
             </section>
 
             {/* Perguntas Frequentes */}
             <section className="bg-neutral-100 border-t-2 border-t-neutral-200 h-auto min-h-fit justify-center px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-60 items-center text-neutral-800 flex flex-col 2xl:flex-row gap-16">
-                <div className="items-center text-center 2xl:text-left mb-12">
+                <motion.div {...fadeInLeft} className="items-center text-center 2xl:text-left mb-12">
                     <h1 className="font-bold text-7xl"><span className="text-customGreen">Perguntas</span></h1>
                     <h1 className="font-bold text-7xl mt-8">Frequentes</h1>
-                </div>
-                <div className="rounded-lg bg-white py-4 px-12">
+                </motion.div>
+                <motion.div {...fadeInRight} className="rounded-lg bg-white py-4 px-12">
                     <Accordion title='Posso agendar uma aula experimental?' answer='Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós.' />
                     <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
                     <Accordion title='Como faço para me inscrever?' answer='Muito simples! Após a sua primeira aula, o(a) responsável irá alinhar com o Harley os próximos passos. Tudo via WhatsApp e de forma bem objetiva!' />
@@ -139,19 +139,19 @@ const Home = () => {
                     <Accordion title='O que preciso levar para os treinos?' answer='Sua vontade de ser melhor a cada treino. Ah, e roupa apropriada para prática esportiva. Amarrem bem o tênis e vamos nessa!' />
                     <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
                     <Accordion title='A D14 participa de campeonatos?' answer='Sim! Participamos de ligas amadoras em SP e Grande SP. Embora não seja a proposta principal da academia, acreditamos que a competição sempre trará bons frutos. Ninguém cresce em zona de conforto, vamos juntos!' />
-                </div>
+                </motion.div>
             </section>
 
             {/* Chamada para ação */}
             <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6">
-                <h3 className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</h3>
-                <p className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</p>
+                <motion.h3 {...fadeInUp} className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
+                <motion.p {...fadeInUp} className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
                 <Link to='/treinamentos' >
-                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Começar</button>
+                    <motion.button {...fadeInUp}  className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Começar</motion.button>
                 </Link>
             </section>
-        </>
+        </div>
     )
 }
 

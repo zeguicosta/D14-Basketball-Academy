@@ -25,9 +25,11 @@ function App() {
   return (
     <>
       {isLoading && <Splash fadeOut={fadeOut} />}
-      <Nav />
-      <Outlet />
-      <Footer />
+      <SmoothScroll>
+        <Nav />
+        <Outlet />
+        <Footer />
+      </SmoothScroll>
     </>
   )
 }

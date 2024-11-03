@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~locomotive-scroll/src/locomotive-scroll.scss";
+
 * {
     @apply font-sans;
 }
