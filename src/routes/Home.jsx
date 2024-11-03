@@ -5,47 +5,46 @@ import Legado from '../assets/legado.png'
 import Peso from '../assets/peso.png'
 import Accordion from '../components/Accordion'
 import TreinoImg from '../assets/treinoimg.jpg'
+import WhatsApp from '../assets/whatsapp.png'
+import { useState } from "react"
 
 const Home = () => {
-    document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate'); // Adiciona a classe de animação
-                    observer.unobserve(entry.target); // Para de observar o elemento para que a animação ocorra apenas uma vez
-                }
-            });
-        });
-    
-        const target = document.querySelector('.block2');
-        if (target) {
-            observer.observe(target); // Observa o elemento
-        }
-    });
-    
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const openNewTab = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
 
     return (
-        <div data-scroll-speed="1">
+        <>
+            {/* <button onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}  className="fixed bottom-10 right-10 bg-customGreen border-2 border-customGreen4 p-3 rounded-full cursor-pointer">
+                <img className="w-8" src={WhatsApp} />
+            </button> */}
+
             {/* Início */}
             <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center text-center">
                 <h3 className="text-white lg:mb-4 font-bold text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
                 <h1 className="text-white font-bold text-5xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase animate-appearstart">Basketball Academy</h1>
                 <p className="text-white text-1xl mt-9 px-20 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
-                <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
+                <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80">
                     <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
                 </Link>
             </section>
 
             {/* Sobre Nós */}
             <section className="bg-neutral-100 h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <h1 className="font-bold text-6xl text-center md:px-10 block1 animate-appearup">Conheça melhor a <span className="text-customGreen"> D14</span></h1>
+                <h1 className="font-bold text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></h1>
 
                 <Link to='/sobre' >
-                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5 block1 animate-appearup">Ver Mais</button>
+                    <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
-                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1 block2 animate-appearleft" to='/sobre' >
+                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Bola} />
@@ -55,7 +54,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <Link className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1 block2 animate-appearleft delay-300" to='/sobre' >
+                    <Link className="mt-12 xl:mt-8 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/sobre' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Legado} />
@@ -65,7 +64,7 @@ const Home = () => {
                         </div>
                     </Link>
 
-                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1 block2 animate-appearleft2 delay-500" to='/treinamentos' >
+                    <Link className="mt-12 bg-white text-left h-auto w-[350px] px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-md hover:translate-y-1" to='/treinamentos' >
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Peso} />
@@ -81,26 +80,26 @@ const Home = () => {
                 {/* Treinamentos */}
                 <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 py-32">
                     <div className="flex flex-col xl:flex-row 2xl:px-64 px-24 gap-6 xl:gap-16 items-center">
-                        <h1 className="text-6xl font-bold text-white block1 animate-appearup">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
+                        <h1 className="text-6xl font-bold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
                         <div className="flex flex-col items-center xl:items-start gap-2">
-                            <p className="text-white font-medium 2xl:w-[700px] block1 animate-appearup">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
+                            <p className="text-white font-medium 2xl:w-[700px]">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
                             <Link to='/treinamentos' >
-                                <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5 block1 animate-appearup">Ver Treinos</button>
+                                <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Treinos</button>
                             </Link>
                         </div>
                     </div>
 
-                    <div className="mt-10 block2 animate-appearleft">
+                    <div className="mt-10">
                         <img src={TreinoImg} className="w-full px-6 md:px-14 lg:w-[1200px]" />
                     </div>
                 </section>
 
                 {/* Camps */}
                 <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-10 pb-32">
-                    <h1 className="text-5xl font-bold text-white block1 animate-appearup">Quer Descobrir Tudo Sobre os <span className="text-customGreen">Camps</span>?</h1>
+                    <h1 className="text-5xl font-bold text-white">Quer Descobrir Tudo Sobre os <span className="text-customGreen">Camps</span>?</h1>
 
                     <Link to='/treinamentos' >
-                        <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5 block1 animate-appearup">Ver Camps</button>
+                        <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Camps</button>
                     </Link>
 
                     <div className="mt-4">
@@ -144,7 +143,7 @@ const Home = () => {
                     <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-full text-white font-semibold px-10 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Começar</button>
                 </Link>
             </section>
-        </div>
+        </>
     )
 }
 

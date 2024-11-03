@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "~locomotive-scroll/src/locomotive-scroll.scss";
-
 * {
     @apply font-sans;
 }
@@ -12,7 +10,7 @@ body {
     overflow-x: hidden;
 }
 
-.block1 {
+/* .block1 {
     animation: appearup linear;
     animation-timeline: view();
     animation-range: entry 0 cover 35%;
@@ -22,4 +20,4 @@ body {
     animation: appearleft linear;
     animation-timeline: view();
     animation-range: entry 0 cover 35%;
-}
+} */

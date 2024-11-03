@@ -26,7 +26,8 @@ export default {
       animation: {
         appearup: 'appearup 1.5s ease-in-out',
         appearleft: 'appearleft 1.5s ease-in-out',
-        appearstart: 'appearstart 1.5s ease-in-out 2.5s'
+        appearstart: 'appearstart 1.3s ease-in-out 2s',
+        bounce2: 'bounce 1.5s ease-in-out infinite',
       },
       keyframes: {
         appearup: {

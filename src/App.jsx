@@ -16,7 +16,7 @@ function App() {
             setTimeout(() => {
                 setIsLoading(false);
             }, 500);
-        }, 2750);
+        }, 2000);
 
         // Limpa o timer se o componente for desmontado antes
         return () => clearTimeout(timer);
@@ -24,12 +24,10 @@ function App() {
 
   return (
     <>
-      <SmoothScroll>
-        {isLoading && <Splash fadeOut={fadeOut} />}
-        <Nav />
-        <Outlet />
-        <Footer />
-      </SmoothScroll>
+      {isLoading && <Splash fadeOut={fadeOut} />}
+      <Nav />
+      <Outlet />
+      <Footer />
     </>
   )
 }

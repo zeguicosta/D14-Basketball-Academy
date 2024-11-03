@@ -45,13 +45,13 @@ const Nav = () => {
 
                     {/* Ícones e Botão de Menu */}
                     <div className='flex items-center gap-[5px]'>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-customGreen hover:bg-customGreen/40' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
+                        <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
                             <img src={Instagram} alt='Instagram' className='w-6' />
                         </button>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-customGreen hover:bg-customGreen/40' onClick={() => openNewTab('https://wa.me/seu-numero')}>
+                        <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://wa.me/seu-numero')}>
                             <img src={WhatsApp} alt='WhatsApp' className='w-6' />
                         </button>
-                        <button className='duration-100 rounded-xl p-2 border-[1px] border-transparent hover:border-customGreen hover:bg-customGreen/40' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
+                        <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>
                             <img src={Gmail} alt='Gmail' className='w-6' />
                         </button>
                         {/* Botão de Menu (hamburger) */}
