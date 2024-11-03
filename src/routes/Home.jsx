@@ -5,35 +5,20 @@ import Legado from '../assets/legado.png'
 import Peso from '../assets/peso.png'
 import Accordion from '../components/Accordion'
 import TreinoImg from '../assets/treinoimg.jpg'
-import WhatsApp from '../assets/whatsapp.png'
-import { useState } from "react"
 import { motion } from 'framer-motion'
 import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/animationSettings"
 import Timer from "../components/Timer"
 import FloatingPhone from "../components/FloatingPhone"
 
 const Home = () => {
-    // const [isOpen, setIsOpen] = useState(false);
-
-    // const handleClick = () => {
-    //     setIsOpen(!isOpen);
-    // };
-
-    // const openNewTab = (url) => {
-    //     window.open(url, '_blank', 'noopener,noreferrer');
-    // };
-
     return (
         <div>
-            {/* <button onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}  className="fixed bottom-10 right-10 bg-customGreen border-2 border-customGreen4 p-3 rounded-full cursor-pointer">
-                <img className="w-8" src={WhatsApp} />
-            </button> */}
 
             {/* Início */}
             <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center text-center">
-                <h3 className="text-white lg:mb-4 font-bold text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
+                <h3 className="text-white lg:mb-4 font-medium text-2xl sm:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
                 <h1 className="text-white font-bold text-6xl sm:text-7xl 2xl:text-8xl duration-500 px-8 uppercase animate-appearstart">Basketball Academy</h1>
-                <p className="text-white mt-9 px-20 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
+                <p className="text-white mt-9 sm:px-20 px-4 text-center duration-500 animate-appearstart">Academia de basquete dedicada a quem deseja se destacar<br></br> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span></p>
                 <Link to='/contato' className="mt-10 rounded-full relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
                     <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
                 </Link>
@@ -126,7 +111,7 @@ const Home = () => {
                     <h1 className="font-bold text-6xl sm:text-7xl"><span className="text-customGreen">Perguntas</span></h1>
                     <h1 className="font-bold text-6xl sm:text-7xl mt-8">Frequentes</h1>
                 </motion.div>
-                <motion.div {...fadeInRight} className="rounded-lg bg-white py-4 px-12">
+                <motion.div {...fadeInLeft} className="rounded-lg bg-white py-4 px-12">
                     <Accordion title='Posso agendar uma aula experimental?' answer='Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós.' />
                     <div className="w-full my-4 bg-neutral-200 h-[2px]"></div>
                     <Accordion title='Como faço para me inscrever?' answer='Muito simples! Após a sua primeira aula, o(a) responsável irá alinhar com o Harley os próximos passos. Tudo via WhatsApp e de forma bem objetiva!' />
@@ -159,7 +144,7 @@ const Home = () => {
             </section>
 
             {/* Chamada para ação */}
-            <section className="h-96 border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-7">
+            <section className="h-[70vh] border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-7">
                 <motion.h3 {...fadeInUp} className="font-bold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
                 <motion.p {...fadeInUp} className="font-medium">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
