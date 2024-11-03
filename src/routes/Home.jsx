@@ -22,7 +22,7 @@ const Home = () => {
     // };
 
     return (
-        <div data-scroll-speed="1">
+        <div>
             {/* <button onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}  className="fixed bottom-10 right-10 bg-customGreen border-2 border-customGreen4 p-3 rounded-full cursor-pointer">
                 <img className="w-8" src={WhatsApp} />
             </button> */}

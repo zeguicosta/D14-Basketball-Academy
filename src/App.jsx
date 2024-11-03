@@ -3,7 +3,6 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import { useEffect, useState } from "react"
 import Splash from "./components/Splash";
-import SmoothScroll from "./components/SmoothScroll";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,11 +24,9 @@ function App() {
   return (
     <>
       {isLoading && <Splash fadeOut={fadeOut} />}
-      <SmoothScroll>
-        <Nav />
-        <Outlet />
-        <Footer />
-      </SmoothScroll>
+      <Nav />
+      <Outlet />
+      <Footer />
     </>
   )
 }
