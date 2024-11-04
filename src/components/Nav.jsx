@@ -46,7 +46,7 @@ const Nav = () => {
                         <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
                             <img src={Instagram} alt='Instagram' className='w-6' />
                         </button>
-                        <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://wa.me/seu-numero')}>
+                        <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20treinos.')}>
                             <img src={WhatsApp} alt='WhatsApp' className='w-6' />
                         </button>
                         <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('mailto:seuemail@gmail.com')}>

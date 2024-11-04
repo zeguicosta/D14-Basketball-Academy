@@ -4,10 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function SlidePricing() {
   const [selected, setSelected] = useState("M");
 
+  const openNewTab = (url) => {
+      window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="w-full text-black bg-white px-4 lg:px-8 py-12 lg:py-24 relative overflow-hidden">
       <Heading selected={selected} setSelected={setSelected} />
-      <PriceCards selected={selected} />
+      <PriceCards selected={selected} openNewTab={openNewTab} />
       <TopLeftCircle />
       <BottomRightCircle />
     </section>
@@ -93,7 +97,7 @@ const CTAArrow = () => (
   </div>
 );
 
-const PriceCards = ({ selected }) => (
+const PriceCards = ({ selected, openNewTab }) => (
   <div className="flex flex-col lg:flex-row gap-8 lg:gap-4 w-full max-w-6xl mx-auto relative z-10">
     {/* FREE */}
     <div className="w-full bg-white p-6 border-[1px] border-slate-300 rounded-xl text-neutral-800">
@@ -171,6 +175,7 @@ const PriceCards = ({ selected }) => (
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.985 }}
         className="w-full py-4 mt-8 font-semibold bg-neutral-800 text-white rounded-lg uppercase"
+        onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Camp.')}
       >
         Assinar Camp
       </motion.button>
@@ -277,6 +282,7 @@ const PriceCards = ({ selected }) => (
       <motion.button
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.985 }}
+        onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Coletivo.')}
         className="w-full py-4 mt-8 font-semibold bg-customGreen text-white rounded-lg uppercase"
       >
         Assinar Coletivo
@@ -384,6 +390,7 @@ const PriceCards = ({ selected }) => (
       <motion.button
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.985 }}
+        onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20ter%20acesso%20ao%20Treinamento%20Personalizado.')}
         className="w-full py-4 mt-8 font-semibold bg-neutral-800 text-white rounded-lg uppercase"
       >
         Assinar Personalizado

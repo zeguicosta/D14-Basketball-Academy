@@ -1,5 +1,3 @@
-// src/routes/Home.jsx
-
 import { Link } from "react-router-dom";
 import VideoCamp from '../assets/campvideo.mp4';
 import Bola from '../assets/bola.png';
