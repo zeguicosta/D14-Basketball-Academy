@@ -7,7 +7,7 @@ const FAQ = ({ title, answer }) => {
     return (
         <div className="py-2">
             <button onClick={() => setAccordingOpen(!accordingOpen)} className="flex justify-between items-center w-full">
-                <h3 className="font-bold text-neutral-800 text-lg text-left">{title}</h3>
+                <h3 className="font-semibold text-neutral-800 text-lg text-left">{title}</h3>
                 {accordingOpen ? <img className="w-8 duration-200 rotate-180" src={SetaPreta} /> : <img className="w-8 duration-200" src={SetaPreta} />}
             </button>
 

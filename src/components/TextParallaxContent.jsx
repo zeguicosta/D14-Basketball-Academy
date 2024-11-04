@@ -11,21 +11,21 @@ export const TextParallaxContentExample = () => {
       <TextParallaxContent
         imgUrl={Imagem1}
         subheading="Camps"
-        heading="Evolua com os melhores."   
+        heading="Evolua com os melhores"   
       >
         <ExampleContent />
       </TextParallaxContent>
       <TextParallaxContent
         imgUrl={Imagem2}
         subheading="Coletivo"
-        heading="Aprenda e evolua em conjunto."
+        heading="Aprenda e evolua em conjunto"
       >
         <ExampleContent2 />
       </TextParallaxContent>
       <TextParallaxContent
         imgUrl={Imagem3}
         subheading="Personalizado"
-        heading="Desenvolvimento individual."
+        heading="Desenvolvimento individual"
       >
         <ExampleContent3 />
       </TextParallaxContent>

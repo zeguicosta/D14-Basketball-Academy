@@ -12,16 +12,18 @@ import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/ani
 import Timer from "../components/Timer";
 import FloatingPhone from "../components/FloatingPhone";
 import Carousel from "../components/Carousel";
+import Danilo from '../assets/danilo.png'
 
 const Home = () => {
     return (
         <div>
             {/* Início */}
-            <section className="bg-black top-0 h-screen bg-[url('src/assets/bg.png')] bg-cover bg-center flex flex-col items-center justify-center text-center px-4">
-                <h3 className="text-white lg:mb-4 font-medium text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3>
-                <h1 className="text-white font-bold text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl duration-500 px-4 sm:px-8 uppercase animate-appearstart">Basketball Academy</h1>
+            <section className="bg-black top-0 h-screen bg-[url('src/assets/homeimg.jpg')] bg-cover bg-[position:35%_center] md:bg-top flex flex-col items-center justify-center text-center px-4">
+                {/* <h3 className="text-white lg:mb-4 font-medium text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3> */}
+                <img className="md:w-72 w-52 m-[-60px] md:m-[-90px] animate-appearstart" src={Danilo} />
+                <h1 className="text-white font-semibold text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl duration-500 px-4 sm:px-8 animate-appearstart">Basketball Academy</h1>
                 <p className="text-white mt-9 px-4 sm:px-20 text-center duration-500 animate-appearstart break-words">
-                    Academia de basquete dedicada a quem deseja se destacar<br /> nas quadras. <span className="font-bold">Entre agora para o nosso time!</span>
+                    Academia de basquete dedicada a quem deseja se destacar<br /> nas quadras. Entre agora para o nosso time!
                 </p>
                 <Link to='/treinamentos' className="mt-10 rounded-lg relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
                     <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
@@ -33,26 +35,23 @@ const Home = () => {
                 <motion.h1 {...fadeInUp} className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></motion.h1>
 
                 <Link to='/sobre' >
-                    <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
+                    <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
                     {/* Primeiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
-                        <Link to='/sobre' >
-                            <div>
-                                <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                    <img className="w-10" src={Bola} alt="Bola" />
-                                </div>
-                                <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-neutral-800">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                        <div>
+                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
+                                <img className="w-10" src={Bola} alt="Bola" />
                             </div>
-                        </Link>
+                            <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-neutral-800">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
+                        </div>
                     </motion.div>
 
                     {/* Segundo Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
-                        <Link to='/sobre' >
-                            <div>
+                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                        <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Legado} alt="Legado" />
                             </div>
@@ -60,14 +59,12 @@ const Home = () => {
                                 A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, 
                                 <span className="font-semibold text-neutral-800"> a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.</span>
                             </p>
-                            </div>
-                        </Link>
+                        </div>
                     </motion.div>
 
                     {/* Terceiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
-                        <Link to='/treinamentos' >
-                            <div>
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                        <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Peso} alt="Peso" />
                             </div>
@@ -75,8 +72,7 @@ const Home = () => {
                                 Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como 
                                 <span className="font-semibold text-neutral-800"> disciplina, trabalho em equipe e resiliência.</span>
                             </p>
-                            </div>
-                        </Link>
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -157,7 +153,7 @@ const Home = () => {
                 <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
                 <Link to='/treinamentos' >
-                    <motion.button {...fadeInUp}  className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Começar</motion.button>
+                    <motion.button {...fadeInUp}  className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
                 </Link>
             </section>
         </div>

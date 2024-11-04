@@ -28,7 +28,7 @@ export default {
       },
       keyframes: {
         appearstart: {
-          'from': { opacity: '0', filter: 'blur(5px)', transform: 'translateY(-80%)' },
+          'from': { opacity: '0', filter: 'blur(5px)', transform: 'translateY(-60%)' },
           'to': { opacity: '1', filter: 'blur(0)', transform: 'translateY(0)' }
         }
       },

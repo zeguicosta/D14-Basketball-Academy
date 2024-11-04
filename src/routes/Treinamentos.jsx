@@ -17,8 +17,8 @@ const Treinamentos = () => {
             {/* Perguntas Frequentes */}
             <section className="bg-white h-auto min-h-fit justify-center px-4 sm:px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-60 items-center text-neutral-800 flex flex-col 2xl:flex-row gap-16">
                 <motion.div {...fadeInLeft} className="items-center text-center 2xl:text-left mb-12">
-                    <h1 className="font-bold text-5xl md:text-6xl"><span className="text-customGreen">Perguntas</span></h1>
-                    <h1 className="font-bold text-5xl md:text-6xl mt-8">Frequentes</h1>
+                    <h1 className="font-semibold text-5xl md:text-6xl"><span className="text-customGreen">Perguntas</span></h1>
+                    <h1 className="font-semibold text-5xl md:text-6xl mt-8">Frequentes</h1>
                 </motion.div>
                 <motion.div {...fadeInLeft} className="rounded-lg bg-white py-4 px-12">
                     <Accordion title='Posso agendar uma aula experimental?' answer='Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós.' />
