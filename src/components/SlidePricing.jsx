@@ -9,7 +9,7 @@ export default function SlidePricing() {
   };
 
   return (
-    <section className="w-full text-black bg-white px-4 lg:px-8 py-12 lg:py-24 relative overflow-hidden">
+    <section className="w-full text-black bg-white px-4 lg:px-8 py-12 lg:py-32 relative overflow-hidden">
       <Heading selected={selected} setSelected={setSelected} />
       <PriceCards selected={selected} openNewTab={openNewTab} />
       <TopLeftCircle />
@@ -24,7 +24,7 @@ const DESELECTED_STYLES =
 
 const Heading = ({ selected, setSelected }) => {
   return (
-    <div className="mb-12 pt-12 lg:mb-24 relative z-10 text-neutral-800">
+    <div className="mb-12 lg:mb-24 relative z-10 text-neutral-800">
       <h3 className="font-semibold text-5xl lg:text-7xl text-center mb-6">
         Selecione o <span className="text-customGreen">Treinamento</span>
       </h3>

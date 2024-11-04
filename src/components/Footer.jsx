@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
     return (
-        <div className="bg-custom-gradient text-white lg:h-auto flex flex-wrap px-8 pt-24 pb-16 justify-center text-left gap-20">
+        <div className="bg-neutral-900 text-white lg:h-auto flex flex-wrap px-8 pt-24 pb-16 justify-around text-left gap-20">
             <div className="flex flex-col gap-10">
                 <h3 className="font-semibold text-2xl">D14 Basketball Academy</h3>
                 <p>Academia de basquete dedicada a quem deseja se destacar 
