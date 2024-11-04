@@ -3,6 +3,7 @@ import Nav from "./components/Nav"
 import Footer from "./components/Footer"
 import { useEffect, useState } from "react"
 import Splash from "./components/Splash";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +16,7 @@ function App() {
             setTimeout(() => {
                 setIsLoading(false);
             }, 500);
-        }, 2000);
+        }, 800);
 
         // Limpa o timer se o componente for desmontado antes
         return () => clearTimeout(timer);
@@ -24,6 +25,7 @@ function App() {
   return (
     <>
       {isLoading && <Splash fadeOut={fadeOut} />}
+      <ScrollToTop />
       <Nav />
       <Outlet />
       <Footer />

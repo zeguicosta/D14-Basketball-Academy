@@ -30,7 +30,7 @@ const Home = () => {
             </section>
 
             {/* Sobre Nós */}
-            <section className="bg-neutral-100 h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-4 sm:px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
+            <section className="bg-white h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-4 sm:px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
                 <motion.h1 {...fadeInUp} className="font-bold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></motion.h1>
 
                 <Link to='/sobre' >
@@ -39,19 +39,19 @@ const Home = () => {
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
                     {/* Primeiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
                         <Link to='/sobre' >
                             <div>
                                 <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                     <img className="w-10" src={Bola} alt="Bola" />
                                 </div>
-                                <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-customGreen/80">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
+                                <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-neutral-800">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
                             </div>
                         </Link>
                     </motion.div>
 
                     {/* Segundo Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
                         <Link to='/sobre' >
                             <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -59,14 +59,14 @@ const Home = () => {
                             </div>
                             <p>
                                 A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, 
-                                <span className="font-semibold text-customGreen/80"> a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.</span>
+                                <span className="font-semibold text-neutral-800"> a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.</span>
                             </p>
                             </div>
                         </Link>
                     </motion.div>
 
                     {/* Terceiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer hover:shadow-lg border-[1px] border-slate-300">
                         <Link to='/treinamentos' >
                             <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -74,7 +74,7 @@ const Home = () => {
                             </div>
                             <p>
                                 Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como 
-                                <span className="font-semibold text-customGreen/80"> disciplina, trabalho em equipe e resiliência.</span>
+                                <span className="font-semibold text-neutral-800"> disciplina, trabalho em equipe e resiliência.</span>
                             </p>
                             </div>
                         </Link>

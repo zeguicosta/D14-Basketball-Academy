@@ -24,7 +24,7 @@ export default {
         '100': '100',
       },
       animation: {
-        appearstart: 'appearstart 1.3s ease-in-out 2s',
+        appearstart: 'appearstart 2s ease-in-out',
       },
       keyframes: {
         appearstart: {
