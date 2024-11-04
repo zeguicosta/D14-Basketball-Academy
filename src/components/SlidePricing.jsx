@@ -62,7 +62,7 @@ const BackgroundShift = () => (
 );
 
 const CTAArrow = () => (
-  <div className="absolute -right-[120px] top-2 sm:top-0">
+  <div className="absolute -right-[90px] sm:-right-[120px] top-2 sm:top-0">
     <motion.svg
       width="95"
       height="62"

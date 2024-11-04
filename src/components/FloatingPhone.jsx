@@ -5,6 +5,10 @@ import Logo from '../assets/logopreta.png'
 import { Link } from "react-router-dom";
 
 const FloatingPhone = () => {
+  const openNewTab = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div
       style={{
@@ -29,7 +33,7 @@ const FloatingPhone = () => {
         className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
       >
         <HeaderBar />
-        <Screen />
+        <Screen openNewTab={openNewTab} />
       </motion.div>
     </div>
   );
@@ -47,7 +51,7 @@ const HeaderBar = () => {
   );
 };
 
-const Screen = () => {
+const Screen = ({ openNewTab }) => {
   return (
     <div className="relative z-0 grid h-full w-full place-content-center overflow-hidden rounded-[20px] bg-white">
       <img
@@ -56,8 +60,8 @@ const Screen = () => {
         className="w-24 opacity-85"
       />
 
-    <Link to='/contato'>
-      <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-2 bg-customGreen2 border-customGreen3 py-2 text-sm font-medium text-white shadow-custom-shadow shadow-customGreen3/50 hover:bg-customGreen2/80">
+    <Link>
+      <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-2 bg-customGreen2 border-customGreen3 py-2 text-sm font-medium text-white shadow-custom-shadow shadow-customGreen3/50 hover:bg-customGreen2/80" onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')}>
         AGENDAR
       </button>
     </Link>
