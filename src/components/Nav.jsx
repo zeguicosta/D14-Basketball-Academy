@@ -36,8 +36,6 @@ const Nav = () => {
                             hover:bg-white'>Treinamentos</Link>
                             <Link to='/sobre' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
                             hover:bg-white'>Sobre</Link>
-                            <Link to='/contato' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
-                            hover:bg-white'>Contato</Link>
                             <Link to='/loja' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:text-neutral-800
                             hover:bg-white'>Loja</Link>
                         </div>

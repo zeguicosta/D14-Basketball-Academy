@@ -1,11 +1,12 @@
 import Coletivo from '../assets/coletivo.png'
 import Camp from '../assets/camp.png'
 import Personalizado from '../assets/filosofia.png'
+import SlidePricing from '../components/SlidePricing'
 
 const Treinamentos = () => {
     return (
         <>
-            <div className="bg-neutral-100 h-screen min-h-fit flex flex-col justify-center px-8 py-40 gap-10 items-center text-center text-neutral-800">
+            {/* <div className="bg-neutral-100 h-screen min-h-fit flex flex-col justify-center px-8 py-40 gap-10 items-center text-center text-neutral-800">
                 <h1 className="font-bold text-5xl text-neutral-800">Selecione o <span className="text-customGreen">Treinamento</span> que Deseja Saber Mais</h1>
                 <p>Encontre o programa perfeito para elevar suas habilidades no basquete, seja sozinho ou em grupo.</p>
 
@@ -26,7 +27,9 @@ const Treinamentos = () => {
                         <p>Participe de nossos camps intensivos com treinadores experientes, aprimorando suas técnicas e conhecimentos em eventos exclusivos.</p>
                     </button>
                 </div>
-            </div>
+            </div> */}
+
+            <SlidePricing />
         </>
     )
 }

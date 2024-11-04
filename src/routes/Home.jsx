@@ -39,7 +39,7 @@ const Home = () => {
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
                     {/* Primeiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
                         <Link to='/sobre' >
                             <div>
                                 <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -51,7 +51,7 @@ const Home = () => {
                     </motion.div>
 
                     {/* Segundo Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
                         <Link to='/sobre' >
                             <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
@@ -66,7 +66,7 @@ const Home = () => {
                     </motion.div>
 
                     {/* Terceiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-sm hover:shadow-lg">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md duration-200 cursor-pointer shadow-md hover:shadow-lg">
                         <Link to='/treinamentos' >
                             <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
