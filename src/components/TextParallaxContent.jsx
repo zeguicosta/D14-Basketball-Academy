@@ -6,6 +6,10 @@ import Imagem2 from '../assets/campimg2.jpg'
 import Imagem3 from '../assets/campimg3.jpg'
 
 export const TextParallaxContentExample = () => {
+  const openNewTab = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="bg-white">
       <TextParallaxContent
@@ -13,21 +17,21 @@ export const TextParallaxContentExample = () => {
         subheading="Camps"
         heading="Evolua com os melhores"   
       >
-        <ExampleContent />
+        <ExampleContent openNewTab={openNewTab} />
       </TextParallaxContent>
       <TextParallaxContent
         imgUrl={Imagem2}
         subheading="Coletivo"
         heading="Aprenda e evolua em conjunto"
       >
-        <ExampleContent2 />
+        <ExampleContent2 openNewTab={openNewTab} />
       </TextParallaxContent>
       <TextParallaxContent
         imgUrl={Imagem3}
         subheading="Personalizado"
         heading="Desenvolvimento individual"
       >
-        <ExampleContent3 />
+        <ExampleContent3 openNewTab={openNewTab} />
       </TextParallaxContent>
     </div>
   );
@@ -112,7 +116,7 @@ const OverlayCopy = ({ subheading, heading }) => {
   );
 };
 
-const ExampleContent = () => (
+const ExampleContent = ({ openNewTab }) => (
   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
     <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
     Transforme seu jogo com nossos Camps exclusivos!
@@ -124,14 +128,14 @@ const ExampleContent = () => (
       <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
         Você irá enfrentar desafios estimulantes e participar de jogos simulados que aprimoram seu entrosamento e desempenho em equipe. Vivencie um ambiente de aprendizado avançado e alcance novos patamares no basquete. Inscreva-se agora e transforme seu jogo!
       </p>
-      <button className="w-full rounded bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+      <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Camp.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
         Quero Participar <FiArrowUpRight className="inline" />
       </button>
     </div>
   </div>
 );
 
-const ExampleContent2 = () => (
+const ExampleContent2 = ({ openNewTab }) => (
     <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
         <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
         Desenvolva suas habilidades em equipe!
@@ -143,14 +147,14 @@ const ExampleContent2 = () => (
         <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
         Junte-se ao nosso Coletivo e experimente um ambiente onde aprender e evoluir em conjunto é a chave para alcançar grandes resultados. Participe e leve seu desempenho para o próximo nível!
         </p>
-        <button className="w-full rounded bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+        <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Coletivo.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
             Quero Participar <FiArrowUpRight className="inline" />
         </button>
         </div>
     </div>
 );
 
-const ExampleContent3 = () => (
+const ExampleContent3 = ({ openNewTab }) => (
     <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
         <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
         Treinamento sob medida para você!
@@ -162,7 +166,7 @@ const ExampleContent3 = () => (
         <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
         Oferecemos treinamentos personalizados que você pode realizar em casa ou em qualquer outro lugar fora da academia D14. Receba um programa específico montado para você, com acompanhamento contínuo e atenção exclusiva, garantindo que seu desenvolvimento não tenha limites.
         </p>
-        <button className="w-full rounded bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+        <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20ter%20acesso%20ao%20Treinamento%20Personalizado.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
             Quero Participar <FiArrowUpRight className="inline" />
         </button>
         </div>

@@ -1,89 +1,130 @@
-import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
-import img1 from '../assets/img1.jpg'
-import img2 from '../assets/img2.jpg'
-import img3 from '../assets/img3.jpg'
-import img4 from '../assets/img4.jpg'
-import img5 from '../assets/img5.jpg'
-import img6 from '../assets/img6.jpg'
-import img7 from '../assets/img7.jpg'
+import React, { useEffect, useState } from "react";
+import { motion, useMotionValue } from "framer-motion";
 
-const Carousel = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
+import slide1 from '../assets/slide1.jpg'
+import slide2 from '../assets/slide2.jpg'
+import slide3 from '../assets/campimg.jpg'
+import slide4 from '../assets/slide4.jpg'
+import slide5 from '../assets/slide5.jpg'
+import slide6 from '../assets/slide7.jpg'
+import slide7 from '../assets/slide8.jpg'
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+// Modificando a forma de lidar com as imagens
+const imgs = [
+  slide3,  // Usando paths diretos
+  slide2,
+  slide1,
+  slide5,
+  slide6,
+  slide4,
+  slide7,
+];
 
-  return (
-    <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
-          })}
-        </motion.div>
-      </div>
-    </section>
-  );
+const ONE_SECOND = 1000;
+const AUTO_DELAY = ONE_SECOND * 10;
+const DRAG_BUFFER = 50;
+
+const SPRING_OPTIONS = {
+  type: "spring",
+  mass: 3,
+  stiffness: 400,
+  damping: 50,
 };
 
-const Card = ({ card }) => {
+const Carousel = () => {
+  const [imgIndex, setImgIndex] = useState(0);
+  const dragX = useMotionValue(0);
+
+  useEffect(() => {
+    const intervalRef = setInterval(() => {
+      const x = dragX.get();
+
+      if (x === 0) {
+        setImgIndex((pv) => {
+          if (pv === imgs.length - 1) {
+            return 0;
+          }
+          return pv + 1;
+        });
+      }
+    }, AUTO_DELAY);
+
+    return () => clearInterval(intervalRef);
+  }, [dragX]); // Adicionando dragX como dependência
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+
+    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
+      setImgIndex((pv) => pv + 1);
+    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
+      setImgIndex((pv) => pv - 1);
+    }
+  };
+
   return (
-    <div
-      key={card.id}
-      className="group relative h-[300px] w-[300px] md:h-[450px] md:w-[450px] overflow-hidden bg-neutral-200"
-    >
-      <img
-        src={card.url}
-        className="absolute h-full inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 z-10 grid place-content-center">
-        <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-3xl md:text-6xl font-black uppercase text-white backdrop-blur-lg">
-          {card.title}
-        </p>
-      </div>
+    <div className="relative overflow-hidden py-8">
+      <motion.div
+        drag="x"
+        dragConstraints={{
+          left: 0,
+          right: 0,
+        }}
+        style={{
+          x: dragX,
+        }}
+        animate={{
+          translateX: `-${imgIndex * 100}%`,
+        }}
+        transition={SPRING_OPTIONS}
+        onDragEnd={onDragEnd}
+        className="flex cursor-grab items-center active:cursor-grabbing"
+      >
+        <Images imgIndex={imgIndex} />
+      </motion.div>
+
+      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
     </div>
   );
 };
 
-export default Carousel;
+const Images = ({ imgIndex }) => {
+  return (
+    <>
+      {imgs.map((imgSrc, idx) => (
+        <motion.div
+          key={idx}
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          animate={{
+            scale: imgIndex === idx ? 0.80 : 0.85,
+          }}
+          transition={SPRING_OPTIONS}
+          className="aspect-video w-screen shrink-0 rounded-xl object-cover"
+        />
+      ))}
+    </>
+  );
+};
 
-const cards = [
-  {
-    url: img1,
-    title: "Excelência",
-    id: 1,
-  },
-  {
-    url: img4,
-    title: "Raça",
-    id: 2,
-  },
-  {
-    url: img5,
-    title: "Resultado",
-    id: 3,
-  },
-  {
-    url: img3,
-    title: "Dedicação",
-    id: 4,
-  },
-  {
-    url: img2,
-    title: "Execução",
-    id: 5,
-  },
-  {
-    url: img7,
-    title: "Qualidade",
-    id: 6,
-  },
-  {
-    url: img6,
-    title: "Evolução",
-    id: 7,
-  },
-];
+const Dots = ({ imgIndex, setImgIndex }) => {
+  return (
+    <div className="mt-[-2%] flex w-full justify-center gap-2">
+      {imgs.map((_, idx) => (
+        <button
+          key={idx}
+          onClick={() => setImgIndex(idx)}
+          className={`h-3 w-3 rounded-full transition-colors ${
+            idx === imgIndex ? "bg-neutral-50" : "bg-neutral-500"
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
+
+
+export default Carousel;

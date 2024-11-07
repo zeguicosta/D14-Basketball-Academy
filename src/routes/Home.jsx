@@ -38,9 +38,9 @@ const Home = () => {
                     <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
                 </Link>
 
-                <div className="flex flex-wrap text-neutral-800 gap-6 justify-center">
+                <div className="flex flex-wrap text-neutral-800 gap-6 justify-center mt-16">
                     {/* Primeiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Bola} alt="Bola" />
@@ -50,7 +50,7 @@ const Home = () => {
                     </motion.div>
 
                     {/* Segundo Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Legado} alt="Legado" />
@@ -63,7 +63,7 @@ const Home = () => {
                     </motion.div>
 
                     {/* Terceiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-[1px] border-slate-300">
+                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
                         <div>
                             <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
                                 <img className="w-10" src={Peso} alt="Peso" />
@@ -94,14 +94,14 @@ const Home = () => {
                 <Carousel />
 
                 {/* Camps */}
-                <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-10 pb-32 px-4 sm:px-8 md:px-16">
+                <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-32 pb-32 px-4 sm:px-8 md:px-16">
                     <motion.h1 {...fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos <span className="text-customGreen">Camps</span>?</motion.h1>
 
                     <Link to='/treinamentos' >
                         <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
                     </Link>
 
-                    <motion.div {...fadeInImage} className="mt-4">
+                    <motion.div {...fadeInImage} className="mt-6 mb-16">
                         <video className="w-full max-w-full h-auto" controls>
                             <source src={VideoCamp} type="video/mp4" />
                         </video>
