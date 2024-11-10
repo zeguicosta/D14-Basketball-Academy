@@ -4,17 +4,18 @@ import Bola from '../assets/bola.png';
 import Legado from '../assets/legado.png';
 import Peso from '../assets/peso.png';
 import Accordion from '../components/Accordion';
-import TreinoImg from '../assets/treinoimg.jpg';
-import WhatsApp from '../assets/whatsapp.png';
-import { useState } from "react";
 import { motion } from 'framer-motion';
-import { fadeInImage, fadeInLeft, fadeInRight, fadeInUp } from "../constants/animationSettings";
+import { fadeInImage, fadeInLeft, fadeInUp } from "../constants/animationSettings";
 import Timer from "../components/Timer";
 import FloatingPhone from "../components/FloatingPhone";
 import Carousel from "../components/Carousel";
 import Danilo from '../assets/danilo.png'
 
 const Home = () => {
+    const openNewTab = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <div>
             {/* Início */}
@@ -32,7 +33,7 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-white h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-4 sm:px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <motion.h1 {...fadeInUp} className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a <span className="text-customGreen"> D14</span></motion.h1>
+                <motion.h1 {...fadeInUp} className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a D14</motion.h1>
 
                 <Link to='/sobre' >
                     <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
@@ -81,7 +82,7 @@ const Home = () => {
             <section className="bg-neutral-900">
                 <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 pt-32 px-4 sm:px-8 md:px-16">
                     <motion.div {...fadeInUp} className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os <span className="text-customGreen">Treinamentos</span></h1>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os Treinamentos</h1>
                         <div className="flex flex-col items-center xl:items-start gap-2">
                             <p className="text-white font-medium 2xl:w-[700px]">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
                             <Link to='/treinamentos' >
@@ -95,7 +96,7 @@ const Home = () => {
 
                 {/* Camps */}
                 <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-32 pb-32 px-4 sm:px-8 md:px-16">
-                    <motion.h1 {...fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos <span className="text-customGreen">Camps</span>?</motion.h1>
+                    <motion.h1 {...fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos Camps?</motion.h1>
 
                     <Link to='/treinamentos' >
                         <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
@@ -138,7 +139,7 @@ const Home = () => {
                 <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold"> <span className="text-customGreen">Próximo </span>Treino em</h1>                      
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold"> Próximo Treino em</h1>                      
                     </div>
                     <Timer />
                 </motion.div>
@@ -152,9 +153,7 @@ const Home = () => {
                 <motion.h3 {...fadeInUp} className="font-semibold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
                 <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
-                <Link to='/treinamentos' >
-                    <motion.button {...fadeInUp}  className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
-                </Link>
+                <motion.button {...fadeInUp} onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
             </section>
         </div>
     )

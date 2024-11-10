@@ -10,6 +10,10 @@ import { motion } from 'framer-motion';
 import Accordion from '../components/Accordion';
 
 const Treinamentos = () => {
+    const openNewTab = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <>
             <TextParallaxContentExample />
@@ -43,7 +47,7 @@ const Treinamentos = () => {
                 <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold"> <span className="text-customGreen">Próximo </span>Treino em</h1>                      
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold">Próximo Treino em</h1>                      
                     </div>
                     <Timer />
                 </motion.div>
@@ -57,7 +61,7 @@ const Treinamentos = () => {
                 <motion.h3 {...fadeInUp} className="font-semibold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
                 <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
-                <motion.button {...fadeInUp}  className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
+                <motion.button {...fadeInUp} onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
             </section>
         </>
     )

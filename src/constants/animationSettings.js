@@ -1,11 +1,11 @@
 export const fadeInUp = {
-    initial: { opacity: 0, y: -30 },
+    initial: { opacity: 0, y: -60 },
     whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 1, ease: 'easeInOut' }
+    transition: { duration: 1.2, ease: 'easeInOut' }
 };
 
 export const fadeInLeft = {
-    initial: { opacity: 0, x: -30 },
+    initial: { opacity: 0, x: -60 },
     whileInView: { opacity: 1, x: 0 },
     transition: { duration: 1.2 }
 };

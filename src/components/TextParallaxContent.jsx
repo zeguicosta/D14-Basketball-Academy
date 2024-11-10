@@ -15,7 +15,7 @@ export const TextParallaxContentExample = () => {
       <TextParallaxContent
         imgUrl={Imagem1}
         subheading="Camps"
-        heading="Evolua com os melhores"   
+        heading="Evolua com a D14 Basketball"   
       >
         <ExampleContent openNewTab={openNewTab} />
       </TextParallaxContent>
