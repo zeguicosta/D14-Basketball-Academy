@@ -10,6 +10,7 @@ import Timer from "../components/Timer";
 import FloatingPhone from "../components/FloatingPhone";
 import Carousel from "../components/Carousel";
 import Danilo from '../assets/danilo.png'
+import CardCarousel from "../components/CardCarousel";
 
 const Home = () => {
     const openNewTab = (url) => {
@@ -92,7 +93,9 @@ const Home = () => {
                     </motion.div>
                 </section>
 
-                <Carousel />
+                <div className="mt-32 mb-10">
+                    <CardCarousel />
+                </div>
 
                 {/* Camps */}
                 <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-32 pb-32 px-4 sm:px-8 md:px-16">

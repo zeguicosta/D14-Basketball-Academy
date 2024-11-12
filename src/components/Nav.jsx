@@ -43,13 +43,13 @@ const Nav = () => {
                         {/* Ícones e Botão de Menu */}
                         <div className='flex items-center gap-[5px]'>
                             <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://www.instagram.com/d14basketball/')}>
-                                <img src={Instagram} alt='Instagram' className='w-6' />
+                                <img src={Instagram} alt='Instagram' className='w-7' />
                             </button>
                             <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20treinos.')}>
-                                <img src={WhatsApp} alt='WhatsApp' className='w-6' />
+                                <img src={WhatsApp} alt='WhatsApp' className='w-7' />
                             </button>
                             <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-110' onClick={() => openNewTab('mailto:d14academy@gmail.com')}>
-                                <img src={Gmail} alt='Gmail' className='w-6' />
+                                <img src={Gmail} alt='Gmail' className='w-7' />
                             </button>
                             {/* Botão de Menu (hamburger) */}
                             <button className='w-8 cursor-pointer md:hidden' onClick={handleClick}>
