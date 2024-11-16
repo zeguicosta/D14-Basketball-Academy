@@ -80,7 +80,7 @@ const Home = () => {
             </section>
 
             {/* Treinamentos */}
-            <section className="bg-neutral-900">
+            <section className="bg-black">
                 <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 pt-32 px-4 sm:px-8 md:px-16">
                     <motion.div {...fadeInUp} className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os Treinamentos</h1>
@@ -138,7 +138,7 @@ const Home = () => {
             </section>
 
             {/* Cronômetro */}
-            <section className="lg:h-[70vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-12 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
+            <section className="lg:h-[70vh] h-screen border-t-2 bg-black text-white flex flex-col lg:flex-row items-center justify-center text-center gap-12 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
                 <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>

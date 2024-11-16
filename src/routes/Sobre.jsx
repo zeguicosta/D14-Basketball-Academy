@@ -4,12 +4,18 @@ import Danilo from '../assets/danilo.jpg'
 import Harley from '../assets/harley.jpg'
 import Katielly from '../assets/katielly.jpg'
 import Fabricio from '../assets/fabricio.jpg'
+import { StickyCards } from '../components/STICKYCARDS';
 
 const Sobre = () => {
     return (
         <div>
+            {/* História */}
+            <section className='pt-20'>
+                <StickyCards />
+            </section>
+
             {/* Nossa Equipe */}
-            <section className="py-32 flex flex-col justify-center items-center bg-neutral-950 px-4 sm:px-8 md:px-16">
+            <section className="py-32 flex flex-col justify-center items-center bg-black px-4 sm:px-8 md:px-16">
                 <motion.h1 {...fadeInUp} className="mt-4 text-4xl sm:text-5xl md:text-6xl font-semibold text-white mb-16 text-center">Nossa Equipe</motion.h1>
                 <div className='flex flex-col gap-44'>
                     <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-16 px-4 sm:px-10 max-w-6xl w-full">

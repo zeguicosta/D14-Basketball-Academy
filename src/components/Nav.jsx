@@ -20,7 +20,7 @@ const Nav = () => {
 
     return (
         <>
-            <nav className='fixed top-0 left-0 w-screen bg-neutral-950 z-50'>
+            <nav className='fixed top-0 left-0 w-screen bg-black z-50'>
                 <div className='flex justify-between items-center w-[92%] mx-auto'>
                     <div className='flex'>
                         {/* Logo */}
@@ -29,7 +29,7 @@ const Nav = () => {
                         </div>
 
                         {/* Links de navegação */}
-                        <div className={`duration-300 md:static absolute md:min-h-fit bg-neutral-950 min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
+                        <div className={`duration-300 md:static absolute md:min-h-fit bg-black min-h-[50vh] left-0 ${isOpen ? 'top-[90%]' : 'top-[-600%]'} md:w-auto w-full flex items-center px-5`}>
                             <div className='flex md:flex-row flex-col md:items-center gap-2 text-white font-medium'>
                                 <Link to='/' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700'>Início</Link>
                                 <Link to='/treinamentos' className='duration-100 rounded-lg px-5 py-2 border-[1px] border-transparent hover:bg-neutral-700'>Treinamentos</Link>
