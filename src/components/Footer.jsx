@@ -62,14 +62,13 @@ const Footer = () => {
             <div className="h-[1px] w-[95%] bg-white"></div>
 
             <div className="flex flex-wrap justify-center gap-[12vw] items-center">
-                <div>
+                <div className="text-center">
                     <h3>@2024 D14 Basketball Academy. Todos os direitos reservados.</h3>
                 </div>
                 <div className="flex flex-col items-center">
-                    <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-105' onClick={() => openNewTab('https://wa.me/5521968481596')}>
-                        {/* <h3 className="font-semibold underline">Desenvolvido por José Guilherme</h3> */}
-                        <h3 className="text-sm underline mb-[-70px]">Desenvolvido por</h3>
-                        <img className="w-56" src={Assinatura} />
+                    <button className='duration-150 rounded-xl p-2 border-[1px] border-transparent hover:scale-105 hover:border-white' onClick={() => openNewTab('https://wa.me/5521968481596')}>
+                        <h3 className="text-sm mb-[-60px]">Desenvolvido por</h3>
+                        <img className="w-56 mb-[-60px]" src={Assinatura} />
                     </button>
                 </div>
             </div>

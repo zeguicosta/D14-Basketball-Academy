@@ -10,6 +10,11 @@ import {
 import { FaRegBookmark, FaArrowTrendUp, FaRegCircleCheck } from "react-icons/fa6";
 import { IoEarthOutline, IoFlagOutline } from "react-icons/io5";
 
+// Importação da imagem. Ajuste o caminho conforme necessário.
+import slide1 from '../assets/sobre3.jpg';
+import slide2 from '../assets/sobre4.jpg';
+import slide3 from '../assets/sobre2.jpg';
+
 export const StickyCards = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -17,59 +22,85 @@ export const StickyCards = () => {
     offset: ["start start", "end start"],
   });
 
+  // Índice para alternar o fundo, ignorando os cards com imagem
+  let backgroundIndex = 0;
+
   return (
-    <>
-      <div ref={ref} className="relative">
-        {CARDS.map((c, idx) => (
+    <div ref={ref} className="relative">
+      {CARDS.map((c, idx) => {
+        // Determina se o card deve ser com fundo preto ou branco
+        // Incrementa apenas se o card não tem imagem de fundo
+        const isOddCard = c.backgroundImage ? null : (backgroundIndex++ % 2 === 0);
+        return (
           <Card
             key={c.id}
             card={c}
             scrollYProgress={scrollYProgress}
             position={idx + 1}
+            isOddCard={isOddCard}
           />
-        ))}
-      </div>
-      <div className="h-screen bg-black" />
-    </>
+        );
+      })}
+    </div>
   );
 };
 
-const Card = ({ position, card, scrollYProgress }) => {
+const Card = ({ position, card, scrollYProgress, isOddCard }) => {
   const scaleFromPct = (position - 1) / CARDS.length;
   const y = useTransform(scrollYProgress, [scaleFromPct, 1], [0, -CARD_HEIGHT]);
 
-  const isOddCard = position % 2;
+  const backgroundStyle = card.backgroundImage
+    ? {
+        backgroundImage: `url(${card.backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }
+    : {
+        backgroundColor: isOddCard ? "black" : "white",
+        color: isOddCard ? "white" : "black",
+      };
 
   return (
     <motion.div
       style={{
         height: CARD_HEIGHT,
         y: position === CARDS.length ? undefined : y,
-        background: isOddCard ? "black" : "white",
-        color: isOddCard ? "white" : "black",
+        ...backgroundStyle,
       }}
       className="sticky top-0 flex w-full origin-top flex-col items-center justify-center px-4"
     >
-      <card.Icon className="mb-4 text-4xl" />
-      <h3 className="mb-6 text-center text-4xl font-semibold md:text-6xl">
-        {card.title}
-      </h3>
-      <p className="mb-8 max-w-2xl text-center text-sm md:text-base">
-        {card.description}
-      </p>
-      {/* <a
-        href={card.routeTo}
-        className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 md:text-lg ${
-          card.ctaClasses
-        } ${
-          isOddCard
-            ? "shadow-[4px_4px_0px_white] hover:shadow-[8px_8px_0px_white]"
-            : "shadow-[4px_4px_0px_black] hover:shadow-[8px_8px_0px_black]"
-        }`}
-      >
-        <span>Learn more</span>
-        <FiArrowRight />
-      </a> */}
+      {/* Renderiza conteúdo apenas se não houver backgroundImage */}
+      {!card.backgroundImage && (
+        <div className="flex flex-col items-center text-center">
+          {card.Icon && <card.Icon className="mb-4 text-4xl" />}
+          {card.title && (
+            <h3 className="mb-6 text-center text-4xl font-semibold md:text-6xl">
+              {card.title}
+            </h3>
+          )}
+          {card.description && (
+            <p className="mb-8 max-w-2xl text-center text-sm md:text-base">
+              {card.description}
+            </p>
+          )}
+          {/* CTA descomentada conforme necessário */}
+          {/* 
+          <a
+            href={card.routeTo}
+            className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 md:text-lg ${
+              card.ctaClasses
+            } ${
+              isOddCard
+                ? "shadow-[4px_4px_0px_white] hover:shadow-[8px_8px_0px_white]"
+                : "shadow-[4px_4px_0px_black] hover:shadow-[8px_8px_0px_black]"
+            }`}
+          >
+            <span>Learn more</span>
+            <FiArrowRight />
+          </a> 
+          */}
+        </div>
+      )}
     </motion.div>
   );
 };
@@ -97,6 +128,15 @@ const CARDS = [
   },
   {
     id: 3,
+    Icon: null, // Sem ícone
+    title: "", // Sem título
+    description: "", // Sem descrição
+    backgroundImage: slide1, // Caminho correto para a imagem
+    ctaClasses: "bg-violet-300",
+    routeTo: "#",
+  },
+  {
+    id: 4,
     Icon: FiCopy,
     title: "Metodologia",
     description:
@@ -105,7 +145,7 @@ const CARDS = [
     routeTo: "#",
   },
   {
-    id: 4,
+    id: 5,
     Icon: FaRegCircleCheck,
     title: "Valores",
     description:
@@ -114,7 +154,16 @@ const CARDS = [
     routeTo: "#",
   },
   {
-    id: 5,
+    id: 6,
+    Icon: null, // Sem ícone
+    title: "", // Sem título
+    description: "", // Sem descrição
+    backgroundImage: slide2, // Caminho correto para a imagem
+    ctaClasses: "bg-violet-300",
+    routeTo: "#",
+  },
+  {
+    id: 7,
     Icon: IoFlagOutline,
     title: "A Trajetória de Danilo Castro",
     description:
@@ -123,7 +172,7 @@ const CARDS = [
     routeTo: "#",
   },
   {
-    id: 5,
+    id: 8,
     Icon: IoEarthOutline,
     title: "Preparando Atletas para o Mundo",
     description:
@@ -132,7 +181,16 @@ const CARDS = [
     routeTo: "#",
   },
   {
-    id: 5,
+    id: 9,
+    Icon: null, // Sem ícone
+    title: "", // Sem título
+    description: "", // Sem descrição
+    backgroundImage: slide3, // Caminho correto para a imagem
+    ctaClasses: "bg-violet-300",
+    routeTo: "#",
+  },
+  {
+    id: 10,
     Icon: FiAward,
     title: "Competições e Crescimento",
     description:
