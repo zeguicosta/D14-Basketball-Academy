@@ -76,7 +76,7 @@ const Card = ({ position, card, scrollYProgress, isOddCard }) => {
             </h3>
           )}
           {card.description && (
-            <p className="mb-8 max-w-2xl text-center text-sm md:text-base">
+            <p className="mb-8 max-w-2xl text-center text-lg md:text-lg">
               {card.description}
             </p>
           )}

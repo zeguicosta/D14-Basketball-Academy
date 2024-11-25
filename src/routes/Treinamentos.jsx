@@ -59,7 +59,7 @@ const Treinamentos = () => {
             {/* Chamada para ação */}
             <section className="h-[70vh] border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-4 sm:px-7">
                 <motion.h3 {...fadeInUp} className="font-semibold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
-                <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
+                <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0 text-lg">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
                 <motion.button {...fadeInUp} onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
             </section>

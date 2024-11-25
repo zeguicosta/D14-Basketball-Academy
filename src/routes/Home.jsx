@@ -8,7 +8,6 @@ import { motion } from 'framer-motion';
 import { fadeInImage, fadeInLeft, fadeInUp } from "../constants/animationSettings";
 import Timer from "../components/Timer";
 import FloatingPhone from "../components/FloatingPhone";
-import Carousel from "../components/Carousel";
 import Danilo from '../assets/danilo.png'
 import CardCarousel from "../components/CardCarousel";
 
@@ -21,10 +20,9 @@ const Home = () => {
         <div>
             {/* Início */}
             <section className="bg-black top-0 h-screen bg-[url('src/assets/homeimg.jpg')] bg-cover bg-[position:35%_center] md:bg-top flex flex-col items-center justify-center text-center px-4">
-                {/* <h3 className="text-white lg:mb-4 font-medium text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl duration-500 uppercase animate-appearstart">Danilo Castro</h3> */}
                 <img className="md:w-72 w-52 m-[-60px] md:m-[-90px] animate-appearstart" src={Danilo} />
                 <h1 className="text-white font-semibold text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl duration-500 px-4 sm:px-8 animate-appearstart">Basketball Academy</h1>
-                <p className="text-white mt-9 px-4 sm:px-20 text-center duration-500 animate-appearstart break-words">
+                <p className="text-white mt-9 px-4 sm:px-20 text-center duration-500 animate-appearstart break-words text-lg">
                     Academia de basquete dedicada a quem deseja se destacar<br /> nas quadras. Entre agora para o nosso time!
                 </p>
                 <Link to='/treinamentos' className="mt-10 rounded-lg relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
@@ -40,7 +38,7 @@ const Home = () => {
                     <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
                 </Link>
 
-                <div className="flex flex-wrap text-neutral-800 gap-6 justify-center mt-16">
+                <div className="flex flex-wrap text-neutral-800 gap-6 justify-center mt-16 text-lg">
                     {/* Primeiro Card */}
                     <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
                         <div>
@@ -85,7 +83,7 @@ const Home = () => {
                     <motion.div {...fadeInUp} className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os Treinamentos</h1>
                         <div className="flex flex-col items-center xl:items-start gap-2">
-                            <p className="text-white font-medium 2xl:w-[700px]">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
+                            <p className="text-white font-medium 2xl:w-[700px] text-lg">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
                             <Link to='/treinamentos' >
                                 <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Treinos</button>
                             </Link>
@@ -154,7 +152,7 @@ const Home = () => {
             {/* Chamada para ação */}
             <section className="h-[70vh] border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-4 sm:px-7">
                 <motion.h3 {...fadeInUp} className="font-semibold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
-                <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
+                <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0 text-lg">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
 
                 <motion.button {...fadeInUp} onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
             </section>

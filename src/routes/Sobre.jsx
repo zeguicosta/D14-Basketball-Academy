@@ -12,7 +12,7 @@ const Sobre = () => {
             {/* História */}
             <section className='pt-20'>
                 <StickyCards />
-                <div className='h-[20vh] bg-black'></div>
+                <div className='h-[5vh] bg-black'></div>
             </section>
 
             {/* Nossa Equipe */}
