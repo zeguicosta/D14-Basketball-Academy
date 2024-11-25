@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import VideoCamp from '../assets/campvideo.mp4';
+// import VideoCamp from '../assets/campvideo.mp4';
 import Bola from '../assets/bola.png';
 import Legado from '../assets/legado.png';
 import Peso from '../assets/peso.png';
