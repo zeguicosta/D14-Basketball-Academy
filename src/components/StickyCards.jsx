@@ -1,11 +1,8 @@
 import { useScroll, motion, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import {
-  FiArrowRight,
   FiAward,
-  FiCalendar,
   FiCopy,
-  FiDatabase,
 } from "react-icons/fi";
 import { FaRegBookmark, FaArrowTrendUp, FaRegCircleCheck } from "react-icons/fa6";
 import { IoEarthOutline, IoFlagOutline } from "react-icons/io5";
@@ -83,22 +80,6 @@ const Card = ({ position, card, scrollYProgress, isOddCard }) => {
               {card.description}
             </p>
           )}
-          {/* CTA descomentada conforme necessário */}
-          {/* 
-          <a
-            href={card.routeTo}
-            className={`flex items-center gap-2 rounded px-6 py-4 text-base font-medium uppercase text-black transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 md:text-lg ${
-              card.ctaClasses
-            } ${
-              isOddCard
-                ? "shadow-[4px_4px_0px_white] hover:shadow-[8px_8px_0px_white]"
-                : "shadow-[4px_4px_0px_black] hover:shadow-[8px_8px_0px_black]"
-            }`}
-          >
-            <span>Learn more</span>
-            <FiArrowRight />
-          </a> 
-          */}
         </div>
       )}
     </motion.div>
