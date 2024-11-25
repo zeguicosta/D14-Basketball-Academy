@@ -107,7 +107,7 @@ const Home = () => {
 
                     <motion.div {...fadeInImage} className="mt-6 mb-16">
                         <video className="w-full max-w-full h-auto" controls>
-                            <source src={VideoCamp} type="video/mp4" />
+                            {/* <source src={VideoCamp} type="video/mp4" /> */}
                         </video>
                     </motion.div>
                 </section>

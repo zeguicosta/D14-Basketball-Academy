@@ -4,7 +4,7 @@ import Danilo from '../assets/danilo.jpg'
 import Harley from '../assets/harley.jpg'
 import Katielly from '../assets/katielly.jpg'
 import Fabricio from '../assets/fabricio.jpg'
-import { StickyCards } from '../components/StickyCards';
+import StickyCards from '../components/StickyCards.jsx'
 
 const Sobre = () => {
     return (
