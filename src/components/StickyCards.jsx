@@ -12,7 +12,7 @@ import slide1 from '../assets/sobre3.jpg';
 import slide2 from '../assets/sobre4.jpg';
 import slide3 from '../assets/sobre2.jpg';
 
-export const StickyCards = () => {
+const StickyCards = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -180,3 +180,5 @@ const CARDS = [
     routeTo: "#",
   },
 ];
+
+export default StickyCards;
