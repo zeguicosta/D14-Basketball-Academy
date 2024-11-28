@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import VideoCamp from '../assets/campvideo.mp4';
+// import VideoCamp from '../assets/campvideo.mp4';
 import Bola from '../assets/bola.png';
 import Legado from '../assets/legado.png';
 import Peso from '../assets/peso.png';
@@ -32,10 +32,10 @@ const Home = () => {
 
             {/* Sobre Nós */}
             <section className="bg-white h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-4 sm:px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <motion.h1 {...fadeInUp} className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a D14</motion.h1>
+                <motion.h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a D14</motion.h1>
 
                 <Link to='/sobre' >
-                    <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
+                    <motion.button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
                 </Link>
 
                 <div className="flex flex-wrap text-neutral-800 gap-6 justify-center mt-16 text-lg">
@@ -80,7 +80,7 @@ const Home = () => {
             {/* Treinamentos */}
             <section className="bg-black">
                 <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 pt-32 px-4 sm:px-8 md:px-16">
-                    <motion.div {...fadeInUp} className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
+                    <motion.div className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os Treinamentos</h1>
                         <div className="flex flex-col items-center xl:items-start gap-2">
                             <p className="text-white font-medium 2xl:w-[700px] text-lg">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
@@ -97,15 +97,15 @@ const Home = () => {
 
                 {/* Camps */}
                 <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-32 pb-32 px-4 sm:px-8 md:px-16">
-                    <motion.h1 {...fadeInUp} className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos Camps?</motion.h1>
+                    <motion.h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos Camps?</motion.h1>
 
                     <Link to='/treinamentos' >
-                        <motion.button {...fadeInUp} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
+                        <motion.button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
                     </Link>
 
-                    <motion.div {...fadeInImage} className="mt-6 mb-16">
+                    <motion.div className="mt-6 mb-16">
                         <video className="w-full max-w-full h-auto" controls>
-                            <source src={VideoCamp} type="video/mp4" />
+                            {/* <source src={VideoCamp} type="video/mp4" /> */}
                         </video>
                     </motion.div>
                 </section>
@@ -136,8 +136,8 @@ const Home = () => {
             </section>
 
             {/* Cronômetro */}
-            <section className="lg:h-[70vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-12 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
-                <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
+            <section className="lg:h-[80vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-20 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
+                <motion.div className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold"> Próximo Treino em</h1>                      

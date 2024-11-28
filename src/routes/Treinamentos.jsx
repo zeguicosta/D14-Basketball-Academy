@@ -43,8 +43,8 @@ const Treinamentos = () => {
             </section>
 
             {/* Cronômetro */}
-            <section className="mt-32 lg:h-[70vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-12 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
-                <motion.div {...fadeInUp} className="text-left flex flex-col gap-8">
+            <section className="mt-32 lg:h-[80vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-20 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
+                <motion.div className="text-left flex flex-col gap-8">
                     <div className="flex flex-col gap-4">
                         <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold">Próximo Treino em</h1>                      
