@@ -19,8 +19,8 @@ const Home = () => {
     return (
         <div>
             {/* Início */}
-            <section className="bg-black top-0 h-screen flex flex-col items-center justify-center text-center px-4">
-                <img className="md:w-72 w-52 m-[-60px] md:m-[-90px] animate-appearstart" src={Danilo} />
+            <section className="bg-black top-0 h-screen flex flex-col items-center justify-center text-center px-4 pb-[16vh]">
+                <img className="md:w-72 w-52 mb-[-60px] md:mb-[-90px] animate-appearstart" src={Danilo} />
                 <h1 className="text-white font-semibold text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl duration-500 px-4 sm:px-8 animate-appearstart">Basketball Academy</h1>
                 <p className="text-white mt-9 px-4 sm:px-20 text-center duration-500 animate-appearstart break-words text-lg">
                     Academia de basquete dedicada a quem deseja se destacar<br /> nas quadras. Entre agora para o nosso time!
