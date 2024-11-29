@@ -103,11 +103,18 @@ const Home = () => {
                         <motion.button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
                     </Link>
 
-                    <motion.div className="mt-6 mb-16">
-                        <video className="w-full max-w-full h-auto" controls>
-                            {/* <source src={VideoCamp} type="video/mp4" /> */}
-                        </video>
-                    </motion.div>
+                    <div className="mt-6 mb-16 w-full max-w-4xl mx-auto">
+                        <div className="w-full aspect-video">
+                            <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube-nocookie.com/embed/D4aF3BwAh6M?si=Jrp1PsZHAVo6qYgt"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            ></iframe>
+                        </div>
+                    </div>
                 </section>
             </section>
 
