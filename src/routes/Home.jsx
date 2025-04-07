@@ -1,170 +1,466 @@
-import { Link } from "react-router-dom";
-// import VideoCamp from '../assets/campvideo.mp4';
-import Bola from '../assets/bola.png';
-import Legado from '../assets/legado.png';
-import Peso from '../assets/peso.png';
-import Accordion from '../components/Accordion';
 import { motion } from 'framer-motion';
-import { fadeInImage, fadeInLeft, fadeInUp } from "../constants/animationSettings";
-import Timer from "../components/Timer";
-import FloatingPhone from "../components/FloatingPhone";
-import Danilo from '../assets/danilo.png'
-import CardCarousel from "../components/CardCarousel";
+import { 
+  ArrowRight, 
+  Trophy, 
+  Users, 
+  Target, 
+  ShoppingBasket as Basketball, 
+  Star, 
+  Dumbbell, 
+  ChevronRight,
+  Instagram,
+  Mail,
+  MapPin,
+  MessageCircle // Assuming this is WhatsApp icon
+} from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Home = () => {
-    const openNewTab = (url) => {
-        window.open(url, '_blank', 'noopener,noreferrer');
+// Renamed Hero to Home
+export function Home() {
+  const navigate = useNavigate();
+
+  // Function to open WhatsApp link in a new tab
+  const openWhatsApp = () => {
+    const url = 'https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0';
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+  
+  // Function to open Instagram link in a new tab
+    const openInstagram = () => {
+      const url = 'https://www.instagram.com/d14basketball/';
+      window.open(url, '_blank', 'noopener,noreferrer');
     };
 
-    return (
-        <div>
-            {/* Início */}
-            <section className="bg-black top-0 h-screen flex flex-col items-center justify-center text-center px-4 pb-[16vh]">
-                <img className="md:w-72 w-52 mb-[-60px] md:mb-[-90px] animate-appearstart" src={Danilo} />
-                <h1 className="text-white font-semibold text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl duration-500 px-4 sm:px-8 animate-appearstart">Basketball Academy</h1>
-                <p className="text-white mt-9 px-4 sm:px-20 text-center duration-500 animate-appearstart break-words text-lg">
-                    Academia de basquete dedicada a quem deseja se destacar<br /> nas quadras. Entre agora para o nosso time!
-                </p>
-                <Link to='/treinamentos' className="mt-10 rounded-lg relative border-2 border-customGreen3 bg-customGreen2 py-2.5 px-8 font-medium uppercase text-white shadow-custom-shadow shadow-customGreen3/80 duration-150 hover:bg-customGreen2/80 animate-appearstart">
-                    <button className="font-semibold relative z-55 uppercase">Faça sua Inscrição</button>
-                </Link>
-            </section>
+  // Function to open Mail link
+  const openMail = () => {
+    window.location.href = 'mailto:d14@d14basketballacademy.com.br';
+  };
 
-            {/* Sobre Nós */}
-            <section className="bg-white h-auto 2xl:h-screen min-h-fit flex flex-col justify-center px-4 sm:px-8 py-32 items-center gap-6 text-center xl:text-left text-neutral-800">
-                <motion.h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl text-center md:px-10">Conheça melhor a D14</motion.h1>
-
-                <Link to='/sobre' >
-                    <motion.button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Ver Mais</motion.button>
-                </Link>
-
-                <div className="flex flex-wrap text-neutral-800 gap-6 justify-center mt-16 text-lg">
-                    {/* Primeiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Bola} alt="Bola" />
-                            </div>
-                            <p>Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, promovendo <span className="font-semibold text-neutral-800">desenvolvimento pessoal e valores essenciais para seus atletas.</span></p>
-                        </div>
-                    </motion.div>
-
-                    {/* Segundo Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 lg:mt-8 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Legado} alt="Legado" />
-                            </div>
-                            <p>
-                                A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. Desde sua fundação, 
-                                <span className="font-semibold text-neutral-800"> a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.</span>
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Terceiro Card */}
-                    <motion.div {...fadeInLeft} className="mt-12 bg-white text-left h-auto w-full sm:w-[350px] px-6 sm:px-10 py-11 rounded-md border-slate-300">
-                        <div>
-                            <div className="bg-customGreen/20 rounded-2xl w-14 h-14 flex items-center justify-center mb-5">
-                                <img className="w-10" src={Peso} alt="Peso" />
-                            </div>
-                            <p>
-                                Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para desenvolver valores como 
-                                <span className="font-semibold text-neutral-800"> disciplina, trabalho em equipe e resiliência.</span>
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Treinamentos */}
-            <section className="bg-black">
-                <section className="h-auto items-center justify-center text-center xl:text-left flex flex-col gap-6 pt-32 px-4 sm:px-8 md:px-16">
-                    <motion.div className="flex flex-col xl:flex-row 2xl:px-64 px-4 gap-6 xl:gap-16 items-center">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Saiba Mais Sobre os Treinamentos</h1>
-                        <div className="flex flex-col items-center xl:items-start gap-2">
-                            <p className="text-white font-medium 2xl:w-[700px] text-lg">Oferecemos treinamentos coletivos para aprendizado em grupo, personalizados em casa para foco individual e camps exclusivos com treinadores internacionais para uma experiência única.</p>
-                            <Link to='/treinamentos' >
-                                <button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Treinos</button>
-                            </Link>
-                        </div>
-                    </motion.div>
-                </section>
-
-                <div className="mt-32 mb-10">
-                    <CardCarousel />
-                </div>
-
-                {/* Camps */}
-                <section className="h-auto items-center justify-center text-center flex flex-col gap-8 pt-32 pb-32 px-4 sm:px-8 md:px-16">
-                    <motion.h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white">Como funcionam os nossos Camps?</motion.h1>
-
-                    <Link to='/treinamentos' >
-                        <motion.button className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow duration-150 hover:bg-customGreen5">Ver Mais</motion.button>
-                    </Link>
-
-                    <div className="mt-6 mb-16 w-full max-w-4xl mx-auto">
-                        <div className="w-full aspect-video">
-                            <iframe
-                            className="w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/D4aF3BwAh6M?si=Jrp1PsZHAVo6qYgt"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            ></iframe>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            {/* Perguntas Frequentes */}
-            <section className="bg-white h-auto min-h-fit justify-center px-4 sm:px-8 md:px-24 lg:px-44 py-32 xl:px-80 2xl:px-60 items-center text-neutral-800 flex flex-col 2xl:flex-row gap-16">
-                <motion.div {...fadeInLeft} className="items-center text-center 2xl:text-left mb-12">
-                    <h1 className="font-semibold text-5xl md:text-6xl"><span className="text-customGreen">Perguntas</span></h1>
-                    <h1 className="font-semibold text-5xl md:text-6xl mt-8">Frequentes</h1>
-                </motion.div>
-                <motion.div {...fadeInLeft} className="rounded-lg bg-white py-4 px-12">
-                    <Accordion title='Posso agendar uma aula experimental?' answer='Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós.' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='Como faço para me inscrever?' answer='Muito simples! Após a sua primeira aula, o(a) responsável irá alinhar com o Harley os próximos passos. Tudo via WhatsApp e de forma bem objetiva!' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='Quais são os níveis de habilidade aceitos?' answer='Todos, aceitamos todos os níveis sem exceção. Nossa metodologia / dinâmica permite que todos cresçam e evoluam no mesmo ambiente, venham conhecer!' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='Quais são as idades aceitas?' answer='Nosso foco é U18, ou seja, temos um compromisso com a formação - dentro e fora das quadras - até 18 anos. Todavia, temos grupos de treinamentos para mais experientes também!
-                    Entendemos 11 anos como idade ideal para meninos e meninas começarem!' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='Quais são os horários do treinos?' answer='Treinos todos os sábados (09:00-12:00). Estejam prontos para nossos jogos, finais de semana sempre cheios de muito basquete na D14!' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='O que preciso levar para os treinos?' answer='Sua vontade de ser melhor a cada treino. Ah, e roupa apropriada para prática esportiva. Amarrem bem o tênis e vamos nessa!' />
-                    <div className="w-full my-4 bg-slate-300 h-[1px]"></div>
-                    <Accordion title='A D14 participa de campeonatos?' answer='Sim! Participamos de ligas amadoras em SP e Grande SP. Embora não seja a proposta principal da academia, acreditamos que a competição sempre trará bons frutos. Ninguém cresce em zona de conforto, vamos juntos!' />
-                </motion.div>
-            </section>
-
-            {/* Cronômetro */}
-            <section className="lg:h-[80vh] h-screen border-t-2 bg-custom-gradient text-white flex flex-col lg:flex-row items-center justify-center text-center gap-20 lg:gap-[20vw] px-4 sm:px-8 md:px-16">
-                <motion.div className="text-left flex flex-col gap-8">
-                    <div className="flex flex-col gap-4">
-                        <h3 className="font-semibold">AGENDE SUA AULA EXPERIMENTAL</h3>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold"> Próximo Treino em</h1>                      
-                    </div>
-                    <Timer />
-                </motion.div>
-                <div>
-                    <FloatingPhone />
-                </div>
-            </section>
-
-            {/* Chamada para ação */}
-            <section className="h-[70vh] border-t-2 border-t-neutral-200 bg-neutral-100 text-neutral-800 flex flex-col items-center justify-center text-center gap-6 px-4 sm:px-7">
-                <motion.h3 {...fadeInUp} className="font-semibold text-4xl">Pronto para <span className="text-customGreen">Começar</span>?</motion.h3>
-                <motion.p {...fadeInUp} className="font-medium px-4 sm:px-0 text-lg">Entre em contato com a nossa equipe agora e aperfeiçoe seu jogo conosco.</motion.p>
-
-                <motion.button {...fadeInUp} onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')} className="bg-customGreen border-2 border-customGreen4 mt-2 rounded-lg text-white font-semibold px-8 py-3 shadow-customGreen/40 shadow-custom-shadow hover:bg-customGreen5">Começar</motion.button>
-            </section>
+  return (
+    <>
+      <div className="relative min-h-screen">
+        {/* Background with overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2070")', // Example image, replace if needed
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
         </div>
-    )
+        
+        {/* Enhanced decorative elements */}
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Gradient lines */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
+          
+          {/* Blur effects */}
+          <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-2xl" />
+          <div className="absolute right-0 bottom-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-2xl" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#54AE21]/3 rounded-full blur-[40px]" />
+          
+          {/* Radial gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_40%)]" />
+          
+          {/* Animated lines */}
+          <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          
+          {/* Diagonal lines */}
+          <div className="absolute left-0 top-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#54AE21]/20 origin-left rotate-45" />
+          <div className="absolute right-0 bottom-0 w-1/3 h-px bg-gradient-to-l from-transparent to-[#54AE21]/20 origin-right -rotate-45" />
+        </motion.div>
+
+        {/* Content */}
+        <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-center text-center">
+          <div className="max-w-3xl">
+            <motion.h1 
+              className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Supere
+              <br />
+              <span className="relative inline-block">
+                seus limites
+                <motion.div 
+                  className="absolute -bottom-4 left-0 w-full h-1 bg-[#54AE21]"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                />
+              </span>
+            </motion.h1>
+
+            <motion.p 
+              className="text-lg text-gray-300 mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              {/* Placeholder for the chosen text - Using Option 1 for now */}
+              Desenvolva seu jogo com a metodologia exclusiva da D14 Basketball Academy e domine as quadras.
+            </motion.p>
+
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {/* Link the button to /treinamentos */}
+              <Link to="/treinamentos">
+                <motion.button 
+                  className="bg-[#54AE21] text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-[#408718] transition-colors group relative overflow-hidden w-full sm:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Comece Sua Jornada</span>
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                </motion.button>
+              </Link>
+              <Link to="/treinamentos">
+                <motion.button 
+                  className="border border-white/20 text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors relative overflow-hidden group w-full sm:w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Conheça os Treinos</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Social Media and Location */}
+        <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-white/80 gap-4 sm:gap-0">
+            {/* Social Media Links */}
+            <motion.div 
+              className="flex flex-wrap justify-center items-center gap-4 sm:gap-6"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              {/* Updated Instagram link */}
+              <button 
+                onClick={openInstagram}
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+              >
+                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm hidden">@d14basketball</span> {/* Changed sm:inline to hidden */}
+              </button>
+              {/* Updated WhatsApp link */}
+               <button 
+                onClick={openWhatsApp}
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+              >
+                <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm hidden">(11) 97326-2444</span> {/* Changed sm:inline to hidden */}
+              </button>
+              {/* Updated Mail link */}
+              <button 
+                onClick={openMail}
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+              >
+                <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm hidden">d14@d14basketballacademy.com.br</span> {/* Changed sm:inline to hidden */}
+               </button>
+            </motion.div>
+
+            {/* Location - Using placeholder address from provided code */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <a 
+                href="https://maps.app.goo.gl/8FhXk4yL9p7Z6fWd8" // Placeholder Google Maps link - REPLACE if needed
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+              >
+                <MapPin className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                {/* Using placeholder address - REPLACE if needed */}
+                <span className="text-sm text-center sm:text-left">Av. Bernardino de Campos, 79 - Paraíso, SP</span> 
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          {/* Blur effects */}
+          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#54AE21]/3 rounded-full blur-[120px]" />
+          
+          {/* Radial gradient */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_70%)]" />
+          
+          {/* Animated lines */}
+          <div className="absolute left-0 top-1/3 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          <div className="absolute right-0 bottom-1/3 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          
+          {/* Corner decorations */}
+          <div className="absolute top-0 left-0 w-32 h-32">
+            <div className="absolute top-0 left-8 w-px h-16 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
+            <div className="absolute top-8 left-0 w-16 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
+          </div>
+          <div className="absolute bottom-0 right-0 w-32 h-32">
+            <div className="absolute bottom-0 right-8 w-px h-16 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
+            <div className="absolute bottom-8 right-0 w-16 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
+          </div>
+        </motion.div>
+
+        <div className="container mx-auto px-4 relative">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center sm:text-left" // Center text on mobile
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-8"> {/* Center on mobile */}
+              <div className="w-12 h-[2px] bg-[#54AE21]" />
+              <span className="text-[#54AE21] font-medium">Nossa História</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+              Mais que uma academia,<br />
+              um centro de <span className="text-[#54AE21]">excelência</span>
+            </h2>
+
+            <div className="space-y-6 text-lg text-gray-300">
+              <p>
+                Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, 
+                promovendo desenvolvimento pessoal e valores essenciais para seus atletas.
+              </p>
+              
+              <p>
+                A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. 
+                Desde sua fundação, a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.
+              </p>
+
+              <p>
+                Nossa equipe não apenas ensina as técnicas do jogo, mas também trabalha com cada atleta para 
+                desenvolver valores como disciplina, trabalho em equipe e resiliência.
+              </p>
+            </div>
+
+            {/* Center link on mobile */}
+            <div className="flex justify-center sm:justify-start">
+              <motion.div
+                className="group inline-block" // Use inline-block for centering
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link 
+                  to="/sobre" // Link to the correct about page
+                  className="inline-flex items-center gap-2 text-[#54AE21] font-semibold mt-8 group relative"
+                >
+                  <span className="relative z-10">Conheça Nossa História</span>
+                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                </Link>
+              </motion.div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              <motion.div 
+                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Center icon */}
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto"> 
+                  <Trophy className="h-6 w-6 text-[#54AE21]" />
+                </div>
+                <div className="text-3xl font-bold text-white mb-2">23</div>
+                <div className="text-gray-400">Atletas nos EUA</div>
+              </motion.div>
+
+              <motion.div 
+                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Center icon */}
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto">
+                  <Users className="h-6 w-6 text-[#54AE21]" />
+                </div>
+                <div className="text-3xl font-bold text-white mb-2">15+</div> {/* Assuming 15+ years */}
+                <div className="text-gray-400">Anos de Experiência</div>
+              </motion.div>
+
+              <motion.div 
+                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                 {/* Center icon */}
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto">
+                  <Target className="h-6 w-6 text-[#54AE21]" />
+                </div>
+                <div className="text-3xl font-bold text-white mb-2">100%</div>
+                <div className="text-gray-400">Foco no Atleta</div> {/* Adjusted text */}
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Training Programs */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          {/* Unique decorative elements */}
+          <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#54AE21]/3 rounded-full blur-[100px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_70%)]" />
+          
+          {/* Animated lines */}
+          <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          
+          {/* Diagonal decorative lines */}
+          <div className="absolute left-0 top-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#54AE21]/20 origin-left rotate-45" />
+          <div className="absolute right-0 bottom-0 w-1/3 h-px bg-gradient-to-l from-transparent to-[#54AE21]/20 origin-right -rotate-45" />
+        </motion.div>
+
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+             {/* Section header */}
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="w-12 h-[2px] bg-[#54AE21]" />
+              <span className="text-[#54AE21] font-medium">Programas</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Nossos Treinamentos</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Escolha o programa que melhor se adapta aos seus objetivos e comece sua jornada rumo à excelência.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Basketball, // Changed from Users
+                title: "Treino Coletivo",
+                description: "Treinamentos em grupo focados no desenvolvimento técnico e tático, promovendo a integração e o espírito de equipe."
+              },
+              {
+                icon: Star, // Changed from Award/Trophy
+                title: "Camps",
+                description: "Eventos sazonais intensivos com programação especial e oportunidades únicas de aprendizado e evolução."
+              },
+              {
+                icon: Dumbbell, // Changed from Target
+                title: "Treino Personalizado",
+                description: "Acompanhamento individual focado nas necessidades específicas de cada atleta para máximo desenvolvimento."
+              }
+            ].map((program, index) => (
+              <motion.div 
+                key={program.title}
+                className="bg-black border border-white/10 p-8 rounded-lg hover:border-[#54AE21]/50 transition-all duration-400 group cursor-pointer relative overflow-hidden text-center sm:text-left" // Center text on mobile
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }} // Stagger animation
+                whileHover={{ y: -9 }}
+                viewport={{ once: true }}
+                onClick={() => navigate('/treinamentos')} // Navigate to trainings page
+              >
+                {/* Card background effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(84,174,33,0.1)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                
+                {/* Decorative corner lines */}
+                <div className="absolute top-0 left-0 w-16 h-16">
+                  <div className="absolute top-0 left-4 w-px h-8 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
+                  <div className="absolute top-4 left-0 w-8 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16">
+                  <div className="absolute bottom-0 right-4 w-px h-8 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
+                  <div className="absolute bottom-4 right-0 w-8 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
+                </div>
+
+                 {/* Center icon on mobile */}
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#54AE21]/30 transition-colors relative mx-auto sm:mx-0">
+                  <program.icon className="h-6 w-6 text-[#54AE21]" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{program.title}</h3>
+                <p className="text-gray-400 mb-6">{program.description}</p>
+                 {/* Center link on mobile */}
+                <div className="flex items-center justify-center sm:justify-start gap-2 text-[#54AE21] font-semibold group-hover:text-white transition-colors">
+                  Saiba mais
+                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+            {/* Added button to see all trainings */}
+            <div className="text-center mt-16">
+                 <Link to="/treinamentos">
+                     <motion.button 
+                         className="bg-[#54AE21] text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-[#408718] transition-colors group relative overflow-hidden mx-auto"
+                         whileHover={{ scale: 1.05 }}
+                         whileTap={{ scale: 0.95 }}
+                         initial={{ opacity: 0, y: 20 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         transition={{ duration: 0.5 }}
+                         viewport={{ once: true }}
+                     >
+                         <span className="relative z-10">Ver Todos os Treinos</span>
+                         <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                     </motion.button>
+                 </Link>
+            </div>
+        </div>
+      </section>
+    </>
+  );
 }
 
+// Add default export
 export default Home;

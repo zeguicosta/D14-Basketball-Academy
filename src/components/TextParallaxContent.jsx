@@ -2,36 +2,16 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import Imagem1 from '../assets/campimg.jpg'
-import Imagem2 from '../assets/campimg2.jpg'
-import Imagem3 from '../assets/campimg3.jpg'
 
 export const TextParallaxContentExample = () => {
-  const openNewTab = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <div className="bg-white">
       <TextParallaxContent
         imgUrl={Imagem1}
-        subheading="Camps"
-        heading="Evolua com a D14 Basketball"   
+        subheading="Nossa História"
+        heading="Formando atletas de alto nível"
       >
-        <ExampleContent openNewTab={openNewTab} />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl={Imagem2}
-        subheading="Coletivo"
-        heading="Aprenda e evolua em conjunto"
-      >
-        <ExampleContent2 openNewTab={openNewTab} />
-      </TextParallaxContent>
-      <TextParallaxContent
-        imgUrl={Imagem3}
-        subheading="Personalizado"
-        heading="Desenvolvimento individual"
-      >
-        <ExampleContent3 openNewTab={openNewTab} />
+        <ExampleContent />
       </TextParallaxContent>
     </div>
   );
@@ -116,59 +96,24 @@ const OverlayCopy = ({ subheading, heading }) => {
   );
 };
 
-const ExampleContent = ({ openNewTab }) => (
+const ExampleContent = () => (
   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
     <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
-    Transforme seu jogo com nossos Camps exclusivos!
+      Fundação e Filosofia
     </h2>
     <div className="col-span-1 md:col-span-8">
       <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-      Prepare-se para elevar seu nível de jogo e conquistar novas metas! Participe dos nossos Camps, onde treinadores internacionais de elite compartilham técnicas inovadoras e conduzem sessões intensivas para acelerar seu desenvolvimento.
+        Fundada em 07 de abril de 2018, a D14 Basketball Academy nasceu do sonho do ex-atleta Danilo Castro. Ao longo de sua carreira no basquete, Danilo acumulou vasta experiência e conhecimento, sempre desejando compartilhar sua paixão pelo esporte.
       </p>
       <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Você irá enfrentar desafios estimulantes e participar de jogos simulados que aprimoram seu entrosamento e desempenho em equipe. Vivencie um ambiente de aprendizado avançado e alcance novos patamares no basquete. Inscreva-se agora e transforme seu jogo!
+        Acredita que esporte e educação devem caminhar juntos, independentemente do nível técnico do atleta, promovendo um desenvolvimento integral para cada indivíduo.
       </p>
-      <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Camp.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-        Quero Participar <FiArrowUpRight className="inline" />
-      </button>
+      <a 
+        href="#nossa-equipe" 
+        className="inline-block w-full rounded-md bg-neutral-950 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-900/90 md:w-fit text-center"
+      >
+        Conheça Nossa Equipe <FiArrowUpRight className="inline" />
+      </a>
     </div>
   </div>
-);
-
-const ExampleContent2 = ({ openNewTab }) => (
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-        <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
-        Desenvolva suas habilidades em equipe!
-        </h2>
-        <div className="col-span-1 md:col-span-8">
-        <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-        Acreditamos que o trabalho em equipe é fundamental para o sucesso no basquete. Nosso programa Coletivo oferece uma dinâmica de equipe única, com desafios constantes e jogos simulados que promovem a melhora no entrosamento e a colaboração entre os jogadores.
-        </p>
-        <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Junte-se ao nosso Coletivo e experimente um ambiente onde aprender e evoluir em conjunto é a chave para alcançar grandes resultados. Participe e leve seu desempenho para o próximo nível!
-        </p>
-        <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20participar%20do%20Coletivo.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-            Quero Participar <FiArrowUpRight className="inline" />
-        </button>
-        </div>
-    </div>
-);
-
-const ExampleContent3 = ({ openNewTab }) => (
-    <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-        <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-customGreen">
-        Treinamento sob medida para você!
-        </h2>
-        <div className="col-span-1 md:col-span-8">
-        <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-        Na D14 Basketball Academy, entendemos que cada atleta é único. Nosso programa Personalizado oferece um desenvolvimento individual focado nas suas necessidades específicas, com atenção exclusiva e feedback constante para garantir que você alcance seu máximo potencial.
-        </p>
-        <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Oferecemos treinamentos personalizados que você pode realizar em casa ou em qualquer outro lugar fora da academia D14. Receba um programa específico montado para você, com acompanhamento contínuo e atenção exclusiva, garantindo que seu desenvolvimento não tenha limites.
-        </p>
-        <button onClick={() => openNewTab('https://wa.me/5511973262444?text=Ol%C3%A1%2C%20gostaria%20de%20ter%20acesso%20ao%20Treinamento%20Personalizado.')} className="w-full rounded-md bg-neutral-800 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-            Quero Participar <FiArrowUpRight className="inline" />
-        </button>
-        </div>
-    </div>
 );
