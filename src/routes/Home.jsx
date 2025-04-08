@@ -57,9 +57,9 @@ export function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Gradient lines */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
+          {/* Gradient lines - Added responsive classes */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent hidden md:block" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent hidden md:block" />
           
           {/* Blur effects */}
           <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-2xl" />
