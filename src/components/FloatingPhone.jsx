@@ -15,7 +15,7 @@ const FloatingPhone = () => {
         transformStyle: "preserve-3d",
         transform: "rotateY(-30deg) rotateX(15deg)",
       }}
-      className="rounded-[24px] bg-customGreen2"
+      className="rounded-[24px] bg-[#54AE21]/30 shadow-[0_0_25px_5px_rgba(84,174,33,0.45)]"
     >
       <motion.div
         initial={{
@@ -30,7 +30,7 @@ const FloatingPhone = () => {
           duration: 2,
           ease: "easeInOut",
         }}
-        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white border-l-neutral-200 border-t-neutral-200 bg-neutral-900 p-1 pl-[3px] pt-[3px]"
+        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white/80 border-l-white/80 border-t-white/80 bg-black p-1 pl-[3px] pt-[3px]"
       >
         <HeaderBar />
         <Screen openNewTab={openNewTab} />
@@ -42,10 +42,10 @@ const FloatingPhone = () => {
 const HeaderBar = () => {
   return (
     <>
-      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-neutral-900"></div>
+      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-black"></div>
       <div className="absolute right-3 top-2 z-10 flex gap-2">
-        <FiWifi className="text-neutral-600" />
-        <FaBatteryFull className="text-neutral-600" />
+        <FiWifi className="text-gray-500" />
+        <FaBatteryFull className="text-gray-500" />
       </div>
     </>
   );
@@ -61,7 +61,10 @@ const Screen = ({ openNewTab }) => {
       />
 
     <Link>
-      <button className="absolute bottom-4 left-4 right-4 z-10 rounded-lg border-2 bg-customGreen2 border-customGreen3 py-2 text-sm font-medium text-white shadow-custom-shadow shadow-customGreen3/50 hover:bg-customGreen2/80" onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')}>
+      <button 
+        className="absolute bottom-4 left-4 right-4 z-10 rounded-lg bg-[#54AE21] py-2 text-sm font-medium text-white hover:bg-[#408718] transition-colors"
+        onClick={() => openNewTab('https://api.whatsapp.com/send/?phone=5511973262444&text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+os+treinos.&type=phone_number&app_absent=0')}
+      >
         AGENDAR
       </button>
     </Link>

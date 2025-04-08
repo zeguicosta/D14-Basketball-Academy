@@ -1,18 +1,21 @@
 import { useState } from "react"
-import SetaPreta from '../assets/seta3.png'
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
-const FAQ = ({ title, answer }) => {
+const FAQAccordion = ({ title, answer }) => {
     const [accordingOpen, setAccordingOpen] = useState(false);
 
     return (
-        <div className="py-2">
-            <button onClick={() => setAccordingOpen(!accordingOpen)} className="flex justify-between items-center w-full">
-                <h3 className="font-semibold text-neutral-800 text-lg text-left">{title}</h3>
-                {accordingOpen ? <img className="w-8 duration-200 rotate-180" src={SetaPreta} /> : <img className="w-8 duration-200" src={SetaPreta} />}
+        <div className="py-4 border-b border-gray-200">
+            <button onClick={() => setAccordingOpen(!accordingOpen)} className="flex justify-between items-center w-full text-left group">
+                <h3 className="font-semibold text-gray-800 text-lg group-hover:text-[#54AE21] transition-colors">{title}</h3>
+                {accordingOpen ? 
+                    <ChevronUp className="w-5 h-5 text-[#54AE21] duration-200" /> : 
+                    <ChevronDown className="w-5 h-5 text-gray-500 duration-200 group-hover:text-[#54AE21]" />
+                }
             </button>
 
-            <div className={`grid overflow-hidden transition-all duration-300 ease-in-out text-neutral-600 text-lg ${
-                accordingOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'
+            <div className={`grid overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-base ${
+                accordingOpen ? 'grid-rows-[1fr] opacity-100 mt-3' : 'grid-rows-[0fr] opacity-0'
             }`}>
                 <div className="overflow-hidden">{answer}</div>
             </div>
@@ -20,4 +23,4 @@ const FAQ = ({ title, answer }) => {
     )
 }
 
-export default FAQ
+export default FAQAccordion

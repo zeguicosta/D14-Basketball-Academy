@@ -11,7 +11,8 @@ import {
   Instagram,
   Mail,
   MapPin,
-  MessageCircle // Assuming this is WhatsApp icon
+  MessageCircle, // Assuming this is WhatsApp icon
+  Target as TargetIcon2 // Added import for the subtitle icon
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -371,11 +372,13 @@ export function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-             {/* Section header */}
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-12 h-[2px] bg-[#54AE21]" />
-              <span className="text-[#54AE21] font-medium">Programas</span>
+             {/* Styled subtitle element */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-md mb-4">
+              <TargetIcon2 className="h-5 w-5 text-[#54AE21]" />
+              {/* Changed text to 'Modalidades' */}
+              <span className="font-medium text-[#54AE21]">Modalidades</span>
             </div>
+            {/* Restored the H2 title */}
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Nossos Treinamentos</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Escolha o programa que melhor se adapta aos seus objetivos e comece sua jornada rumo à excelência.
@@ -402,13 +405,13 @@ export function Home() {
             ].map((program, index) => (
               <motion.div 
                 key={program.title}
-                className="bg-black border border-white/10 p-8 rounded-lg hover:border-[#54AE21]/50 transition-all duration-400 group cursor-pointer relative overflow-hidden text-center sm:text-left" // Center text on mobile
+                className="bg-black border border-white/10 p-8 rounded-lg hover:border-[#54AE21]/50 group cursor-pointer relative overflow-hidden text-center sm:text-left" 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }} // Stagger animation
-                whileHover={{ y: -9 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }} 
+                whileHover={{ y: -5 }} 
                 viewport={{ once: true }}
-                onClick={() => navigate('/treinamentos')} // Navigate to trainings page
+                onClick={() => navigate('/treinamentos')} 
               >
                 {/* Card background effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />

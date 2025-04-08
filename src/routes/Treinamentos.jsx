@@ -1,74 +1,166 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBasket as Basketball, Star, Dumbbell, Users, Target, Clock, Calendar } from 'lucide-react';
+import { 
+  Users, 
+  Target, 
+  Clock, 
+  Calendar, 
+  Trophy, 
+  Award, 
+  Zap, 
+  Shield, 
+  Star, 
+  Dumbbell, 
+  Activity, 
+  Target as TargetIcon, 
+  Users as UsersIcon, 
+  Award as AwardIcon,
+  Users as UsersGroup,
+  Flame,
+  UserCheck,
+  HelpCircle,
+  ChevronDown,
+  Target as TargetIcon2
+} from 'lucide-react';
+// Import images from assets folder
+import treinoimg from '../assets/treinoimg.jpg';
+import campimg from '../assets/campimg.jpg';
+import img1 from '../assets/img1.jpg';
+import img2 from '../assets/img2.jpg';
+import img6 from '../assets/img6.jpg';
+import FAQAccordion from '../components/Accordion';
+import FloatingPhone from '../components/FloatingPhone';
+import Timer from '../components/Timer';
+
+// Import new gallery images
+import slide1 from '../assets/slide1.jpg';
+import slide2 from '../assets/slide2.jpg';
+import slide8 from '../assets/slide8.jpg';
+import sobre1 from '../assets/sobre1.jpg';
+import sobre3 from '../assets/sobre3.jpg';
+import sobre4 from '../assets/sobre4.jpg';
+
+// Lightbox Imports
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+const faqData = [
+  {
+    title: "Posso agendar uma aula experimental?",
+    answer: "Sim! A sua primeira aula será experimental, mas sempre precisará ser agendada por nós."
+  },
+  {
+    title: "Como faço para me inscrever?",
+    answer: "Muito simples! Após a sua primeira aula, o(a) responsável irá alinhar com o Harley os próximos passos. Tudo via WhatsApp e de forma bem objetiva!"
+  },
+  {
+    title: "Quais são os níveis de habilidade aceitos?",
+    answer: "Todos, aceitamos todos os níveis sem exceção. Nossa metodologia / dinâmica permite que todos cresçam e evoluam no mesmo ambiente, venham conhecer!"
+  },
+  {
+    title: "Quais são as idades aceitas?",
+    answer: "Nosso foco é U18, ou seja, temos um compromisso com a formação - dentro e fora das quadras - até 18 anos. Todavia, temos grupos de treinamentos para mais experientes também! Entendemos 11 anos como idade ideal para meninos e meninas começarem!"
+  },
+  {
+    title: "Quais são os horários do treinos?",
+    answer: "Treinos todos os sábados (09:00-12:00). Estejam prontos para nossos jogos, finais de semana sempre cheios de muito basquete na D14!"
+  },
+  {
+    title: "O que preciso levar para os treinos?",
+    answer: "Sua vontade de ser melhor a cada treino. Ah, e roupa apropriada para prática esportiva. Amarrem bem o tênis e vamos nessa!"
+  },
+  {
+    title: "A D14 participa de campeonatos?",
+    answer: "Sim! Participamos de ligas amadoras em SP e Grande SP. Embora não seja a proposta principal da academia, acreditamos que a competição sempre trará bons frutos. Ninguém cresce em zona de conforto, vamos juntos!"
+  }
+];
+
+// Prepare slides data for lightbox
+const galleryImages = [slide1, slide2, slide8, sobre1, sobre4, sobre3];
+const slides = galleryImages.map(src => ({ src }));
 
 export function Treinamentos() {
+    // State for lightbox
+    const [openLightbox, setOpenLightbox] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
+    // Function to scroll to the programs section
+    const scrollToPrograms = () => {
+      const programsSection = document.getElementById('training-programs');
+      if (programsSection) {
+        programsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
     return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div className="relative py-28 bg-black">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-            style={{
-              backgroundImage: 'url("https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=2071")',
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-        </div>
+      {/* Clean Hero Section Style */}
+      <div className="relative bg-white py-28 md:py-40"> {/* White background, adjusted padding */}
+        {/* Removed background image and decorative elements */}
 
-        {/* Decorative elements */}
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent" />
-          <div className="absolute top-0 left-1/4 w-24 h-24 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-
-        <div className="relative container mx-auto px-4">
-          <motion.div 
-            className="max-w-3xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+        {/* Centered Content */}
+        <div className="relative container mx-auto px-4 flex items-center justify-center text-center">
+          <div className="max-w-3xl">
             <motion.div 
-              className="flex items-center gap-2 mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="w-12 h-[2px] bg-[#54AE21]" />
-              <span className="text-[#54AE21] font-medium">Nossos Programas</span>
-            </motion.div>
-            <motion.h1 
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              className="text-center mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Treinamentos <span className="text-[#54AE21]">Personalizados</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-gray-300"
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-md">
+                <TargetIcon2 className="h-5 w-5 text-[#54AE21]" />
+                <span className="font-medium text-[#54AE21]">Modalidades</span>
+              </div>
+            </motion.div>
+            <motion.h1 
+              // Adjusted text color and size for light background
+              className="text-5xl md:text-7xl font-bold text-black mb-8 leading-tight" 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Escolha o programa que melhor se adapta ao seu nível e objetivos.
-              Nossa metodologia exclusiva garante seu desenvolvimento contínuo.
+              {/* Highlight color adjusted */}
+              Explore Nossos <span className="text-[#54AE21]">Treinamentos</span>
+            </motion.h1>
+            <motion.p 
+              // Adjusted text color and margin - reduced bottom margin
+              className="text-lg text-gray-700 mb-8" 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              Escolha o programa que melhor se adapta ao seu nível e objetivos. Nossa metodologia exclusiva garante seu desenvolvimento contínuo e prepara você para dominar as quadras.
             </motion.p>
-          </motion.div>
+
+            {/* Scroll Down Button - removed top margin */}
+            <motion.button
+              onClick={scrollToPrograms}
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-[#54AE21] hover:text-[#408718] transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Ver Treinos
+              <motion.div
+                animate={{ y: [0, 5, 0] }}
+                transition={{ 
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <ChevronDown className="ml-2 h-5 w-5" />
+              </motion.div>
+            </motion.button>
+          </div>
         </div>
       </div>
+      {/* End of Clean Hero Section Style */}
 
       {/* Training Programs */}
-      <div className="py-24 relative overflow-hidden">
+      <div id="training-programs" className="py-24 relative overflow-hidden">
         <motion.div 
           className="absolute inset-0"
           initial={{ opacity: 0 }}
@@ -98,13 +190,13 @@ export function Treinamentos() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <Basketball className="h-8 w-8 text-[#54AE21]" />
+                  <UsersGroup className="h-8 w-8 text-[#54AE21]" />
                   <h2 className="text-3xl font-bold">Treino Coletivo</h2>
                 </div>
                 <p className="text-gray-600 text-lg mb-8">
-                  Desenvolva suas habilidades técnicas e táticas em um ambiente competitivo e colaborativo.
-                  Nossos treinos coletivos são projetados para simular situações reais de jogo enquanto
-                  aprimoram sua compreensão do basquete.
+                  Acreditamos que o trabalho em equipe é fundamental para o sucesso no basquete. Nosso programa Coletivo combina treinamento intensivo de fundamentos (arremesso, passe, drible, defesa) com desafios e jogos simulados que promovem o entrosamento entre os jogadores.
+
+                  Junte-se ao nosso Coletivo e leve seu desempenho para o próximo nível!
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <motion.div 
@@ -113,7 +205,7 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Users className="h-6 w-6 text-[#54AE21]" />
+                      <UsersIcon className="h-6 w-6 text-[#54AE21]" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-2">Grupos Equilibrados</h3>
@@ -126,7 +218,7 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Target className="h-6 w-6 text-[#54AE21]" />
+                      <TargetIcon className="h-6 w-6 text-[#54AE21]" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-2">Foco em Fundamentos</h3>
@@ -152,7 +244,7 @@ export function Treinamentos() {
               >
                 <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
-                  src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=2071"
+                  src={treinoimg}
                   alt="Treino Coletivo"
                   className="rounded-lg shadow-xl"
                 />
@@ -167,7 +259,7 @@ export function Treinamentos() {
                     <Clock className="h-6 w-6 text-[#54AE21]" />
                     <div>
                       <p className="font-semibold">Duração</p>
-                      <p className="text-gray-600">90 minutos</p>
+                      <p className="text-gray-600">4 horas</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -180,7 +272,7 @@ export function Treinamentos() {
                 </motion.div>
               </motion.div>
             </div>
-                </motion.div>
+          </motion.div>
 
           {/* Camps */}
           <motion.div 
@@ -201,7 +293,7 @@ export function Treinamentos() {
               >
                 <div className="absolute -left-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
-                  src="https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?q=80&w=2071"
+                  src={campimg}
                   alt="Basketball Camps"
                   className="rounded-lg shadow-xl"
                 />
@@ -236,13 +328,11 @@ export function Treinamentos() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <Star className="h-8 w-8 text-[#54AE21]" />
+                  <Flame className="h-8 w-8 text-[#54AE21]" />
                   <h2 className="text-3xl font-bold">Camps</h2>
                 </div>
                 <p className="text-gray-600 text-lg mb-8">
-                  Uma experiência intensiva de desenvolvimento técnico e tático.
-                  Nossos camps são eventos especiais que reúnem atletas dedicados
-                  para uma semana de treinamento focado e aprendizado acelerado.
+                  Prepare-se para elevar seu nível de jogo e conquistar novas metas! Nos Camps, treinadores internacionais de elite compartilham técnicas inovadoras e conduzem sessões intensivas para acelerar seu desenvolvimento. Você irá enfrentar desafios estimulantes e participar de jogos simulados que aprimoram seu entrosamento e desempenho em equipe. Vivencie um ambiente de aprendizado avançado e alcance novos patamares no basquete. Inscreva-se agora e transforme seu jogo!
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <motion.div 
@@ -251,11 +341,11 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Users className="h-6 w-6 text-[#54AE21]" />
+                      <Activity className="h-6 w-6 text-[#54AE21]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Mentoria Especial</h3>
-                      <p className="text-gray-600">Acompanhamento individualizado</p>
+                      <h3 className="font-semibold mb-2">Treinamento Intensivo</h3>
+                      <p className="text-gray-600">Múltiplas sessões diárias</p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -264,11 +354,11 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Target className="h-6 w-6 text-[#54AE21]" />
+                      <AwardIcon className="h-6 w-6 text-[#54AE21]" />
                     </div>
-                <div>
-                      <h3 className="font-semibold mb-2">Imersão Total</h3>
-                      <p className="text-gray-600">Desenvolvimento intensivo</p>
+                    <div>
+                      <h3 className="font-semibold mb-2">Foco em Competição</h3>
+                      <p className="text-gray-600">Simulações de jogos e torneios</p>
                     </div>
                   </motion.div>
                 </div>
@@ -277,7 +367,7 @@ export function Treinamentos() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10">Inscreva-se para o Próximo Camp</span>
+                  <span className="relative z-10">Inscreva-se no Próximo Camp</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </motion.button>
               </motion.div>
@@ -285,7 +375,7 @@ export function Treinamentos() {
           </motion.div>
 
           {/* Personal Training */}
-          <motion.div
+          <motion.div 
             className="relative"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -301,13 +391,13 @@ export function Treinamentos() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <Dumbbell className="h-8 w-8 text-[#54AE21]" />
+                  <UserCheck className="h-8 w-8 text-[#54AE21]" />
                   <h2 className="text-3xl font-bold">Treino Personalizado</h2>
                 </div>
                 <p className="text-gray-600 text-lg mb-8">
-                  Um programa exclusivo desenvolvido especialmente para você.
-                  Com acompanhamento individual, identificamos suas necessidades
-                  específicas e trabalhamos para alcançar seus objetivos pessoais.
+                  Na D14 Basketball Academy, entendemos que cada atleta é único. Nosso programa Personalizado oferece um desenvolvimento individual focado nas suas necessidades específicas, com atenção exclusiva e feedback constante para garantir que você alcance seu máximo potencial.
+
+                  Oferecemos treinamentos personalizados que você pode realizar em casa ou em qualquer outro lugar fora da academia D14. Receba um programa específico montado para você, com acompanhamento contínuo e atenção exclusiva, garantindo que seu desenvolvimento não tenha limites.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <motion.div 
@@ -316,11 +406,11 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Users className="h-6 w-6 text-[#54AE21]" />
+                      <TargetIcon className="h-6 w-6 text-[#54AE21]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Atenção Individual</h3>
-                      <p className="text-gray-600">Foco total no seu desenvolvimento</p>
+                      <h3 className="font-semibold mb-2">Plano Individual</h3>
+                      <p className="text-gray-600">Focado em seus objetivos específicos</p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -329,11 +419,11 @@ export function Treinamentos() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div className="bg-[#54AE21]/10 p-3 rounded-lg group-hover:bg-[#54AE21]/20 transition-colors">
-                      <Target className="h-6 w-6 text-[#54AE21]" />
+                      <Clock className="h-6 w-6 text-[#54AE21]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Programa Exclusivo</h3>
-                      <p className="text-gray-600">Adaptado às suas necessidades</p>
+                      <h3 className="font-semibold mb-2">Horários Flexíveis</h3>
+                      <p className="text-gray-600">Adaptado à sua agenda</p>
                     </div>
                   </motion.div>
                 </div>
@@ -342,7 +432,7 @@ export function Treinamentos() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10">Agende uma Avaliação</span>
+                  <span className="relative z-10">Agende uma Consulta</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </motion.button>
               </motion.div>
@@ -355,7 +445,7 @@ export function Treinamentos() {
               >
                 <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
-                  src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=2071"
+                  src={img2}
                   alt="Treino Personalizado"
                   className="rounded-lg shadow-xl"
                 />
@@ -370,14 +460,14 @@ export function Treinamentos() {
                     <Clock className="h-6 w-6 text-[#54AE21]" />
                     <div>
                       <p className="font-semibold">Duração</p>
-                      <p className="text-gray-600">Personalizado</p>
+                      <p className="text-gray-600">Personalizada</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <Calendar className="h-6 w-6 text-[#54AE21]" />
                     <div>
                       <p className="font-semibold">Frequência</p>
-                      <p className="text-gray-600">Flexível</p>
+                      <p className="text-gray-600">Personalizada</p>
                     </div>
                   </div>
                 </motion.div>
@@ -386,9 +476,168 @@ export function Treinamentos() {
           </motion.div>
         </div>
       </div>
+
+      {/* Timer and Floating Phone Section */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute left-1/4 top-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute right-1/4 bottom-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-3xl" />
+        </motion.div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="flex flex-col lg:flex-row items-center justify-around gap-16 lg:gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-white flex flex-col items-center lg:items-start gap-8">
+              <motion.div
+                className="text-center lg:text-left max-w-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
+                  <Clock className="h-8 w-8 text-[#54AE21]" />
+                  <h2 className="text-5xl font-bold text-white">Próximo Treino</h2>
+                </div>
+                <p className="text-gray-400">
+                  Fique por dentro da contagem regressiva para o nosso próximo treino coletivo de sábado e agende sua aula experimental!
+                </p>
+              </motion.div>
+              <Timer />
+            </div>
+                <div>
+                    <FloatingPhone />
+            </div>
+          </motion.div>
+                </div>
+            </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 pointer-events-none opacity-50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute left-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+        </motion.div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-4">
+               <HelpCircle className="h-8 w-8 text-[#54AE21]" />
+               <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
+            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Tire suas dúvidas sobre nossos treinamentos e programas.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {faqData.map((faq, index) => (
+              <FAQAccordion 
+                key={index} 
+                title={faq.title} 
+                answer={faq.answer} 
+              />
+            ))}
+          </motion.div>
+        </div>
+            </section>
+
+      {/* Gallery Section */}
+      <div className="py-24 bg-black relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+        </motion.div>
+
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="w-12 h-[2px] bg-[#54AE21]" />
+              <span className="text-[#54AE21] font-medium">Galeria</span>
+            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">Momentos dos Nossos Treinos</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Confira alguns momentos especiais dos nossos treinamentos e eventos.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryImages.map((img, index) => (
+              <motion.div
+                key={index}
+                className="relative overflow-hidden rounded-lg group cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                onClick={() => {
+                  setLightboxIndex(index);
+                  setOpenLightbox(true);
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`Galeria ${index + 1}`}
+                  className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Lightbox Component Render */}
+      <Lightbox
+        open={openLightbox}
+        close={() => setOpenLightbox(false)}
+        slides={slides}
+        index={lightboxIndex}
+      />
+
     </div>
   );
 }
 
-// Add default export if this is the main component for the route
 export default Treinamentos;

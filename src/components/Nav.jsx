@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ShoppingBasket as Basketball, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../assets/logo.png';
+import LogoPreta from '../assets/logopreta.png';
 import Instagram from '../assets/instagram.png';
 import WhatsApp from '../assets/whatsapp.png';
 import Gmail from '../assets/gmail.png';
@@ -18,6 +19,7 @@ const navigation = [
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation(); // Get location object
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +27,27 @@ const Nav = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Close mobile menu if window resizes to desktop width
+    const handleResize = () => {
+      if (window.innerWidth >= 768) { // md breakpoint
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  // Determine if on Treinamentos page
+  const isTreinamentosPage = location.pathname === '/treinamentos';
+
+  // Determine text color based on scroll, mobile menu state, and page
+  const isNavbarDark = isScrolled || isMobileMenuOpen;
+  const textColorClass = isNavbarDark ? 'text-white' : (isTreinamentosPage ? 'text-black' : 'text-white');
+  const activeTextColorClass = 'text-[#54AE21]'; // Active color remains the same
 
   // Function to handle inscription button click - adjust as needed
   const handleInscriptionClick = () => {
@@ -47,13 +68,15 @@ const Nav = () => {
         isScrolled || isMobileMenuOpen ? 'bg-black/95 py-2' : 'bg-transparent py-6'
       }`}
     >
-      <nav className="container mx-auto px-8 sm:px-4">
+      <nav className="container mx-auto px-8 sm:px-10">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            {/* Use your existing logo */}
-            <img className="h-16 w-auto" src={Logo} alt="D14 Logo" /> 
-            {/* Or use the basketball icon if preferred */}
-            {/* <Basketball className="h-10 w-10 text-[#54AE21]" /> */}
+            {/* Updated logo logic: Use black logo only on Treinamentos page when NOT scrolled */}
+            <img 
+              className="h-16 w-auto -mt-2" 
+              src={isTreinamentosPage && !isScrolled ? LogoPreta : Logo} 
+              alt="D14 Logo" 
+            />
           </Link>
           
           {/* Desktop Navigation */}
@@ -64,7 +87,7 @@ const Nav = () => {
                   to={item.href}
                   className={({ isActive }) =>
                     `text-sm uppercase font-bold tracking-wider hover:text-[#54AE21] transition-colors ${
-                      isActive ? 'text-[#54AE21]' : 'text-white' // Use customGreen4 color
+                      isActive ? activeTextColorClass : textColorClass // Use dynamic text color
                     }`
                   }
                 >
@@ -87,7 +110,7 @@ const Nav = () => {
 
           {/* Mobile Menu Button */}
           <motion.button 
-            className="md:hidden text-white pr-2"
+            className={`md:hidden pr-2 ${textColorClass}`} // Apply dynamic text color
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -153,7 +176,7 @@ const Nav = () => {
                       to={item.href}
                       className={({ isActive }) =>
                         `text-sm uppercase font-bold tracking-wider hover:text-[#54AE21] transition-colors ${
-                          isActive ? 'text-[#54AE21]' : 'text-white' // Use customGreen4
+                          isActive ? 'text-[#54AE21]' : 'text-white' // Mobile links always white on black bg
                         }`
                       }
                       onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click

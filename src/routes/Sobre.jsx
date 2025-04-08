@@ -7,6 +7,11 @@ import Harley from '../assets/harley.jpg';
 import Katielly from '../assets/katielly.jpg';
 import Fabricio from '../assets/fabricio.jpg';
 
+// Import new images from assets
+import SobreImage1 from '../assets/campimg3.jpg';
+import SobreImage4 from '../assets/slide1.jpg';
+import CampImage from '../assets/campimg2.jpg';
+
 const team = [
   {
     name: "Danilo Castro",
@@ -93,7 +98,7 @@ export function Sobre() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=2071" // Placeholder
+                src={SobreImage4}
                 alt="Parceria e Desenvolvimento"
                 className="rounded-lg shadow-xl"
               />
@@ -249,7 +254,7 @@ export function Sobre() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?q=80&w=2071" // Placeholder
+                src={SobreImage1}
                 alt="Danilo Castro"
                 className="rounded-lg shadow-xl"
               />
@@ -382,7 +387,7 @@ export function Sobre() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=2071" // Placeholder
+                src={CampImage}
                 alt="Competições"
                 className="rounded-lg shadow-xl"
               />
