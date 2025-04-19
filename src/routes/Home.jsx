@@ -12,9 +12,13 @@ import {
   Mail,
   MapPin,
   MessageCircle, // Assuming this is WhatsApp icon
-  Target as TargetIcon2 // Added import for the subtitle icon
+  Target as TargetIcon2, // Added import for the subtitle icon
+  Flame, 
+  UserCheck,
+  Users as UsersGroup 
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import LogoBlanco from '../assets/logo.png'; // Import the white logo
 
 // Renamed Hero to Home
 export function Home() {
@@ -49,8 +53,8 @@ export function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
         </div>
-        
-        {/* Enhanced decorative elements */}
+
+        {/* Enhanced decorative elements (removed z-10) */}
         <motion.div 
           className="absolute inset-0 pointer-events-none"
           initial={{ opacity: 0 }}
@@ -78,7 +82,7 @@ export function Home() {
           <div className="absolute right-0 bottom-0 w-1/3 h-px bg-gradient-to-l from-transparent to-[#54AE21]/20 origin-right -rotate-45" />
         </motion.div>
 
-        {/* Content */}
+        {/* Content (ensure z-index is highest) */}
         <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-center text-center">
           <div className="max-w-3xl">
             <motion.h1 
@@ -201,6 +205,14 @@ export function Home() {
 
       {/* About Section */}
       <section className="py-24 bg-black relative overflow-hidden">
+        {/* Added Subtle Background Logo Here */}
+        <img 
+          src={LogoBlanco}
+          alt="D14 Logo Watermark"
+          className="absolute top-1/4 md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-2/3 md:h-2/3 object-contain opacity-20 pointer-events-none z-0"
+        />
+
+        {/* Decorative elements for About Section */}
         <motion.div 
           className="absolute inset-0 pointer-events-none"
           initial={{ opacity: 0 }}
@@ -231,7 +243,8 @@ export function Home() {
           </div>
         </motion.div>
 
-        <div className="container mx-auto px-4 relative">
+        {/* About Section Content Container (Added z-10) */}
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             className="max-w-3xl mx-auto text-center sm:text-left" // Center text on mobile
             initial={{ opacity: 0, y: 30 }}
@@ -279,7 +292,6 @@ export function Home() {
                 >
                   <span className="relative z-10">Conheça Nossa História</span>
                   <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                 </Link>
               </motion.div>
             </div>
@@ -289,9 +301,13 @@ export function Home() {
                 className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
+                // Increased y duration slightly to 0.2s for smoother hover
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 {/* Center icon */}
@@ -306,9 +322,13 @@ export function Home() {
                 className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
+                // Increased y duration slightly to 0.2s for smoother hover
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.2 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 {/* Center icon */}
@@ -323,9 +343,13 @@ export function Home() {
                 className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
+                // Increased y duration slightly to 0.2s for smoother hover
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.3 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                  {/* Center icon */}
@@ -387,59 +411,83 @@ export function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
+              // Reordered: Camps first
               {
-                icon: Basketball, // Changed from Users
-                title: "Treino Coletivo",
-                description: "Treinamentos em grupo focados no desenvolvimento técnico e tático, promovendo a integração e o espírito de equipe."
-              },
-              {
-                icon: Star, // Changed from Award/Trophy
+                icon: Flame, // Changed from Star
                 title: "Camps",
                 description: "Eventos sazonais intensivos com programação especial e oportunidades únicas de aprendizado e evolução."
               },
+              // Reordered: Treino Coletivo second
               {
-                icon: Dumbbell, // Changed from Target
+                icon: UsersGroup, // Changed from Basketball
+                title: "Treino Coletivo",
+                description: "Treinamentos em grupo focados no desenvolvimento técnico e tático, promovendo a integração e o espírito de equipe."
+              },
+              // Treino Personalizado remains last
+              {
+                icon: UserCheck, // Changed from Dumbbell
                 title: "Treino Personalizado",
                 description: "Acompanhamento individual focado nas necessidades específicas de cada atleta para máximo desenvolvimento."
               }
-            ].map((program, index) => (
-              <motion.div 
-                key={program.title}
-                className="bg-black border border-white/10 p-8 rounded-lg hover:border-[#54AE21]/50 group cursor-pointer relative overflow-hidden text-center sm:text-left" 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }} 
-                whileHover={{ y: -5 }} 
-                viewport={{ once: true }}
-                onClick={() => navigate('/treinamentos')} 
-              >
-                {/* Card background effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(84,174,33,0.1)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                
-                {/* Decorative corner lines */}
-                <div className="absolute top-0 left-0 w-16 h-16">
-                  <div className="absolute top-0 left-4 w-px h-8 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
-                  <div className="absolute top-4 left-0 w-8 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
-                </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16">
-                  <div className="absolute bottom-0 right-4 w-px h-8 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
-                  <div className="absolute bottom-4 right-0 w-8 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
-                </div>
+            ].map((program, index) => {
+              const isHighlighted = program.title === "Treino Coletivo"; // Check if it's the card to highlight
+              
+              return (
+                <motion.div 
+                  key={program.title}
+                  // Conditional classes for highlighting
+                  className={`bg-black p-8 rounded-lg group cursor-pointer relative overflow-hidden text-center sm:text-left 
+                    ${isHighlighted 
+                      // Changed border to 1px with opacity, kept elevation
+                      ? 'border border-[#54AE21]/70 md:-translate-y-4' 
+                      : 'border border-white/10 hover:border-[#54AE21]/50'}
+                  `}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                    y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                  }}
+                  whileHover={{ y: -5 }}
+                  viewport={{ once: true }}
+                  onClick={() => navigate('/treinamentos')} 
+                >
+                  {/* Badge for highlighted card */}
+                  {isHighlighted && (
+                    // Changed badge text to "Mais Procurado"
+                    <div className="absolute top-4 right-4 bg-[#54AE21] text-white text-xs font-bold px-2 py-1 rounded">
+                      Mais Procurado
+                    </div>
+                  )}
+                  
+                  {/* Card background effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(84,174,33,0.1)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  
+                  {/* Decorative corner lines */}
+                  <div className="absolute top-0 left-0 w-16 h-16">
+                    <div className="absolute top-0 left-4 w-px h-8 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
+                    <div className="absolute top-4 left-0 w-8 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16">
+                    <div className="absolute bottom-0 right-4 w-px h-8 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
+                    <div className="absolute bottom-4 right-0 w-8 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
+                  </div>
 
-                 {/* Center icon on mobile */}
-                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#54AE21]/30 transition-colors relative mx-auto sm:mx-0">
-                  <program.icon className="h-6 w-6 text-[#54AE21]" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">{program.title}</h3>
-                <p className="text-gray-400 mb-6">{program.description}</p>
-                 {/* Center link on mobile */}
-                <div className="flex items-center justify-center sm:justify-start gap-2 text-[#54AE21] font-semibold group-hover:text-white transition-colors">
-                  Saiba mais
-                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
+                   {/* Center icon on mobile */}
+                  <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#54AE21]/30 transition-colors relative mx-auto sm:mx-0">
+                    <program.icon className="h-6 w-6 text-[#54AE21]" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4">{program.title}</h3>
+                  <p className="text-gray-400 mb-6">{program.description}</p>
+                   {/* Center link on mobile */}
+                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[#54AE21] font-semibold group-hover:text-white transition-colors">
+                    Saiba mais
+                    <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
             {/* Added button to see all trainings */}
             <div className="text-center mt-16">
@@ -450,10 +498,11 @@ export function Home() {
                          whileTap={{ scale: 0.95 }}
                          initial={{ opacity: 0, y: 20 }}
                          whileInView={{ opacity: 1, y: 0 }}
-                         transition={{ duration: 0.5 }}
+                         // Reduced whileInView duration for faster appearance
+                         transition={{ duration: 0.2 }} 
                          viewport={{ once: true }}
                      >
-                         <span className="relative z-10">Ver Todos os Treinos</span>
+                         <span className="relative z-10">Ver Detalhes</span>
                          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                      </motion.button>

@@ -31,6 +31,7 @@ import img6 from '../assets/img6.jpg';
 import FAQAccordion from '../components/Accordion';
 import FloatingPhone from '../components/FloatingPhone';
 import Timer from '../components/Timer';
+import LogoPreta from '../assets/logopreta.png';
 
 // Import new gallery images
 import slide1 from '../assets/slide1.jpg';
@@ -95,11 +96,14 @@ export function Treinamentos() {
     return (
     <div className="bg-white">
       {/* Clean Hero Section Style */}
-      <div className="relative bg-white py-28 md:py-40"> {/* White background, adjusted padding */}
-        {/* Removed background image and decorative elements */}
-
-        {/* Centered Content */}
-        <div className="relative container mx-auto px-4 flex items-center justify-center text-center">
+      <div className="relative bg-white py-28 md:py-40 overflow-hidden">
+        <img 
+          src={LogoPreta}
+          alt="Background Logo"
+          className="absolute inset-0 w-full h-full object-contain object-center opacity-5 pointer-events-none z-0 scale-150 blur-sm"
+        />
+        
+        <div className="relative container mx-auto px-4 flex items-center justify-center text-center z-10">
           <div className="max-w-3xl">
             <motion.div 
               className="text-center mb-8"

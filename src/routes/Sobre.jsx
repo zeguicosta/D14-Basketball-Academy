@@ -151,9 +151,12 @@ export function Sobre() {
                 className="bg-white p-8 rounded-lg shadow-lg relative overflow-hidden group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="bg-[#54AE21]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
@@ -195,8 +198,8 @@ export function Sobre() {
             <p className="text-gray-400 max-w-2xl mx-auto">
               Princípios que guiam nossa academia e moldam o desenvolvimento de nossos atletas.
             </p>
-                        </motion.div>
-                        
+          </motion.div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -220,9 +223,12 @@ export function Sobre() {
                 className="bg-black border border-white/10 p-8 rounded-lg relative overflow-hidden group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 relative">
@@ -232,8 +238,8 @@ export function Sobre() {
                 <p className="text-gray-400">{value.description}</p>
               </motion.div>
             ))}
-                        </div>
-                    </div>
+          </div>
+        </div>
       </section>
 
       {/* A Trajetória de Danilo Castro */}
@@ -317,8 +323,8 @@ export function Sobre() {
             <p className="text-gray-400 max-w-2xl mx-auto">
               Nossa missão é preparar atletas não apenas para o basquete, mas para a vida.
             </p>
-                        </motion.div>
-                        
+          </motion.div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { number: "23", label: "Atletas nos EUA" },
@@ -331,17 +337,20 @@ export function Sobre() {
                 className="bg-black border border-white/10 p-8 rounded-lg text-center relative overflow-hidden group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
                 <div className="text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
-                        </div>
-                    </div>
+          </div>
+        </div>
       </section>
 
       {/* Competições e Crescimento */}
@@ -408,8 +417,8 @@ export function Sobre() {
         >
           <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
           <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-                        </motion.div>
-                        
+        </motion.div>
+        
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -421,7 +430,7 @@ export function Sobre() {
             <div className="flex items-center justify-center gap-2 mb-4">
               <Users className="h-8 w-8 text-[#54AE21]" />
               <h2 className="text-4xl font-bold text-white">Nossa Equipe</h2>
-                        </div>
+            </div>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Profissionais dedicados e apaixonados pelo desenvolvimento de atletas.
             </p>
@@ -434,9 +443,12 @@ export function Sobre() {
                 className="bg-black border border-white/10 rounded-lg overflow-hidden group relative"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                }}
                 whileHover={{ y: -5 }}
+                viewport={{ once: true }}
               >
                 <div className="overflow-hidden">
                   <img
@@ -444,7 +456,7 @@ export function Sobre() {
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                    </div>
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
                   <p className="text-[#54AE21] font-medium mb-4">{member.role}</p>
