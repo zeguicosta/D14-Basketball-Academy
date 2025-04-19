@@ -543,11 +543,11 @@ export function Treinamentos() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-start gap-6 mb-4">
-               <HelpCircle className="h-10 w-10 text-[#54AE21]" />
+            <div className="flex items-center justify-start md:justify-center gap-6 mb-4 mx-auto max-w-max"> 
+               <HelpCircle className="h-10 w-10 text-[#54AE21]" /> 
                <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-center">
               Tire suas dúvidas sobre nossos treinamentos e programas.
             </p>
           </motion.div>
