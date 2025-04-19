@@ -61,9 +61,7 @@ export function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {/* Gradient lines - Added responsive classes */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent hidden md:block" />
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-32 bg-gradient-to-b from-transparent via-[#54AE21] to-transparent hidden md:block" />
+          {/* Removed vertical gradient lines completely */}
           
           {/* Blur effects */}
           <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-2xl" />
@@ -75,7 +73,7 @@ export function Home() {
           
           {/* Animated lines */}
           <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
+          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent translate-y-4" />
           
           {/* Diagonal lines */}
           <div className="absolute left-0 top-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#54AE21]/20 origin-left rotate-45" />

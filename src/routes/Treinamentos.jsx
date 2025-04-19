@@ -32,6 +32,8 @@ import FAQAccordion from '../components/Accordion';
 import FloatingPhone from '../components/FloatingPhone';
 import Timer from '../components/Timer';
 import LogoPreta from '../assets/logopreta.png';
+import LogoBranco from '../assets/logo.png';
+import LogoGrande from '../assets/logogrande.png';
 
 // Import new gallery images
 import slide1 from '../assets/slide1.jpg';
@@ -185,7 +187,6 @@ export function Treinamentos() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="absolute -left-4 top-0 w-1 h-32 bg-gradient-to-b from-[#54AE21] to-transparent" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -246,7 +247,6 @@ export function Treinamentos() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
                   src={treinoimg}
                   alt="Treino Coletivo"
@@ -286,7 +286,6 @@ export function Treinamentos() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="absolute -right-4 top-0 w-1 h-32 bg-gradient-to-b from-[#54AE21] to-transparent" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div 
                 className="order-2 lg:order-1 relative"
@@ -295,7 +294,6 @@ export function Treinamentos() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="absolute -left-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
                   src={campimg}
                   alt="Basketball Camps"
@@ -386,7 +384,6 @@ export function Treinamentos() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="absolute -left-4 top-0 w-1 h-32 bg-gradient-to-b from-[#54AE21] to-transparent" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
@@ -447,7 +444,6 @@ export function Treinamentos() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
                 <img
                   src={img2}
                   alt="Treino Personalizado"
@@ -503,14 +499,14 @@ export function Treinamentos() {
           >
             <div className="text-white flex flex-col items-center lg:items-start gap-8">
               <motion.div
-                className="text-center lg:text-left max-w-xl"
+                className="max-w-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-                  <Clock className="h-8 w-8 text-[#54AE21]" />
+                <div className="flex items-center justify-start gap-6 mb-4">
+                  <Clock className="h-10 w-10 text-[#54AE21]" />
                   <h2 className="text-5xl font-bold text-white">Próximo Treino</h2>
                 </div>
                 <p className="text-gray-400">
@@ -541,14 +537,14 @@ export function Treinamentos() {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            className="text-center mb-16"
+            className="mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-               <HelpCircle className="h-8 w-8 text-[#54AE21]" />
+            <div className="flex items-center justify-start gap-6 mb-4">
+               <HelpCircle className="h-10 w-10 text-[#54AE21]" />
                <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
             </div>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -572,7 +568,7 @@ export function Treinamentos() {
             ))}
           </motion.div>
         </div>
-            </section>
+      </section>
 
       {/* Gallery Section */}
       <div className="py-24 bg-black relative overflow-hidden">
@@ -589,20 +585,27 @@ export function Treinamentos() {
 
         <div className="container mx-auto px-4">
           <motion.div
-            className="text-center mb-16"
+            className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-12 h-[2px] bg-[#54AE21]" />
-              <span className="text-[#54AE21] font-medium">Galeria</span>
+            <div className="text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                <div className="w-12 h-[2px] bg-[#54AE21]" />
+                <span className="text-[#54AE21] font-medium">Galeria</span>
+              </div>
+              <h2 className="text-4xl font-bold text-white mb-4">Momentos dos Nossos Treinos</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto md:mx-0">
+                Confira alguns momentos especiais dos nossos treinamentos e eventos.
+              </p>
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">Momentos dos Nossos Treinos</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Confira alguns momentos especiais dos nossos treinamentos e eventos.
-            </p>
+            <img 
+              src={LogoGrande} 
+              alt="D14 Logo Grande" 
+              className="h-44 md:h-56 flex-shrink-0"
+            />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
