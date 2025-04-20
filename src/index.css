@@ -13,3 +13,33 @@ html {
 body {
     overflow-x: hidden;
 }
+
+/* Custom Scrollbar Styles */
+
+/* For Webkit browsers (Chrome, Safari, Edge, Opera) */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra vertical */
+  height: 8px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Fundo cinza escuro para a trilha */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #54AE21; /* Cor verde principal */
+  border-radius: 10px;
+  border: 2px solid #2d2d2d; /* Adiciona uma pequena borda com a cor da trilha */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #408718; /* Verde mais escuro no hover */
+}
+
+/* For Firefox */
+/* Aplica ao elemento raiz (geralmente html ou body) */
+html {
+  scrollbar-width: thin; /* Define a largura como fina */
+  scrollbar-color: #54AE21 #000; /* Cor do polegar / Cor da trilha */
+}
