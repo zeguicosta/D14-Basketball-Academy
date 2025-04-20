@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Users, Target, Medal, GraduationCap, Heart, Star, Award, BookOpen, Globe, Flag, Rocket } from 'lucide-react';
+import { Trophy, Users, Target, Medal, GraduationCap, Heart, Award, BookOpen, Globe, Flag, Rocket, ChevronRight, ExternalLink, Layers } from 'lucide-react';
 import { TextParallaxContentExample } from '../components/TextParallaxContent';
 import Danilo from '../assets/danilo.jpg';
 import Harley from '../assets/harley.jpg';
 import Katielly from '../assets/katielly.jpg';
 import Fabricio from '../assets/fabricio.jpg';
+import LogoBlanco from '../assets/logo.png';
+import LogoGrande from '../assets/logogrande.png';
+import TeamMemberModal from '../components/TeamMemberModal';
 
 // Import new images from assets
 import SobreImage1 from '../assets/campimg3.jpg';
@@ -17,7 +20,26 @@ const team = [
     name: "Danilo Castro",
     role: "Fundador e Head Coach",
     image: Danilo,
-    description: "Fundador da D14 Basketball Academy, com mais de 15 anos de experiência no desenvolvimento de atletas. Sua visão inovadora e metodologia única transformaram a academia em um centro de excelência."
+    description: "Ex-atleta profissional com vasta experiência em clubes de ponta e múltiplos títulos estaduais e prêmios individuais. Graduado em Educação Física, Danilo aplica sua vivência única e conhecimento técnico para lapidar os talentos da D14.",
+    fullDescription: `
+      Com uma carreira consolidada como atleta profissional de basquete, Danilo Castro traz uma bagagem de experiência inestimável para a D14. Sua trajetória inclui passagens marcantes por grandes clubes como E.C. São Bernardo, C.A. Monte Líbano, C.A. Pirelli, E.C. Sírio, Mogi Report/Valtra, ACF Campos e S.C. Ulbra.
+
+      Conquistas Notáveis:
+
+      Campeão Paulista
+      Campeão Carioca
+      Campeão Gaúcho
+      Eleito 4x o melhor armador do Campeonato Paulista e membro da seleção do campeonato
+      Melhor jogador (MVP) dos Campeonatos Carioca e Gaúcho
+
+      Atuação Atual:
+
+      Além de liderar a D14 Basketball Academy, Danilo é comentarista na BandTV e BandSports, instrutor de basquete na Competition Sports Club, idealizador do Portal XSports e atua como Personal Coach de Basketball, demonstrando sua paixão e dedicação contínuas ao esporte.
+
+      Formação e Filosofia:
+
+      Graduado em Educação Física, Danilo combina sua profunda experiência prática nas quadras com conhecimento técnico e pedagógico. Ele transmite não apenas habilidades, mas também os valores e a mentalidade necessários para que os alunos da D14 alcancem a excelência dentro e fora do jogo.
+    `
   },
   {
     name: "Harley Fadel",
@@ -40,9 +62,81 @@ const team = [
 ];
 
 export function Sobre() {
+    // State for modal
+    const [selectedMember, setSelectedMember] = useState(null);
+
+    // Functions to handle modal
+    const openModal = (member) => {
+      setSelectedMember(member);
+    };
+    const closeModal = () => {
+      setSelectedMember(null);
+    };
+
     return (
     <div className="bg-white">
       <TextParallaxContentExample />
+
+      {/* Moved Metodologia section here */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <BookOpen className="h-8 w-8 text-[#54AE21]" />
+              <h2 className="text-4xl font-bold">Nossa Metodologia</h2>
+            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Nossa abordagem exclusiva integra o aprimoramento técnico-tático com o desenvolvimento físico e mental, visando a formação integral do atleta de alta performance.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Target,
+                title: "Desenvolvimento Progressivo",
+                description: "Programa estruturado em níveis que acompanha a evolução individual."
+              },
+              {
+                icon: Users,
+                title: "Formação Integral",
+                description: "Foco no desenvolvimento técnico, tático, físico e mental do atleta."
+              },
+              {
+                icon: Award,
+                title: "Excelência Técnica",
+                description: "Padrões rigorosos de qualidade em todos os aspectos do treinamento."
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                className="bg-white p-8 rounded-lg shadow-lg relative overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                }}
+                whileHover={{ y: -5 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="bg-[#54AE21]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                  <item.icon className="h-6 w-6 text-[#54AE21]" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Parceria e Desenvolvimento */}
       <section className="py-24 relative overflow-hidden bg-black">
@@ -72,21 +166,18 @@ export function Sobre() {
               viewport={{ once: true }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <Star className="h-8 w-8 text-[#54AE21]" />
+                <Layers className="h-8 w-8 text-[#54AE21]" />
                 <h2 className="text-3xl font-bold text-white">Parceria e Desenvolvimento</h2>
               </div>
               <div className="space-y-6 text-lg text-gray-300">
                 <p>
-                  A história da D14 ganhou um novo capítulo quando Harley Fadel, após sua formação nos Estados Unidos,
-                  retornou ao Brasil trazendo consigo uma bagagem única de experiências e conhecimentos.
+                  A trajetória da D14 foi enriquecida com a chegada de Harley Fadel. Após sua formação e vivência no basquete universitário americano, Harley retornou ao Brasil, aportando uma perspectiva internacional e conhecimentos técnicos diferenciados.
                 </p>
                 <p>
-                  Reconhecendo o potencial de unir forças, Danilo Castro convidou Harley para se juntar à D14,
-                  uma decisão que marcou o início de uma parceria transformadora para a academia.
+                  Identificando o potencial sinérgico, Danilo Castro integrou Harley à equipe técnica, consolidando uma parceria estratégica fundamental para a evolução da academia.
                 </p>
                 <p>
-                  A combinação da metodologia inovadora de Danilo com a experiência internacional de Harley
-                  criou um ambiente único de desenvolvimento para nossos atletas.
+                  A fusão da metodologia consolidada de Danilo com a visão global de Harley potencializou o ambiente de desenvolvimento da D14, oferecendo uma formação ainda mais completa e competitiva aos nossos atletas.
                 </p>
               </div>
             </motion.div>
@@ -105,68 +196,6 @@ export function Sobre() {
               <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Metodologia */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <BookOpen className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold">Nossa Metodologia</h2>
-            </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Um sistema único que combina desenvolvimento técnico, tático e pessoal
-              para formar atletas completos.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Target,
-                title: "Desenvolvimento Progressivo",
-                description: "Programa estruturado em níveis que acompanha a evolução individual."
-              },
-              {
-                icon: Users,
-                title: "Abordagem Holística",
-                description: "Foco no desenvolvimento técnico, físico e mental do atleta."
-              },
-              {
-                icon: Award,
-                title: "Excelência Técnica",
-                description: "Padrões rigorosos de qualidade em todos os aspectos do treinamento."
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="bg-white p-8 rounded-lg shadow-lg relative overflow-hidden group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
-                }}
-                whileHover={{ y: -5 }}
-                viewport={{ once: true }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="bg-[#54AE21]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                  <item.icon className="h-6 w-6 text-[#54AE21]" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -277,19 +306,31 @@ export function Sobre() {
                 <h2 className="text-3xl font-bold">A Trajetória de Danilo Castro</h2>
               </div>
               <div className="space-y-6 text-lg text-gray-600">
-                <p>
-                  Com mais de 15 anos dedicados ao basquete, Danilo Castro construiu sua carreira
-                  focando no desenvolvimento de jovens atletas e na criação de metodologias inovadoras.
-                </p>
-                <p>
-                  Sua visão única sobre o desenvolvimento de atletas e sua capacidade de identificar
-                  e nutrir talentos o levaram a fundar a D14 Basketball Academy.
-                </p>
-                <p>
-                  Hoje, sua metodologia já formou dezenas de atletas que seguiram carreira nos
-                  Estados Unidos, consolidando seu legado no basquete brasileiro.
-                </p>
+                 <p>
+                   A jornada de Danilo Castro com o basquete iniciou-se na infância, aos 7 anos, em São Bernardo. Guiado por mentores como Thelma Tavernari, sua paixão e talento o levaram rapidamente às categorias de base e, aos 16 anos, à equipe adulta, conciliando o esporte com a formação em Educação Física (FEFISA).
+                 </p>
+                 <p>
+                   Sua carreira profissional foi marcada por passagens em clubes renomados como Pirelli, Sírio (onde superou graves lesões), Mogi (conquistando o Paulista '96) e Campos (vencendo o Carioca), além de experiências internacionais e convocação para a Seleção Brasileira.
+                 </p>
+                 <p>
+                   Após décadas dedicadas às quadras como atleta, Danilo fundou a D14 Basketball Academy, canalizando sua vasta experiência e visão única para desenvolver a nova geração. Atuando hoje como head coach e comentarista na BandSports, o sucesso de sua abordagem é comprovado pelo encaminhamento de dezenas de atletas para programas de basquete nos Estados Unidos, consolidando o impacto da D14 no cenário nacional.
+                 </p>
               </div>
+              <motion.a 
+                href="https://www.streetopia.me/m/news/608c01a47897bf12f23fa6ba/perfil-sttp-danilo-castro-012#:~:text=Em%20uma%20%C3%A9poca%20em%20que,n%C3%A3o%20sabe%20nada%2C%20voc%C3%AA%20joga" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-8 bg-black border border-white/30 text-white px-6 py-3 rounded-md font-semibold hover:border-[#54AE21] transition-colors group relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                <span className="relative z-10">Entrevista Completa (Streetopia)</span>
+                <ExternalLink className="h-4 w-4 relative z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>
@@ -328,8 +369,8 @@ export function Sobre() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { number: "23", label: "Atletas nos EUA" },
-              { number: "15", label: "Anos de Experiência" },
-              { number: "100%", label: "Comprometimento" },
+              { number: "30+", label: "Anos de Experiência" },
+              { number: "100%", label: "Foco no Atleta" },
               { number: "4", label: "Coaches Especializados" }
             ].map((stat, index) => (
               <motion.div
@@ -440,15 +481,16 @@ export function Sobre() {
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                className="bg-black border border-white/10 rounded-lg overflow-hidden group relative"
+                className="bg-black border border-white/10 rounded-lg overflow-hidden group relative cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
+                transition={{
                   opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
+                  y: { type: "tween", ease: "easeInOut", duration: 0.2 }
                 }}
                 whileHover={{ y: -5 }}
                 viewport={{ once: true }}
+                onClick={() => openModal(member)}
               >
                 <div className="overflow-hidden">
                   <img
@@ -457,17 +499,27 @@ export function Sobre() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 relative flex flex-col min-h-[210px]">
                   <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
                   <p className="text-[#54AE21] font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-400 text-sm">{member.description}</p>
+                  <p className="text-gray-400 text-sm flex-grow">{member.description}</p>
+                  <div className="inline-flex items-center gap-1 text-xs text-[#54AE21] hover:text-[#54AE21]/80 transition-colors font-semibold mt-4 self-start sm:hidden">
+                    Ver Mais
+                    <ChevronRight className="h-3 w-3" />
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Render Modal Component */}
+      <TeamMemberModal 
+        isOpen={!!selectedMember} 
+        onClose={closeModal} 
+        memberData={selectedMember} 
+      />
     </div>
   );
 }
