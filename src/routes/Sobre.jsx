@@ -45,19 +45,68 @@ const team = [
     name: "Harley Fadel",
     role: "Diretor Técnico",
     image: Harley,
-    description: "Ex-atleta formado nos EUA, retornou ao Brasil para se juntar à D14. Sua experiência internacional traz uma perspectiva única ao desenvolvimento dos atletas."
+    description: "Ex-atleta formado nos EUA, retornou ao Brasil para se juntar à D14. Sua experiência internacional traz uma perspectiva única ao desenvolvimento dos atletas.",
+    fullDescription: `
+      Ex-atleta universitário com formação nos Estados Unidos, Harley Fadel traz uma perspectiva internacional valiosa para a D14, compartilhando a mesma metodologia de trabalho do projeto desde o início.
+
+      Trajetória no Basquete:
+
+      Nascido em São Paulo, Harley iniciou sua jornada no basquete local.
+      Sua dedicação o levou a ter passagens por clubes brasileiros de destaque, como o Franca Basquete.
+      Com muito esforço, concretizou o sonho de levar sua carreira para os Estados Unidos, atuando no cenário universitário.
+
+      Formação Acadêmica:
+
+      Graduado com formação superior em uma universidade americana localizada no Kentucky (KY), classificada entre as Top 25 "Best Colleges" da região.
+
+      Contribuição para a D14:
+
+      Ao retornar ao Brasil, Harley se integrou à equipe técnica da D14, agregando seus conhecimentos e vivência internacional para enriquecer o desenvolvimento dos atletas da academia. Sua visão complementa a metodologia estabelecida, fortalecendo a preparação dos jogadores para desafios em nível global.
+    `
   },
   {
     name: "Katielly Santana",
     role: "Preparadora Física",
     image: Katielly,
-    description: "Especialista em preparação física para basquete, desenvolve programas personalizados para maximizar o desempenho dos atletas."
+    description: "Especialista em preparação física para basquete, desenvolve programas personalizados para maximizar o desempenho dos atletas.",
+    fullDescription: `
+      Como Técnica de Basquete masculino e feminino, Katielly Santana acumula diversos títulos no cenário universitário, trazendo uma vasta experiência prática e acadêmica para a D14.
+
+      Contribuições e Reconhecimento:
+
+      Autora com participação no livro "Movimento Humano, Saúde e Desempenho.1", onde abordou a aptidão física relacionada à saúde de alunos praticantes de basquetebol.
+      Responsável pelo desenvolvimento de programas de preparação física personalizados, focados na maximização do desempenho e na prevenção de lesões.
+
+      Formação Acadêmica:
+
+      Licenciatura Plena em Educação Física pela Universidade Federal de Mato Grosso (UFMT).
+      Mestrado pela Universidade Federal de Mato Grosso (UFMT), com pesquisa na linha "Ajustes e Adaptações Metabólicas e Fisiológicas ao Exercício Físico e Dieta".
+
+      Impacto na D14:
+
+      Sua expertise científica e prática em educação física e fisiologia do exercício é fundamental para o desenvolvimento físico integral dos atletas da D14, preparando-os para as exigências do alto rendimento.
+    `
   },
   {
     name: "Fabricio Moraes",
     role: "Coach de Desenvolvimento",
     image: Fabricio,
-    description: "Focado no desenvolvimento técnico individual, trabalha para aperfeiçoar as habilidades específicas de cada atleta."
+    description: "Focado no desenvolvimento técnico individual, trabalha para aperfeiçoar as habilidades específicas de cada atleta.",
+    fullDescription: `
+      Ex-jogador de basquete com uma rica trajetória em equipes nacionais e internacionais, Fabricio Moraes traz sua vasta experiência para a D14, dedicando-se ao desenvolvimento da nova geração após se aposentar das quadras aos 29 anos.
+
+      Trajetória como Jogador:
+
+      Fabricio construiu uma base sólida no Palmeiras, onde atuou por 10 anos nas categorias de base. Sua carreira profissional o levou a competir em diversos campeonatos regionais e estaduais por clubes como Peruíbe, Lages (SC), Suzano, Santo André, Cetaf Vila Velha (ES), Londrina (PR), Sorocaba e Mauá. Ele também teve passagem pelo Corinthians de Santa Cruz do Sul (RS), participando de competições de alto nível.
+
+      Experiência Internacional:
+
+      Complementando sua carreira no Brasil, Fabricio passou 6 anos desenvolvendo suas habilidades nos Estados Unidos, com vivências em San Francisco, Los Angeles e Flórida. Um destaque de sua jornada foi a participação no renomado acampamento Adidas Camp em 1997.
+
+      Foco Atual na D14:
+
+      Após sua aposentadoria como atleta, Fabricio direciona seu conhecimento e paixão pelo jogo para o crescimento do basquete. Na D14, ele atua como Coach de Desenvolvimento, focando no aprimoramento técnico individual e na transmissão de sua valiosa experiência prática para os jovens atletas da academia.
+    `
   }
 ];
 
