@@ -191,7 +191,7 @@ export function Loja() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Vista-se como um campeão. Jogue como um campeão.
+                Qualidade premium para elevar seu desempenho.
               </motion.p>
               
               <motion.div 
