@@ -43,3 +43,11 @@ html {
   scrollbar-width: thin; /* Define a largura como fina */
   scrollbar-color: #54AE21 #000; /* Cor do polegar / Cor da trilha */
 }
+
+/* Line clamp utility for product descriptions */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
