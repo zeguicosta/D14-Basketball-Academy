@@ -41,12 +41,9 @@ const Nav = () => {
     };
   }, []);
 
-  // Determine if on Treinamentos page
-  const isTreinamentosPage = location.pathname === '/treinamentos';
-
-  // Determine text color based on scroll, mobile menu state, and page
+  // Determine text color based on scroll and mobile menu state
   const isNavbarDark = isScrolled || isMobileMenuOpen;
-  const textColorClass = isNavbarDark ? 'text-white' : (isTreinamentosPage ? 'text-black' : 'text-white');
+  const textColorClass = isNavbarDark ? 'text-white' : 'text-white';
   const activeTextColorClass = 'text-[#54AE21]'; // Active color remains the same
 
   // Function to handle inscription button click - adjust as needed
@@ -71,10 +68,10 @@ const Nav = () => {
       <nav className="container mx-auto px-8 sm:px-10">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            {/* Updated logo logic: Use black logo only on Treinamentos page when NOT scrolled */}
+            {/* Logo now defaults to the white version */}
             <img 
               className="h-16 w-auto -mt-2" 
-              src={isTreinamentosPage && !isScrolled ? LogoPreta : Logo} 
+              src={Logo} 
               alt="D14 Logo" 
             />
           </Link>

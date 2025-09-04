@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Users, Target, Medal, GraduationCap, Heart, Award, BookOpen, Globe, Flag, Rocket, ChevronRight, ExternalLink, Layers } from 'lucide-react';
 import { TextParallaxContentExample } from '../components/TextParallaxContent';
-import Danilo from '../assets/danilo.jpg';
+import Danilo from '../assets/daniloofc.jpg';
 import Harley from '../assets/harley.jpg';
 import Katielly from '../assets/katielly.jpg';
 import Fabricio from '../assets/fabricio.jpg';
+import Diogo from '../assets/diogocastro.jpg';
 import LogoBlanco from '../assets/logo.png';
 import LogoGrande from '../assets/logogrande.png';
 import TeamMemberModal from '../components/TeamMemberModal';
@@ -106,6 +107,30 @@ const team = [
       Foco Atual na D14:
 
       Após sua aposentadoria como atleta, Fabricio direciona seu conhecimento e paixão pelo jogo para o crescimento do basquete. Na D14, ele atua como Coach de Desenvolvimento, focando no aprimoramento técnico individual e na transmissão de sua valiosa experiência prática para os jovens atletas da academia.
+    `
+  },
+  {
+    name: "Diogo Castro",
+    role: "Assistente Técnico",
+    image: Diogo,
+    description: "Com o DNA do basquete herdado de seu pai, Danilo Castro, Diogo construiu uma trajetória sólida e vencedora nas categorias de base, conquistando títulos expressivos e se destacando por sua dedicação e talento.",
+    fullDescription: `
+      Trajetória no Basquete:
+      Desde cedo, Diogo esteve imerso no ambiente esportivo, vivenciando de perto a rotina e os valores do basquete de alto nível. Como atleta, defendeu clubes de tradição, como Palmeiras, CBC Campinas e S.C. Corinthians, onde acumulou conquistas e experiência em competições regionais e estaduais.
+
+      Conquistas Notáveis:
+
+      Campeão Paulista
+
+      Campeão Estadual
+
+      Destaque em diversas competições de base
+
+      Formação Acadêmica:
+      A partir de 2024, Diogo iniciará sua graduação em Publicidade na Universidade Presbiteriana Mackenzie, ampliando sua visão multidisciplinar e agregando novas competências para sua carreira no esporte e além das quadras.
+
+      Atuação na D14:
+      Como Assistente Técnico, Diogo contribui com entusiasmo e energia jovem, reforçando o elo entre a tradição e a inovação dentro da D14. Sua vivência no basquete de base, somada ao aprendizado constante, fortalece a missão da academia em preparar atletas completos para os desafios dentro e fora das quadras.
     `
   }
 ];
@@ -526,7 +551,7 @@ export function Sobre() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -541,11 +566,11 @@ export function Sobre() {
                 viewport={{ once: true }}
                 onClick={() => openModal(member)}
               >
-                <div className="overflow-hidden">
+                <div className="overflow-hidden h-[500px]">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6 relative flex flex-col min-h-[210px]">

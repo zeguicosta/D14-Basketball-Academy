@@ -23,11 +23,14 @@ import {
   Target as TargetIcon2
 } from 'lucide-react';
 // Import images from assets folder
-import treinoimg from '../assets/treinoimg.jpg';
+// import treinoimg from '../assets/treinoimg.jpg';
+import treinoimg from '../assets/treinocoletivo.jpg';
 import campimg from '../assets/campimg.jpg';
 import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
+// import img2 from '../assets/img2.jpg';
+import img2 from '../assets/treinopersonalizado.jpg';
 import img6 from '../assets/img6.jpg';
+import grupoD14 from '../assets/grupod14.jpg'; // Import the new image
 import FAQAccordion from '../components/Accordion';
 import FloatingPhone from '../components/FloatingPhone';
 import Timer from '../components/Timer';
@@ -97,15 +100,20 @@ export function Treinamentos() {
 
     return (
     <div className="bg-white">
-      {/* Clean Hero Section Style */}
-      <div className="relative bg-white py-28 md:py-40 overflow-hidden">
-        <img 
-          src={LogoPreta}
-          alt="Background Logo"
-          className="absolute inset-0 w-full h-full object-contain object-center opacity-5 pointer-events-none z-0 scale-150 blur-sm"
-        />
+      {/* Hero Section with new background image */}
+      <div className="relative min-h-screen overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${grupoD14})`,
+          }}
+        >
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        </div>
         
-        <div className="relative container mx-auto px-4 flex items-center justify-center text-center z-10">
+        <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-center text-center z-10">
           <div className="max-w-3xl">
             <motion.div 
               className="text-center mb-8"
@@ -113,35 +121,30 @@ export function Treinamentos() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-md">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full">
                 <TargetIcon2 className="h-5 w-5 text-[#54AE21]" />
-                <span className="font-medium text-[#54AE21]">Modalidades</span>
+                <span className="font-medium text-white">Modalidades</span>
               </div>
             </motion.div>
             <motion.h1 
-              // Adjusted text color and size for light background
-              className="text-5xl md:text-7xl font-bold text-black mb-8 leading-tight" 
+              className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight" 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              {/* Highlight color adjusted */}
               Explore Nossos <span className="text-[#54AE21]">Treinamentos</span>
             </motion.h1>
             <motion.p 
-              // Adjusted text color and margin - reduced bottom margin
-              className="text-lg text-gray-700 mb-8" 
+              className="text-lg text-gray-300 mb-8" 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               Escolha o programa que melhor se adapta ao seu nível e objetivos. Nossa metodologia exclusiva garante seu desenvolvimento contínuo e prepara você para dominar as quadras.
             </motion.p>
-
-            {/* Scroll Down Button - removed top margin */}
             <motion.button
               onClick={scrollToPrograms}
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-[#54AE21] hover:text-[#408718] transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-md text-white hover:text-gray-200 transition-colors"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -163,7 +166,7 @@ export function Treinamentos() {
           </div>
         </div>
       </div>
-      {/* End of Clean Hero Section Style */}
+      {/* End of Hero Section */}
 
       {/* Training Programs */}
       <div id="training-programs" className="py-24 relative overflow-hidden">
