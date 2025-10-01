@@ -203,13 +203,6 @@ export function Home() {
 
       {/* About Section */}
       <section className="py-24 bg-black relative overflow-hidden">
-        {/* Added Subtle Background Logo Here */}
-        <img 
-          src={LogoBlanco}
-          alt="D14 Logo Watermark"
-          className="absolute top-1/4 md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-2/3 md:h-2/3 object-contain opacity-20 pointer-events-none z-0"
-        />
-
         {/* Decorative elements for About Section */}
         <motion.div 
           className="absolute inset-0 pointer-events-none"
@@ -276,6 +269,25 @@ export function Home() {
                 desenvolver valores como disciplina, trabalho em equipe e resiliência.
               </p>
             </div>
+
+            <motion.div 
+              className="mt-12 rounded-lg overflow-hidden shadow-2xl shadow-[#54AE21]/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/D4aF3BwAh6M?start=16"
+                  title="D14 Basketball Academy - Camp"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </motion.div>
 
             {/* Center link on mobile */}
             <div className="flex justify-center sm:justify-start">

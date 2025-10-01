@@ -265,7 +265,7 @@ export function Treinamentos() {
                   className="rounded-lg shadow-xl"
                 />
                 <motion.div 
-                  className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg"
+                  className="relative mt-6 mx-auto max-w-sm bg-white p-6 rounded-lg shadow-lg lg:absolute lg:-bottom-6 lg:-right-6 lg:mt-0 lg:mx-0 lg:max-w-none"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -306,13 +306,18 @@ export function Treinamentos() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <img
-                  src={campimg}
-                  alt="Basketball Camps"
-                  className="rounded-lg shadow-xl"
-                />
+                <div className="aspect-video rounded-lg overflow-hidden shadow-2xl shadow-[#54AE21]/20">
+                    <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/D4aF3BwAh6M?start=16"
+                    title="D14 Basketball Academy - Camp"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    ></iframe>
+                </div>
                 <motion.div 
-                  className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg"
+                  className="relative mt-6 mx-auto max-w-sm bg-white p-6 rounded-lg shadow-lg lg:absolute lg:-bottom-6 lg:-left-6 lg:mt-0 lg:mx-0 lg:max-w-none"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -464,7 +469,7 @@ export function Treinamentos() {
                   className="rounded-lg shadow-xl"
                 />
                 <motion.div 
-                  className="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg"
+                  className="relative mt-6 mx-auto max-w-sm bg-white p-6 rounded-lg shadow-lg lg:absolute lg:-bottom-6 lg:-right-6 lg:mt-0 lg:mx-0 lg:max-w-none"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
