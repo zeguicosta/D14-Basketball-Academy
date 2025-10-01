@@ -90,6 +90,14 @@ export function Treinamentos() {
     const [openLightbox, setOpenLightbox] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
 
+    // Function to open WhatsApp link
+    const openWhatsApp = (message) => {
+      const baseUrl = 'https://api.whatsapp.com/send/?phone=5511973262444&text=';
+      const encodedMessage = encodeURIComponent(message);
+      const url = `${baseUrl}${encodedMessage}&type=phone_number&app_absent=0`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    };
+
     // Function to scroll to the programs section
     const scrollToPrograms = () => {
       const programsSection = document.getElementById('training-programs');
@@ -238,6 +246,7 @@ export function Treinamentos() {
                   className="bg-[#54AE21] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#408718] transition-colors relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => openWhatsApp('Olá, gostaria de mais informações sobre o Treino Coletivo.')}
                 >
                   <span className="relative z-10">Agende uma Aula Experimental</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
@@ -371,6 +380,7 @@ export function Treinamentos() {
                   className="bg-[#54AE21] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#408718] transition-colors relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => openWhatsApp('Olá, gostaria de mais informações sobre os Camps.')}
                 >
                   <span className="relative z-10">Inscreva-se no Próximo Camp</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
@@ -435,6 +445,7 @@ export function Treinamentos() {
                   className="bg-[#54AE21] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#408718] transition-colors relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => openWhatsApp('Olá, gostaria de mais informações sobre o Treino Personalizado.')}
                 >
                   <span className="relative z-10">Agende uma Consulta</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
