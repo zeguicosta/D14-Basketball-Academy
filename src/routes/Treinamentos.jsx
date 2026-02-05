@@ -30,7 +30,6 @@ import img1 from '../assets/img1.jpg';
 // import img2 from '../assets/img2.jpg';
 import img2 from '../assets/treinopersonalizado.jpg';
 import img6 from '../assets/img6.jpg';
-import grupoD14 from '../assets/grupod14.jpg'; // Import the new image
 import FAQAccordion from '../components/Accordion';
 import FloatingPhone from '../components/FloatingPhone';
 import Timer from '../components/Timer';
@@ -114,7 +113,7 @@ export function Treinamentos() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${grupoD14})`,
+            backgroundImage: 'url("https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2070")',
           }}
         >
           {/* Dark Overlay */}

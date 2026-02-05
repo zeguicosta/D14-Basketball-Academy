@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogoBlanco from '../assets/logo.png'; // Import the white logo
+import grupoD14 from '../assets/grupod14.jpg';
 
 // Renamed Hero to Home
 export function Home() {
@@ -48,7 +49,7 @@ export function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2070")', // Example image, replace if needed
+            backgroundImage: `url(${grupoD14})`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
@@ -261,7 +262,7 @@ export function Home() {
               
               <p>
                 A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. 
-                Desde sua fundação, a D14 já preparou 23 atletas que seguiram seus estudos nos Estados Unidos.
+                Desde sua fundação, a D14 já preparou <span className="text-[#54AE21]">28 atletas</span> que seguiram seus estudos nos Estados Unidos.
               </p>
 
               <p>
@@ -324,7 +325,7 @@ export function Home() {
                 <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto"> 
                   <Trophy className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">23</div>
+                <div className="text-3xl font-bold text-white mb-2">28</div>
                 <div className="text-gray-400">Atletas nos EUA</div>
               </motion.div>
 

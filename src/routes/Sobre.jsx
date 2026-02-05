@@ -442,7 +442,7 @@ export function Sobre() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { number: "23", label: "Atletas nos EUA" },
+              { number: "28", label: "Atletas nos EUA" },
               { number: "30+", label: "Anos de Experiência" },
               { number: "100%", label: "Foco no Atleta" },
               { number: "4", label: "Coaches Especializados" }
