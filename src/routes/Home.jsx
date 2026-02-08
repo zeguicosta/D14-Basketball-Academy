@@ -11,15 +11,20 @@ import {
   Instagram,
   Mail,
   MapPin,
-  MessageCircle, // Assuming this is WhatsApp icon
-  Target as TargetIcon2, // Added import for the subtitle icon
-  Flame, 
+  MessageCircle,
+  Target as TargetIcon2,
+  Flame,
   UserCheck,
-  Users as UsersGroup 
+  Users as UsersGroup,
+  Clock,
+  HelpCircle
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import LogoBlanco from '../assets/logo.png'; // Import the white logo
+import LogoBlanco from '../assets/logo.png';
 import grupoD14 from '../assets/grupod14.jpg';
+import OndeEstamos from '../components/OndeEstamos';
+import FAQAccordion from '../components/Accordion';
+import { faqData } from '../constants/faqData';
 
 // Renamed Hero to Home
 export function Home() {
@@ -181,21 +186,26 @@ export function Home() {
                </button>
             </motion.div>
 
-            {/* Location - Using placeholder address from provided code */}
+            {/* Localizações e FAQ */}
             <motion.div
+              className="flex flex-wrap justify-center sm:justify-end gap-4"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <a 
-                href="https://maps.app.goo.gl/8FhXk4yL9p7Z6fWd8" // Placeholder Google Maps link - REPLACE if needed
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+              <a
+                href="#onde-estamos"
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
               >
-                <MapPin className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                {/* Using placeholder address - REPLACE if needed */}
-                <span className="text-sm text-center sm:text-left">Av. Bernardino de Campos, 79 - Paraíso, SP</span> 
+                <MapPin className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span>Ver localizações</span>
+              </a>
+              <a
+                href="#perguntas-frequentes"
+                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
+              >
+                <HelpCircle className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span>Perguntas frequentes</span>
               </a>
             </motion.div>
           </div>
@@ -521,9 +531,53 @@ export function Home() {
             </div>
         </div>
       </section>
+
+      {/* Onde estamos */}
+      <OndeEstamos />
+
+      {/* Perguntas frequentes */}
+      <section id="perguntas-frequentes" className="py-24 bg-white relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 pointer-events-none opacity-50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute left-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+        </motion.div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-start md:justify-center gap-6 mb-4 mx-auto max-w-max">
+              <HelpCircle className="h-10 w-10 text-[#54AE21]" />
+              <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
+            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto text-center">
+              Tire suas dúvidas sobre nossos treinamentos e programas.
+            </p>
+          </motion.div>
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {faqData.map((faq, index) => (
+              <FAQAccordion key={index} title={faq.title} answer={faq.answer} />
+            ))}
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 }
 
-// Add default export
 export default Home;

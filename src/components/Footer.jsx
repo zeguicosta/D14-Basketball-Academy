@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Instagram, MessageCircle, Mail, MapPin, Code } from 'lucide-react'
+import { MessageCircle, Mail, MapPin, Code, Clock } from 'lucide-react'
 import Logo from '../assets/logo.png'
 
 const Footer = () => {
@@ -49,15 +49,27 @@ const Footer = () => {
                     </div>
 
                     <div className="items-center md:items-start lg:col-start-4">
-                        <h3 className="font-semibold text-white mb-4 text-lg text-center md:text-left">Contato</h3>
-                        <ul className="space-y-3 text-sm">
-                            <li className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 text-[#54AE21] mt-0.5 flex-shrink-0" />
-                                <a href="https://maps.app.goo.gl/8FhXk4yL9p7Z6fWd8" target="_blank" rel="noopener noreferrer" className="hover:text-[#54AE21] transition-colors">
-                                    Av. Bernardino de Campos, 79 - Paraíso, São Paulo - SP
+                        <h3 className="font-semibold text-white mb-4 text-lg text-center md:text-left">Contato e Unidades</h3>
+                        <ul className="space-y-4 text-sm">
+                            <li>
+                                <p className="text-white/90 font-medium mb-1">Unidade Paraíso</p>
+                                <a href="https://maps.app.goo.gl/8FhXk4yL9p7Z6fWd8" target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 hover:text-[#54AE21] transition-colors">
+                                    <MapPin className="h-4 w-4 text-[#54AE21] mt-0.5 flex-shrink-0" />
+                                    <span>Av. Bernardino de Campos, 79 - Paraíso, São Paulo - SP</span>
                                 </a>
                             </li>
-                            <li className="flex items-center gap-2">
+                            <li>
+                                <p className="text-white/90 font-medium mb-1">Nova filial</p>
+                                <div className="flex items-start gap-2">
+                                    <MapPin className="h-4 w-4 text-[#54AE21] mt-0.5 flex-shrink-0" />
+                                    <span>Endereço em breve</span>
+                                </div>
+                                <div className="flex items-center gap-2 mt-1 ml-6">
+                                    <Clock className="h-4 w-4 text-[#54AE21] flex-shrink-0" />
+                                    <span>Quinta-feira, 17h às 19h</span>
+                                </div>
+                            </li>
+                            <li className="flex items-center gap-2 pt-1">
                                 <Mail className="h-4 w-4 text-[#54AE21] flex-shrink-0" />
                                 <button onClick={openMail} className="hover:text-[#54AE21] transition-colors">
                                     d14@d14basketballacademy.com.br
@@ -76,11 +88,12 @@ const Footer = () => {
 
                 </div>
 
-                <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
                     <p>&copy; {currentYear} D14 Basketball Academy. Todos os direitos reservados.</p>
-                    <a href="https://vantdot.netlify.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 hover:bg-[#54AE21]/20 rounded-md transition-colors mt-4 md:mt-0">
+                    <Link to="/sobre#parceria-a1" className="text-gray-500 hover:text-[#54AE21] transition-colors">Parceiros: A1 Medicina Esportiva</Link>
+                    <a href="https://www.instagram.com/zegui.costa/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 hover:bg-[#54AE21]/20 rounded-md transition-colors mt-4 md:mt-0">
                         <Code className="h-5 w-5 text-[#54AE21]" />
-                        <span className="font-medium text-[#54AE21]">Desenvolvido por VANT</span>
+                        <span className="font-medium text-[#54AE21]">Desenvolvido por Guilherme Costa</span>
                     </a>
                 </div>
             </div>

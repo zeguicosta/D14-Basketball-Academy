@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Users, Target, Medal, GraduationCap, Heart, Award, BookOpen, Globe, Flag, Rocket, ChevronRight, ExternalLink, Layers } from 'lucide-react';
+import { Trophy, Users, Target, Medal, GraduationCap, Heart, Award, BookOpen, Globe, Flag, Rocket, ChevronRight, ExternalLink, Layers, HelpCircle, Handshake } from 'lucide-react';
 import { TextParallaxContentExample } from '../components/TextParallaxContent';
 import Danilo from '../assets/daniloofc.jpg';
 import Harley from '../assets/harley.jpg';
@@ -10,11 +10,15 @@ import Diogo from '../assets/diogocastro.jpg';
 import LogoBlanco from '../assets/logo.png';
 import LogoGrande from '../assets/logogrande.png';
 import TeamMemberModal from '../components/TeamMemberModal';
+import OndeEstamos from '../components/OndeEstamos';
+import FAQAccordion from '../components/Accordion';
+import { faqData } from '../constants/faqData';
 
 // Import new images from assets
 import SobreImage1 from '../assets/campimg3.jpg';
 import SobreImage4 from '../assets/slide1.jpg';
 import CampImage from '../assets/campimg2.jpg';
+import A1Logo from '../assets/logoa1.png';
 
 const team = [
   {
@@ -273,6 +277,39 @@ export function Sobre() {
         </div>
       </section>
 
+      {/* Parceria A1 Medicina Esportiva */}
+      <section id="parceria-a1" className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Handshake className="h-8 w-8 text-[#54AE21]" />
+              <h2 className="text-3xl font-bold text-gray-900">Parceria A1 Medicina Esportiva</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6 text-gray-600 text-lg">
+                <p>
+                  A D14 Basketball Academy conta com a parceria da <strong className="text-gray-900">A1 Medicina Esportiva</strong>, 
+                  oferecendo aos nossos atletas acompanhamento em saúde e desempenho esportivo.
+                </p>
+                <p>
+                  Com essa união, os alunos da D14 têm acesso a avaliações e orientações que ajudam na prevenção de lesões 
+                  e no cuidado com o corpo, para que possam evoluir nas quadras com mais segurança e apoio profissional.
+                </p>
+              </div>
+              <div className="flex justify-center md:justify-end">
+                <img src={A1Logo} alt="A1 Medicina Esportiva" className="max-h-48 w-auto object-contain" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Valores */}
       <section className="py-24 bg-black relative overflow-hidden">
         <motion.div 
@@ -318,7 +355,7 @@ export function Sobre() {
               {
                 icon: GraduationCap,
                 title: "Educação",
-                description: "Valorizamos o desenvolvimento acadêmico tanto quanto o atlético para formar cidadãos completos."
+                description: "Valorizamos o desenvolvimento acadêmico tanto quanto o atlético para formar indivíduos completos."
               }
             ].map((value, index) => (
               <motion.div
@@ -517,6 +554,51 @@ export function Sobre() {
               />
               <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
             </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Onde estamos */}
+      <OndeEstamos />
+
+      {/* Perguntas frequentes */}
+      <section id="perguntas-frequentes" className="py-24 bg-white relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 pointer-events-none opacity-50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute left-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+          <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
+        </motion.div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-start md:justify-center gap-6 mb-4 mx-auto max-w-max">
+              <HelpCircle className="h-10 w-10 text-[#54AE21]" />
+              <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
+            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto text-center">
+              Tire suas dúvidas sobre nossos treinamentos e programas.
+            </p>
+          </motion.div>
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            {faqData.map((faq, index) => (
+              <FAQAccordion key={index} title={faq.title} answer={faq.answer} />
+            ))}
           </motion.div>
         </div>
       </section>

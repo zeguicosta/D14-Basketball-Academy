@@ -3,15 +3,20 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Rola a página para o topo com comportamento suave
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // opcional: adiciona uma transição suave
-    });
-  }, [pathname]);
+    if (hash) {
+      // Se tiver hash (ex: #parceria-a1), rola até o elemento após a página renderizar
+      const id = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname, hash]);
 
   return null;
 };
