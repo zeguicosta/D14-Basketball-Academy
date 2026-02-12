@@ -53,7 +53,7 @@ const Card = ({ position, card, scrollYProgress, isOddCard }) => {
         backgroundPosition: "center",
       }
     : {
-        backgroundColor: isOddCard ? "black" : "white",
+        backgroundColor: isOddCard ? "var(--bg-site)" : "white",
         color: isOddCard ? "white" : "black",
       };
 

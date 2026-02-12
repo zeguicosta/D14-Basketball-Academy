@@ -30,7 +30,7 @@ const FloatingPhone = () => {
           duration: 2,
           ease: "easeInOut",
         }}
-        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white/80 border-l-white/80 border-t-white/80 bg-black p-1 pl-[3px] pt-[3px]"
+        className="relative h-96 w-56 rounded-[24px] border-2 border-b-4 border-r-4 border-white/80 border-l-white/80 border-t-white/80 bg-site p-1 pl-[3px] pt-[3px]"
       >
         <HeaderBar />
         <Screen openNewTab={openNewTab} />
@@ -42,7 +42,7 @@ const FloatingPhone = () => {
 const HeaderBar = () => {
   return (
     <>
-      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-black"></div>
+      <div className="absolute left-[50%] top-2.5 z-10 h-2 w-16 -translate-x-[50%] rounded-md bg-site"></div>
       <div className="absolute right-3 top-2 z-10 flex gap-2">
         <FiWifi className="text-gray-500" />
         <FaBatteryFull className="text-gray-500" />

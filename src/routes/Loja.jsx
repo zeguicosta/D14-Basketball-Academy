@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   ShoppingCart, 
@@ -7,10 +7,10 @@ import {
   Truck,
   Shield,
   Heart,
-  Grid,
-  List,
   Search
 } from 'lucide-react';
+import { InteractiveHoverButton } from '../components/ui/interactive-hover-button';
+import { TextReveal } from '../components/ui/text-reveal-animation';
 
 // Import actual product images
 import mochila from '../assets/mochila.png';
@@ -94,24 +94,7 @@ const categories = ['Todos', 'Uniformes', 'Vestuário', 'Acessórios'];
 
 export function Loja() {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
-  const [viewMode, setViewMode] = useState('grid');
   const [searchTerm, setSearchTerm] = useState('');
-
-  // Force list view on mobile
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) { // md breakpoint
-        setViewMode('list');
-      }
-    };
-
-    // Check on mount
-    handleResize();
-
-    // Listen for resize events
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   // Filter products based on category and search
   const filteredProducts = products.filter(product => {
@@ -131,203 +114,76 @@ export function Loja() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-site min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black via-gray-900 to-black min-h-screen flex items-center overflow-hidden pt-20">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 via-transparent to-[#54AE21]/5" />
-        </div>
-        
-        {/* Animated Background Elements */}
-        <motion.div 
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <div className="absolute left-10 top-20 w-64 h-64 bg-[#54AE21]/10 rounded-full blur-3xl" />
-          <div className="absolute right-10 bottom-20 w-80 h-80 bg-[#54AE21]/15 rounded-full blur-3xl" />
-          <div className="absolute left-1/2 top-1/3 -translate-x-1/2 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-[100px]" />
-        </motion.div>
-
-        <div className="container mx-auto px-4 relative z-10 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
+      <section className="relative bg-[#fefefe] min-h-screen flex items-center overflow-x-hidden pt-20 md:py-28 pb-20 min-h-[100dvh]">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 w-full flex flex-col justify-center min-h-[calc(100dvh-5rem)] md:min-h-0 pt-6 pb-8 md:py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div
               className="text-left"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -24 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               <motion.div
-                className="inline-flex items-center gap-2 bg-[#54AE21]/20 border border-[#54AE21]/30 rounded-full px-4 py-2 mb-6"
-                initial={{ opacity: 0, y: 20 }}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-6"
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               >
                 <ShoppingCart className="h-5 w-5 text-[#54AE21]" />
-                <span className="text-[#54AE21] font-semibold">Produtos Oficiais</span>
+                <span className="font-medium text-[#54AE21]">Produtos oficiais</span>
               </motion.div>
-              
-              <motion.h1 
-                className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight relative"
-                initial={{ opacity: 0, y: 20 }}
+              <h1 className="text-5xl md:text-6xl font-medium text-gray-900 mb-5 leading-tight">
+                <TextReveal word="Loja " className="text-5xl md:text-6xl font-medium text-gray-900 leading-tight inline-block" delayBase={0.2} />
+                <TextReveal word="D14" className="text-5xl md:text-6xl font-medium text-[#54AE21] leading-tight inline-block" delayBase={0.35} />
+              </h1>
+              <motion.p
+                className="text-gray-600 text-lg mb-8 max-w-lg leading-relaxed"
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                Loja <span className="text-[#54AE21]">D14</span>
-                <motion.div
-                  className="absolute -bottom-2 left-0 h-1 bg-[#54AE21] rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 1, delay: 1 }}
-                />
-              </motion.h1>
-              
-              <motion.p 
-                className="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
               >
                 Qualidade premium para elevar seu desempenho.
               </motion.p>
-              
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4 mb-8"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                transition={{ duration: 0.35, delay: 0.65, ease: "easeOut" }}
               >
-                <button 
-                  onClick={() => document.getElementById('destaques').scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-[#54AE21] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#408718] transition-all duration-300 flex items-center justify-center gap-2 group"
+                <motion.div
+                  className="relative flex w-full sm:w-auto rounded-full border-2 border-[#6bc429] overflow-hidden shadow-[0_8px_28px_-4px_rgba(84,174,33,0.25)] hover:border-[#7dd63a] hover:shadow-[0_20px_40px_-12px_rgba(84,174,33,0.35)] transition-all duration-300 group/btn"
                 >
-                  <span>Ver Destaques</span>
-                  <motion.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                  >
-                    →
-                  </motion.div>
-                </button>
-                <button 
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21] to-transparent z-10 pointer-events-none rounded-full" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <InteractiveHoverButton
+                    text="Ver Destaques"
+                    inverted
+                    className="relative w-full text-sm py-3.5 px-6 border-0 rounded-full"
+                    onClick={() => document.getElementById('destaques').scrollIntoView({ behavior: 'smooth' })}
+                  />
+                </motion.div>
+                <button
                   onClick={() => document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' })}
-                  className="border border-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300"
+                  className="rounded-full border-2 border-gray-300 text-gray-700 text-sm px-6 py-3.5 font-medium hover:border-[#54AE21]/50 hover:text-[#54AE21] transition-all duration-300"
                 >
                   Todos os Produtos
                 </button>
               </motion.div>
-              
-              <motion.div 
-                className="flex flex-wrap gap-6 text-gray-400"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <div className="flex items-center gap-2">
-                  <Truck className="h-5 w-5 text-[#54AE21]" />
-                  <span>Entrega Rápida</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-[#54AE21]" />
-                  <span>Qualidade Garantida</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Package className="h-5 w-5 text-[#54AE21]" />
-                  <span>100% Oficial</span>
-                </div>
-              </motion.div>
             </motion.div>
 
-            {/* Right Content - Product Showcase */}
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hidden lg:flex relative min-h-[400px] lg:min-h-[560px] w-full h-full items-center justify-end overflow-visible"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.div
-                  className="space-y-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#54AE21]/50 transition-all duration-300 group">
-                    <img 
-                      src={uniformebranco} 
-                      alt="Uniforme Branco" 
-                      className="w-full h-48 md:h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <h3 className="text-white font-semibold">Uniforme Branco</h3>
-                    <p className="text-gray-400 text-sm">Produto oficial D14</p>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#54AE21]/50 transition-all duration-300 group">
-                    <img 
-                      src={casaco1} 
-                      alt="Casaco D14" 
-                      className="w-full h-48 md:h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <h3 className="text-white font-semibold">Corta Vento Impermeável</h3>
-                    <p className="text-gray-400 text-sm">Produto oficial D14</p>
-                  </div>
-                </motion.div>
-                
-                <motion.div
-                  className="space-y-6 md:mt-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                >
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#54AE21]/50 transition-all duration-300 group">
-                    <img 
-                      src={uniformepreto} 
-                      alt="Uniforme Preto" 
-                      className="w-full h-48 md:h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <h3 className="text-white font-semibold">Uniforme Preto</h3>
-                    <p className="text-gray-400 text-sm">Produto oficial D14</p>
-                  </div>
-                  
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#54AE21]/50 transition-all duration-300 group">
-                    <img 
-                      src={mochila} 
-                      alt="Mochila D14" 
-                      className="w-full h-48 md:h-32 object-cover rounded-lg mb-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <h3 className="text-white font-semibold">Mochila D14 Pro</h3>
-                    <p className="text-gray-400 text-sm">Produto oficial D14</p>
-                  </div>
-                </motion.div>
-              </div>
-              
-              {/* Floating Elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-20 h-20 bg-[#54AE21]/20 rounded-full blur-xl"
-                animate={{ 
-                  y: [0, -10, 0],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 3,
-                  ease: "easeInOut"
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#54AE21]/15 rounded-full blur-xl"
-                animate={{ 
-                  y: [0, 10, 0],
-                  scale: [1, 0.9, 1]
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 4,
-                  ease: "easeInOut"
-                }}
+              <img
+                src={uniformebranco}
+                alt=""
+                aria-hidden
+                className="h-full min-h-[640px] max-h-[115vh] w-auto max-w-[125%] object-contain object-right pointer-events-none select-none"
               />
             </motion.div>
           </div>
@@ -335,54 +191,46 @@ export function Loja() {
       </section>
 
       {/* Featured Products */}
-      <section id="destaques" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="destaques" className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-left md:text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-start md:justify-center gap-2 mb-4">
-              <Package className="h-6 w-6 text-[#54AE21]" />
-              <h2 className="text-3xl font-bold">Produtos em Destaque</h2>
-            </div>
-            <p className="text-gray-600 max-w-2xl md:mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">Produtos em Destaque</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Confira nossos produtos oficiais da D14 Basketball Academy.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow flex flex-col h-full"
-                initial={{ opacity: 0, y: 20 }}
+                className="bg-white border-2 border-black/8 rounded-2xl shadow-sm overflow-hidden group hover:border-[#54AE21]/35 transition-all duration-300 flex flex-col h-full"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -4 }}
               >
                 <div className="relative overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 bg-[#54AE21] text-white px-3 py-1 rounded-full text-sm font-bold">
+                  <img src={product.image} alt={product.name} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4 bg-[#54AE21] text-white px-3 py-1.5 rounded-full text-xs font-medium">
                     Destaque
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4 flex-1">{product.description}</p>
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">{product.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4 flex-1 leading-relaxed">{product.description}</p>
                   <button
                     onClick={() => handlePurchase(product)}
-                    className="w-full bg-[#54AE21] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#408718] transition-colors flex items-center justify-center gap-2 group"
+                    className="w-full rounded-full bg-[#54AE21] text-white py-3.5 px-6 font-medium hover:bg-[#54AE21]/90 transition-all duration-300 flex items-center justify-center gap-2"
                   >
-                    <span>Ver Produto</span>
-                    <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    Ver Produto
+                    <ExternalLink className="h-4 w-4" />
                   </button>
                 </div>
               </motion.div>
@@ -392,132 +240,92 @@ export function Loja() {
       </section>
 
       {/* All Products */}
-      <section id="produtos" className="py-24">
-        <div className="container mx-auto px-4">
+      <section id="produtos" className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
+            className="mb-10"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-left md:text-center mb-8">Todos os Produtos</h2>
-            
-            {/* Search and Filters */}
-            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-              {/* Search */}
-              <div className="relative flex-1 max-w-md w-full lg:w-auto">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Buscar produtos..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#54AE21]"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+              <div className="text-center md:text-left">
+                <h2 className="text-4xl md:text-5xl font-medium text-gray-900">Todos os Produtos</h2>
               </div>
-
-              {/* Category Filter */}
-              <div className="flex flex-wrap gap-2 justify-start">
-                {categories.map(category => (
-                  <button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full font-medium transition-colors ${
-                      selectedCategory === category
-                        ? 'bg-[#54AE21] text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-
-              {/* View Mode Toggle - Hidden on mobile */}
-              <div className="hidden md:flex gap-2">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-[#54AE21] text-white' : 'bg-gray-200 text-gray-700'}`}
-                >
-                  <Grid className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-[#54AE21] text-white' : 'bg-gray-200 text-gray-700'}`}
-                >
-                  <List className="h-5 w-5" />
-                </button>
+              <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center">
+                <div className="relative flex-1 max-w-md w-full lg:w-auto">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Buscar produtos..."
+                    className="w-full pl-10 pr-4 py-2.5 border-2 border-black/8 rounded-xl focus:outline-none focus:border-[#54AE21]/50 transition-colors"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </div>
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-end">
+                  {categories.map(category => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-4 py-2 rounded-xl font-medium transition-colors ${
+                        selectedCategory === category ? 'bg-[#54AE21] text-white' : 'bg-black/5 text-gray-700 hover:bg-black/10'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Products Grid */}
-          <div className={`${viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' : 'space-y-6'}`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
-                className={`bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow ${
-                  viewMode === 'list' ? 'flex flex-col sm:flex-row' : 'flex flex-col h-full'
-                }`}
-                initial={{ opacity: 0, y: 20 }}
+                className="bg-white border-2 border-black/8 rounded-2xl shadow-sm overflow-hidden group hover:border-[#54AE21]/35 transition-all duration-300 flex flex-col h-full"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -4 }}
               >
-                <div className={`relative overflow-hidden ${
-                  viewMode === 'list' ? 'w-full sm:w-64 lg:w-80 flex-shrink-0' : ''
-                }`}>
+                <div className="relative overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className={`object-cover group-hover:scale-110 transition-transform duration-500 ${
-                      viewMode === 'list' ? 'w-full h-48 sm:h-full' : 'w-full h-64'
-                    }`}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className={`p-6 flex-1 ${
-                  viewMode === 'grid' ? 'flex flex-col' : 'flex flex-col justify-between'
-                }`}>
+                <div className="p-6 flex-1 flex flex-col">
                   <div className="flex-1">
-                    <h3 className={`font-bold mb-2 ${viewMode === 'list' ? 'text-lg sm:text-xl' : 'text-xl'}`}>
-                      {product.name}
-                    </h3>
-                    <p className={`text-gray-600 mb-4 ${
-                      viewMode === 'grid' ? 'flex-1' : viewMode === 'list' ? 'text-sm sm:text-base line-clamp-3' : ''
-                    }`}>
-                      {product.description}
-                    </p>
+                    <h3 className="font-medium text-gray-900 mb-2 text-lg">{product.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed flex-1">{product.description}</p>
                   </div>
-                  
-                  <div className="space-y-4">
-                    <button
-                      onClick={() => handlePurchase(product)}
-                      className={`bg-[#54AE21] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#408718] transition-colors flex items-center justify-center gap-2 group ${
-                        viewMode === 'list' ? 'w-full sm:w-auto sm:px-6' : 'w-full'
-                      }`}
-                    >
-                      <span>Ver Produto</span>
-                      <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => handlePurchase(product)}
+                    className="w-full rounded-full bg-[#54AE21] text-white py-3.5 px-6 font-medium hover:bg-[#54AE21]/90 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    Ver Produto
+                    <ExternalLink className="h-4 w-4" />
+                  </button>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* No products found */}
           {filteredProducts.length === 0 && (
             <motion.div
               className="text-center py-16"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
               <Package className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Nenhum produto encontrado</h3>
+              <h3 className="text-xl font-medium text-gray-900 mb-2">Nenhum produto encontrado</h3>
               <p className="text-gray-600">Tente ajustar os filtros ou buscar por outros termos.</p>
             </motion.div>
           )}
@@ -525,52 +333,40 @@ export function Loja() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-black">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-28 bg-site">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Por que escolher a Loja D14?</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">Por que escolher a Loja D14?</h2>
+            <p className="text-white/85 max-w-2xl mx-auto">
               Produtos oficiais com a qualidade que você merece.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              {
-                icon: Shield,
-                title: "Qualidade Garantida",
-                description: "Produtos testados e aprovados pelos nossos atletas profissionais."
-              },
-              {
-                icon: Truck,
-                title: "Entrega Rápida",
-                description: "Receba seus produtos em casa com rapidez e segurança."
-              },
-              {
-                icon: Heart,
-                title: "Apoie a Academia",
-                description: "Parte da receita é investida no desenvolvimento de novos atletas."
-              }
+              { icon: Shield, title: "Qualidade Garantida", description: "Produtos testados e aprovados pelos nossos atletas profissionais." },
+              { icon: Truck, title: "Entrega Rápida", description: "Receba seus produtos em casa com rapidez e segurança." },
+              { icon: Heart, title: "Apoie a Academia", description: "Parte da receita é investida no desenvolvimento de novos atletas." }
             ].map((benefit, index) => (
               <motion.div
                 key={benefit.title}
-                className="text-center p-8 bg-white/5 rounded-lg border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-8 bg-[#111] text-center relative overflow-hidden group hover:border-[#54AE21]/40 transition-all duration-300"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
               >
-                <div className="bg-[#54AE21]/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <benefit.icon className="h-8 w-8 text-[#54AE21]" />
+                <div className="bg-[#54AE21]/20 w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5">
+                  <benefit.icon className="h-7 w-7 text-[#54AE21]" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
-                <p className="text-gray-400">{benefit.description}</p>
+                <h3 className="text-lg font-medium text-white mb-3">{benefit.title}</h3>
+                <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

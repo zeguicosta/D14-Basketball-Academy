@@ -15,7 +15,15 @@ const ScrollToTop = () => {
       }, 100);
       return () => clearTimeout(timer);
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Rolagem para o topo ao trocar de página (fix para mobile: instantâneo + atraso para o DOM atualizar)
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    scrollToTop();
+    const timer = setTimeout(scrollToTop, 50);
+    return () => clearTimeout(timer);
   }, [pathname, hash]);
 
   return null;

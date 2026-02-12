@@ -21,9 +21,10 @@ import {
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import LogoBlanco from '../assets/logo.png';
-import grupoD14 from '../assets/grupod14.jpg';
 import OndeEstamos from '../components/OndeEstamos';
 import FAQAccordion from '../components/Accordion';
+import { InteractiveHoverButton } from '../components/ui/interactive-hover-button';
+import { TextReveal } from '../components/ui/text-reveal-animation';
 import { faqData } from '../constants/faqData';
 
 // Renamed Hero to Home
@@ -49,222 +50,149 @@ export function Home() {
 
   return (
     <>
-      <div className="relative min-h-screen">
-        {/* Background with overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${grupoD14})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
-        </div>
-
-        {/* Enhanced decorative elements (removed z-10) */}
-        <motion.div 
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          {/* Removed vertical gradient lines completely */}
-          
-          {/* Blur effects */}
-          <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-2xl" />
-          <div className="absolute right-0 bottom-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-2xl" />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#54AE21]/3 rounded-full blur-[40px]" />
-          
-          {/* Radial gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_40%)]" />
-          
-          {/* Animated lines */}
-          <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent translate-y-4" />
-          
-          {/* Diagonal lines */}
-          <div className="absolute left-0 top-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#54AE21]/20 origin-left rotate-45" />
-          <div className="absolute right-0 bottom-0 w-1/3 h-px bg-gradient-to-l from-transparent to-[#54AE21]/20 origin-right -rotate-45" />
-        </motion.div>
-
-        {/* Content (ensure z-index is highest) */}
-        <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-center text-center">
-          <div className="max-w-3xl">
-            <motion.h1 
-              className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Supere
-              <br />
-              <span className="relative inline-block">
-                seus limites
-                <motion.div 
-                  className="absolute -bottom-4 left-0 w-full h-1 bg-[#54AE21]"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
-              </span>
-            </motion.h1>
-
-            <motion.p 
-              className="text-lg text-gray-300 mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              {/* Placeholder for the chosen text - Using Option 1 for now */}
-              Desenvolva seu jogo com a metodologia exclusiva da D14 Basketball Academy e domine as quadras.
-            </motion.p>
-
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              {/* Link the button to /treinamentos */}
-              <Link to="/treinamentos">
-                <motion.button 
-                  className="bg-[#54AE21] text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-[#408718] transition-colors group relative overflow-hidden w-full sm:w-auto"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10">Comece Sua Jornada</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                </motion.button>
-              </Link>
-              <Link to="/treinamentos">
-                <motion.button 
-                  className="border border-white/20 text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors relative overflow-hidden group w-full sm:w-auto"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10">Conheça os Treinos</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                </motion.button>
-              </Link>
-            </motion.div>
+      {/* Hero wrapper: fundo preto e bordinha bem pequena */}
+      <div className="m-0.5 md:m-1 bg-site p-0.5 md:p-1">
+        <div className="relative min-h-screen rounded-3xl md:rounded-[2.5rem] overflow-hidden">
+          {/* Vídeo YouTube como fundo (autoplay, mute, loop) */}
+          <div className="hero-video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/D4aF3BwAh6M?start=16&autoplay=1&mute=1&loop=1&playlist=D4aF3BwAh6M"
+              title="D14 Basketball Academy - Camp"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="pointer-events-none"
+            />
           </div>
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
 
-        {/* Social Media and Location */}
-        <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-white/80 gap-4 sm:gap-0">
-            {/* Social Media Links */}
-            <motion.div 
-              className="flex flex-wrap justify-center items-center gap-4 sm:gap-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              {/* Updated Instagram link */}
-              <button 
-                onClick={openInstagram}
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
-              >
-                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm hidden">@d14basketball</span> {/* Changed sm:inline to hidden */}
-              </button>
-              {/* Updated WhatsApp link */}
-               <button 
-                onClick={openWhatsApp}
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
-              >
-                <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm hidden">(11) 97326-2444</span> {/* Changed sm:inline to hidden */}
-              </button>
-              {/* Updated Mail link */}
-              <button 
-                onClick={openMail}
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
-              >
-                <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm hidden">d14@d14basketballacademy.com.br</span> {/* Changed sm:inline to hidden */}
-               </button>
-            </motion.div>
+          {/* Conteúdo: texto à esquerda, menor */}
+          <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-start text-left pl-6 pr-6 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16">
+            <div className="max-w-xl min-w-0">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#F4F4F5] mb-8 leading-tight overflow-visible">
+                <TextReveal
+                  word="Supere"
+                  className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#F4F4F5] leading-tight block"
+                />
+                <br />
+                <TextReveal
+                  word="seus limites"
+                  className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#F4F4F5] leading-tight block"
+                />
+              </h1>
 
-            {/* Localizações e FAQ */}
-            <motion.div
-              className="flex flex-wrap justify-center sm:justify-end gap-4"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <a
-                href="#onde-estamos"
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
+              <motion.p 
+                className="text-sm md:text-base font-normal text-[#F4F4F5] mt-2 mb-14 max-w-md"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.45, ease: "easeOut" }}
               >
-                <MapPin className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <span>Ver localizações</span>
-              </a>
-              <a
-                href="#perguntas-frequentes"
-                className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
+                Desenvolva seu jogo com a metodologia exclusiva da D14 Basketball Academy e domine as quadras.
+              </motion.p>
+
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-6 justify-start"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.6, ease: "easeOut" }}
               >
-                <HelpCircle className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <span>Perguntas frequentes</span>
-              </a>
+              {/* Link o botão para /treinamentos */}
+              <Link to="/treinamentos">
+                <InteractiveHoverButton
+                  text="Comece Sua Jornada"
+                  className="w-auto min-w-[17rem] whitespace-nowrap pl-5 pr-8 py-3"
+                />
+              </Link>
             </motion.div>
+            </div>
+          </div>
+
+          {/* Social Media and Location */}
+          <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center text-[#F4F4F5] gap-4 sm:gap-0 px-6 sm:px-8">
+              {/* Social Media Links */}
+              <motion.div 
+                className="flex flex-wrap justify-center items-center gap-4 sm:gap-6"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.8, ease: "easeOut" }}
+              >
+                <button 
+                  onClick={openInstagram}
+                  className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+                >
+                  <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm hidden">@d14basketball</span>
+                </button>
+                <button 
+                  onClick={openWhatsApp}
+                  className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+                >
+                  <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm hidden">(11) 97326-2444</span>
+                </button>
+                <button 
+                  onClick={openMail}
+                  className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group"
+                >
+                  <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm hidden">d14@d14basketballacademy.com.br</span>
+                </button>
+              </motion.div>
+
+              {/* Localizações e FAQ */}
+              <motion.div
+                className="flex flex-wrap justify-center sm:justify-end gap-4"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: 0.8, ease: "easeOut" }}
+              >
+                <a
+                  href="#onde-estamos"
+                  className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
+                >
+                  <MapPin className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span>Ver localizações</span>
+                </a>
+                <a
+                  href="#perguntas-frequentes"
+                  className="flex items-center gap-2 hover:text-[#54AE21] transition-colors group text-sm"
+                >
+                  <HelpCircle className="h-5 w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span>Perguntas frequentes</span>
+                </a>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* About Section */}
-      <section className="py-24 bg-black relative overflow-hidden">
-        {/* Decorative elements for About Section */}
-        <motion.div 
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          {/* Blur effects */}
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#54AE21]/3 rounded-full blur-[120px]" />
-          
-          {/* Radial gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_70%)]" />
-          
-          {/* Animated lines */}
-          <div className="absolute left-0 top-1/3 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          <div className="absolute right-0 bottom-1/3 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          
-          {/* Corner decorations */}
-          <div className="absolute top-0 left-0 w-32 h-32">
-            <div className="absolute top-0 left-8 w-px h-16 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
-            <div className="absolute top-8 left-0 w-16 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
-          </div>
-          <div className="absolute bottom-0 right-0 w-32 h-32">
-            <div className="absolute bottom-0 right-8 w-px h-16 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
-            <div className="absolute bottom-8 right-0 w-16 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
-          </div>
-        </motion.div>
-
-        {/* About Section Content Container (Added z-10) */}
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Nossa História */}
+      <section className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div 
-            className="max-w-3xl mx-auto text-center sm:text-left" // Center text on mobile
-            initial={{ opacity: 0, y: 30 }}
+            className="max-w-3xl mx-auto text-center sm:text-left"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center sm:justify-start gap-2 mb-8"> {/* Center on mobile */}
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-8">
               <div className="w-12 h-[2px] bg-[#54AE21]" />
               <span className="text-[#54AE21] font-medium">Nossa História</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-              Mais que uma academia,<br />
-              um centro de <span className="text-[#54AE21]">excelência</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-[#F4F4F5] mb-8">
+              <TextReveal word="Mais que uma " className="text-4xl md:text-5xl font-medium text-[#F4F4F5] inline-block" />
+              <span className="whitespace-nowrap"><TextReveal word="academia," className="text-4xl md:text-5xl font-medium text-[#F4F4F5] inline-block" /></span>
+              <br />
+              <span className="inline-block">
+                <TextReveal word="um centro de " className="text-4xl md:text-5xl font-medium text-[#F4F4F5] inline-block" />
+                <span className="whitespace-nowrap"><TextReveal word="excelência" className="text-4xl md:text-5xl font-medium text-[#54AE21] inline-block" /></span>
+              </span>
             </h2>
 
-            <div className="space-y-6 text-lg text-gray-300">
+            <div className="space-y-6 text-lg text-[#F4F4F5]/95">
               <p>
                 Entenda como a D14 surgiu, com o propósito de criar uma academia que vai além do esporte, 
                 promovendo desenvolvimento pessoal e valores essenciais para seus atletas.
@@ -281,151 +209,90 @@ export function Home() {
               </p>
             </div>
 
-            <motion.div 
-              className="mt-12 rounded-lg overflow-hidden shadow-2xl shadow-[#54AE21]/20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="aspect-video">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/D4aF3BwAh6M?start=16"
-                  title="D14 Basketball Academy - Camp"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </motion.div>
-
-            {/* Center link on mobile */}
-            <div className="flex justify-center sm:justify-start">
-              <motion.div
-                className="group inline-block" // Use inline-block for centering
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.2 }}
+            <div className="flex justify-center sm:justify-start mt-8">
+              <Link 
+                to="/sobre"
+                className="inline-flex items-center gap-2 text-[#54AE21] font-medium group hover:text-[#54AE21]/90 transition-colors"
               >
-                <Link 
-                  to="/sobre" // Link to the correct about page
-                  className="inline-flex items-center gap-2 text-[#54AE21] font-semibold mt-8 group relative"
-                >
-                  <span className="relative z-10">Conheça Nossa História</span>
-                  <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                </Link>
-              </motion.div>
+                <span>Conheça Nossa História</span>
+                <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
               <motion.div 
-                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                // Increased y duration slightly to 0.2s for smoother hover
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                {/* Center icon */}
-                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto"> 
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative mx-auto group-hover:bg-[#54AE21]/25 transition-colors"> 
                   <Trophy className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">28</div>
-                <div className="text-gray-400">Atletas nos EUA</div>
+                <div className="text-2xl font-medium text-[#F4F4F5] mb-1">28</div>
+                <div className="text-[#F4F4F5]/85 text-sm">Atletas nos EUA</div>
               </motion.div>
 
               <motion.div 
-                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                // Increased y duration slightly to 0.2s for smoother hover
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.2 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                {/* Center icon */}
-                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto">
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative mx-auto group-hover:bg-[#54AE21]/25 transition-colors">
                   <Users className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">15+</div> {/* Assuming 15+ years */}
-                <div className="text-gray-400">Anos de Experiência</div>
+                <div className="text-2xl font-medium text-[#F4F4F5] mb-1">15+</div>
+                <div className="text-[#F4F4F5]/85 text-sm">Anos de Experiência</div>
               </motion.div>
 
               <motion.div 
-                className="border border-white/10 rounded-lg p-6 bg-black relative overflow-hidden group text-center" // Center text
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                // Increased y duration slightly to 0.2s for smoother hover
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: 0.3 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } // Changed from 0.1 to 0.2
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                 {/* Center icon */}
-                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative mx-auto">
+                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative mx-auto group-hover:bg-[#54AE21]/25 transition-colors">
                   <Target className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">100%</div>
-                <div className="text-gray-400">Foco no Atleta</div> {/* Adjusted text */}
+                <div className="text-2xl font-medium text-[#F4F4F5] mb-1">100%</div>
+                <div className="text-[#F4F4F5]/85 text-sm">Foco no Atleta</div>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Training Programs */}
-      <section className="py-24 bg-black relative overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 pointer-events-none"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          {/* Unique decorative elements */}
-          <div className="absolute left-0 top-0 w-64 h-64 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute right-0 bottom-0 w-72 h-72 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#54AE21]/3 rounded-full blur-[100px]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(84,174,33,0.1)_0%,transparent_70%)]" />
-          
-          {/* Animated lines */}
-          <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          <div className="absolute right-0 bottom-1/4 w-full h-px bg-gradient-to-r from-transparent via-[#54AE21]/20 to-transparent" />
-          
-          {/* Diagonal decorative lines */}
-          <div className="absolute left-0 top-0 w-1/3 h-px bg-gradient-to-r from-transparent to-[#54AE21]/20 origin-left rotate-45" />
-          <div className="absolute right-0 bottom-0 w-1/3 h-px bg-gradient-to-l from-transparent to-[#54AE21]/20 origin-right -rotate-45" />
-        </motion.div>
-
-        <div className="container mx-auto px-4">
+      {/* Nossos Treinamentos */}
+      <section className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-             {/* Styled subtitle element */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-md mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-4">
               <TargetIcon2 className="h-5 w-5 text-[#54AE21]" />
-              {/* Changed text to 'Modalidades' */}
               <span className="font-medium text-[#54AE21]">Modalidades</span>
             </div>
-            {/* Restored the H2 title */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Nossos Treinamentos</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-[#F4F4F5] mb-4">
+              <TextReveal word="Nossos Treinamentos" className="text-4xl md:text-5xl font-medium text-[#F4F4F5] block" />
+            </h2>
+            <p className="text-[#F4F4F5]/90 max-w-2xl mx-auto">
               Escolha o programa que melhor se adapta aos seus objetivos e comece sua jornada rumo à excelência.
             </p>
           </motion.div>
@@ -456,53 +323,37 @@ export function Home() {
               return (
                 <motion.div 
                   key={program.title}
-                  // Conditional classes for highlighting
-                  className={`bg-black p-8 rounded-lg group cursor-pointer relative overflow-hidden text-center sm:text-left 
+                  className={`backdrop-blur-sm border p-8 rounded-2xl group cursor-pointer relative overflow-hidden text-center sm:text-left text-[#F4F4F5]/90
                     ${isHighlighted 
-                      // Changed border to 1px with opacity, kept elevation
-                      ? 'border border-[#54AE21]/70 md:-translate-y-4' 
-                      : 'border border-white/10 hover:border-[#54AE21]/50'}
+                      ? 'bg-[#54AE21]/10 border-2 border-[#54AE21]/40 ring-1 ring-[#54AE21]/20 md:-translate-y-4 md:shadow-[0_8px_28px_-4px_rgba(84,174,33,0.2)] hover:border-[#54AE21]/55 hover:ring-[#54AE21]/30 md:hover:shadow-[0_20px_40px_-12px_rgba(84,174,33,0.28)]' 
+                      : 'bg-[#111] border-2 border-white/20 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/45 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)]'}
                   `}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                    y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
-                  }}
-                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                  whileHover={{ y: -4 }}
                   viewport={{ once: true }}
                   onClick={() => navigate('/treinamentos')} 
                 >
-                  {/* Badge for highlighted card */}
                   {isHighlighted && (
-                    // Changed badge text to "Mais Procurado"
-                    <div className="absolute top-4 right-4 bg-[#54AE21] text-white text-xs font-bold px-2 py-1 rounded">
-                      Mais Procurado
-                    </div>
+                    <>
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21] to-transparent" />
+                      <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-[#54AE21]/20 text-[#54AE21] text-xs font-medium px-3 py-1.5 rounded-full border border-[#54AE21]/40">
+                        <Star className="h-3.5 w-3.5" />
+                        Mais Procurado
+                      </div>
+                    </>
                   )}
-                  
-                  {/* Card background effects */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(84,174,33,0.1)_0%,transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                  
-                  {/* Decorative corner lines */}
-                  <div className="absolute top-0 left-0 w-16 h-16">
-                    <div className="absolute top-0 left-4 w-px h-8 bg-gradient-to-b from-[#54AE21]/50 to-transparent" />
-                    <div className="absolute top-4 left-0 w-8 h-px bg-gradient-to-r from-[#54AE21]/50 to-transparent" />
+                  {!isHighlighted && (
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/25 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 relative mx-auto sm:mx-0 transition-colors ${isHighlighted ? 'bg-[#54AE21]/25' : 'bg-[#54AE21]/20 group-hover:bg-[#54AE21]/25'}`}>
+                    <program.icon className="h-5 w-5 text-[#54AE21]" />
                   </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16">
-                    <div className="absolute bottom-0 right-4 w-px h-8 bg-gradient-to-t from-[#54AE21]/50 to-transparent" />
-                    <div className="absolute bottom-4 right-0 w-8 h-px bg-gradient-to-l from-[#54AE21]/50 to-transparent" />
-                  </div>
-
-                   {/* Center icon on mobile */}
-                  <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#54AE21]/30 transition-colors relative mx-auto sm:mx-0">
-                    <program.icon className="h-6 w-6 text-[#54AE21]" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-4">{program.title}</h3>
-                  <p className="text-gray-400 mb-6">{program.description}</p>
-                   {/* Center link on mobile */}
-                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[#54AE21] font-semibold group-hover:text-white transition-colors">
+                  <h3 className="text-lg font-medium text-[#F4F4F5] mb-3">{program.title}</h3>
+                  <p className="text-[#F4F4F5]/75 mb-6 text-sm leading-relaxed">{program.description}</p>
+                  <div className="flex items-center justify-center sm:justify-start gap-2 text-[#54AE21] font-medium group-hover:text-white transition-colors [color:#54AE21]">
                     Saiba mais
                     <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -510,25 +361,27 @@ export function Home() {
               );
             })}
           </div>
-            {/* Added button to see all trainings */}
-            <div className="text-center mt-16">
-                 <Link to="/treinamentos">
-                     <motion.button 
-                         className="bg-[#54AE21] text-white px-8 py-4 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-[#408718] transition-colors group relative overflow-hidden mx-auto"
-                         whileHover={{ scale: 1.05 }}
-                         whileTap={{ scale: 0.95 }}
-                         initial={{ opacity: 0, y: 20 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         // Reduced whileInView duration for faster appearance
-                         transition={{ duration: 0.2 }} 
-                         viewport={{ once: true }}
-                     >
-                         <span className="relative z-10">Ver Detalhes</span>
-                         <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform relative z-10" />
-                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                     </motion.button>
-                 </Link>
-            </div>
+            <motion.div
+              className="text-center mt-16"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Link to="/treinamentos" className="inline-block">
+                <motion.div
+                  className="relative inline-block rounded-full border-2 border-[#6bc429] overflow-hidden shadow-[0_8px_28px_-4px_rgba(84,174,33,0.25)] hover:border-[#7dd63a] hover:shadow-[0_20px_40px_-12px_rgba(84,174,33,0.35)] transition-all duration-300 group/btn"
+                >
+                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21] to-transparent z-10 pointer-events-none rounded-full" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <InteractiveHoverButton
+                    text="Ver Detalhes"
+                    inverted
+                    className="relative w-auto min-w-[13rem] whitespace-nowrap pl-5 pr-8 py-3 border-0"
+                  />
+                </motion.div>
+              </Link>
+            </motion.div>
         </div>
       </section>
 
@@ -536,38 +389,30 @@ export function Home() {
       <OndeEstamos />
 
       {/* Perguntas frequentes */}
-      <section id="perguntas-frequentes" className="py-24 bg-white relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 pointer-events-none opacity-50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute left-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section id="perguntas-frequentes" className="py-20 md:py-28 bg-white relative overflow-x-hidden">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12 px-2 sm:px-0"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-start md:justify-center gap-6 mb-4 mx-auto max-w-max">
-              <HelpCircle className="h-10 w-10 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
+            <div className="flex items-start justify-center gap-6 mb-4 flex-wrap">
+              <HelpCircle className="h-10 w-10 text-[#54AE21] shrink-0 mt-0.5 md:mt-1" />
+              <h2 className="text-4xl md:text-5xl font-medium text-black overflow-visible min-w-0 leading-tight">
+                <TextReveal word="Perguntas Frequentes" className="text-4xl md:text-5xl font-medium text-black block" />
+              </h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-center">
+            <p className="text-black/70 max-w-2xl mx-auto text-base">
               Tire suas dúvidas sobre nossos treinamentos e programas.
             </p>
           </motion.div>
           <motion.div
-            className="max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="max-w-3xl mx-auto space-y-3"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             {faqData.map((faq, index) => (

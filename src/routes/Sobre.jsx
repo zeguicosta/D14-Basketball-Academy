@@ -152,64 +152,50 @@ export function Sobre() {
     };
 
     return (
-    <div className="bg-white">
+    <div className="bg-site">
       <TextParallaxContentExample />
 
-      {/* Moved Metodologia section here */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      {/* Nossa Metodologia */}
+      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <BookOpen className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold">Nossa Metodologia</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-4">
+              <BookOpen className="h-5 w-5 text-[#54AE21]" />
+              <span className="font-medium text-[#54AE21]">Como trabalhamos</span>
             </div>
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">Nossa Metodologia</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Nossa abordagem exclusiva integra o aprimoramento técnico-tático com o desenvolvimento físico e mental, visando a formação integral do atleta de alta performance.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              {
-                icon: Target,
-                title: "Desenvolvimento Progressivo",
-                description: "Programa estruturado em níveis que acompanha a evolução individual."
-              },
-              {
-                icon: Users,
-                title: "Formação Integral",
-                description: "Foco no desenvolvimento técnico, tático, físico e mental do atleta."
-              },
-              {
-                icon: Award,
-                title: "Excelência Técnica",
-                description: "Padrões rigorosos de qualidade em todos os aspectos do treinamento."
-              }
+              { icon: Target, title: "Desenvolvimento Progressivo", description: "Programa estruturado em níveis que acompanha a evolução individual." },
+              { icon: Users, title: "Formação Integral", description: "Foco no desenvolvimento técnico, tático, físico e mental do atleta." },
+              { icon: Award, title: "Excelência Técnica", description: "Padrões rigorosos de qualidade em todos os aspectos do treinamento." }
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                className="bg-white p-8 rounded-lg shadow-lg relative overflow-hidden group"
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-black/8 rounded-2xl p-8 bg-white shadow-sm hover:border-[#54AE21]/35 transition-all duration-300 relative overflow-hidden group"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="bg-[#54AE21]/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <div className="bg-[#54AE21]/15 w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative">
                   <item.icon className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="text-lg font-medium text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -217,93 +203,69 @@ export function Sobre() {
       </section>
 
       {/* Parceria e Desenvolvimento */}
-      <section className="py-24 relative overflow-hidden bg-black">
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+      <section className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Layers className="h-8 w-8 text-[#54AE21]" />
-                <h2 className="text-3xl font-bold text-white">Parceria e Desenvolvimento</h2>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-10 h-[2px] bg-[#54AE21]" />
+                <span className="text-[#54AE21] text-sm font-medium tracking-wide uppercase">Visão internacional</span>
               </div>
-              <div className="space-y-6 text-lg text-gray-300">
-                <p>
-                  A trajetória da D14 foi enriquecida com a chegada de Harley Fadel. Após sua formação e vivência no basquete universitário americano, Harley retornou ao Brasil, aportando uma perspectiva internacional e conhecimentos técnicos diferenciados.
-                </p>
-                <p>
-                  Identificando o potencial sinérgico, Danilo Castro integrou Harley à equipe técnica, consolidando uma parceria estratégica fundamental para a evolução da academia.
-                </p>
-                <p>
-                  A fusão da metodologia consolidada de Danilo com a visão global de Harley potencializou o ambiente de desenvolvimento da D14, oferecendo uma formação ainda mais completa e competitiva aos nossos atletas.
-                </p>
+              <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Parceria e Desenvolvimento</h2>
+              <div className="space-y-5 text-base leading-relaxed">
+                <p className="text-white/90">A trajetória da D14 foi enriquecida com a chegada de Harley Fadel. Após sua formação e vivência no basquete universitário americano, Harley retornou ao Brasil, aportando uma perspectiva internacional e conhecimentos técnicos diferenciados.</p>
+                <p className="text-white/90">Identificando o potencial sinérgico, Danilo Castro integrou Harley à equipe técnica, consolidando uma parceria estratégica fundamental para a evolução da academia.</p>
+                <p className="text-white/90">A fusão da metodologia consolidada de Danilo com a visão global de Harley potencializou o ambiente de desenvolvimento da D14, oferecendo uma formação ainda mais completa e competitiva aos nossos atletas.</p>
               </div>
             </motion.div>
             <motion.div
               className="relative"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <img
-                src={SobreImage4}
-                alt="Parceria e Desenvolvimento"
-                className="rounded-lg shadow-xl"
-              />
-              <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
+              <img src={SobreImage4} alt="Parceria e Desenvolvimento" className="rounded-2xl w-full object-cover shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]" />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Parceria A1 Medicina Esportiva */}
-      <section id="parceria-a1" className="py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      {/* Parceria A1 */}
+      <section id="parceria-a1" className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
             className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Handshake className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-3xl font-bold text-gray-900">Parceria A1 Medicina Esportiva</h2>
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full">
+                <Handshake className="h-5 w-5 text-[#54AE21]" />
+                <span className="font-medium text-[#54AE21]">Saúde & desempenho</span>
+              </div>
             </div>
+            <h2 className="text-3xl md:text-4xl font-medium text-gray-900 text-center mb-10">Parceria A1 Medicina Esportiva</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6 text-gray-600 text-lg">
-                <p>
-                  A D14 Basketball Academy conta com a parceria da <strong className="text-gray-900">A1 Medicina Esportiva</strong>, 
-                  oferecendo aos nossos atletas acompanhamento em saúde e desempenho esportivo.
-                </p>
-                <p>
-                  Com essa união, os alunos da D14 têm acesso a avaliações e orientações que ajudam na prevenção de lesões 
-                  e no cuidado com o corpo, para que possam evoluir nas quadras com mais segurança e apoio profissional.
-                </p>
+              <div className="space-y-5 text-gray-600 text-base leading-relaxed">
+                <p>A D14 Basketball Academy conta com a parceria da <strong className="text-gray-900">A1 Medicina Esportiva</strong>, oferecendo aos nossos atletas acompanhamento em saúde e desempenho esportivo.</p>
+                <p>Com essa união, os alunos da D14 têm acesso a avaliações e orientações que ajudam na prevenção de lesões e no cuidado com o corpo, para que possam evoluir nas quadras com mais segurança e apoio profissional.</p>
               </div>
               <div className="flex justify-center md:justify-end">
-                <img src={A1Logo} alt="A1 Medicina Esportiva" className="max-h-48 w-auto object-contain" />
+                <img src={A1Logo} alt="A1 Medicina Esportiva" className="max-h-40 w-auto object-contain" />
               </div>
             </div>
           </motion.div>
@@ -311,71 +273,47 @@ export function Sobre() {
       </section>
 
       {/* Valores */}
-      <section className="py-24 bg-black relative overflow-hidden">
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Heart className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold text-white">Nossos Valores</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-4">
+              <Heart className="h-5 w-5 text-[#54AE21]" />
+              <span className="font-medium text-[#54AE21]">O que nos move</span>
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">Nossos Valores</h2>
+            <p className="text-white/85 max-w-2xl mx-auto">
               Princípios que guiam nossa academia e moldam o desenvolvimento de nossos atletas.
             </p>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              {
-                icon: Medal,
-                title: "Excelência",
-                description: "Buscamos a excelência em tudo que fazemos, desde o treinamento até o desenvolvimento pessoal."
-              },
-              {
-                icon: Heart,
-                title: "Paixão",
-                description: "Amor pelo esporte e dedicação ao desenvolvimento de cada atleta são nossa força motriz."
-              },
-              {
-                icon: GraduationCap,
-                title: "Educação",
-                description: "Valorizamos o desenvolvimento acadêmico tanto quanto o atlético para formar indivíduos completos."
-              }
+              { icon: Medal, title: "Excelência", description: "Buscamos a excelência em tudo que fazemos, desde o treinamento até o desenvolvimento pessoal." },
+              { icon: Heart, title: "Paixão", description: "Amor pelo esporte e dedicação ao desenvolvimento de cada atleta são nossa força motriz." },
+              { icon: GraduationCap, title: "Educação", description: "Valorizamos o desenvolvimento acadêmico tanto quanto o atlético para formar indivíduos completos." }
             ].map((value, index) => (
               <motion.div
                 key={value.title}
-                className="bg-black border border-white/10 p-8 rounded-lg relative overflow-hidden group"
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-8 bg-[#111] relative overflow-hidden group hover:border-[#54AE21]/40 transition-all duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="bg-[#54AE21]/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 relative">
-                  <value.icon className="h-6 w-6 text-[#54AE21]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="bg-[#54AE21]/20 w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                    <value.icon className="h-6 w-6 text-[#54AE21]" />
+                  </div>
+                  <h3 className="text-lg font-medium text-white mb-3">{value.title}</h3>
+                  <p className="text-white/80 text-sm leading-relaxed">{value.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{value.title}</h3>
-                <p className="text-gray-400">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -383,64 +321,50 @@ export function Sobre() {
       </section>
 
       {/* A Trajetória de Danilo Castro */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             <motion.div
               className="relative"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <img
-                src={SobreImage1}
-                alt="Danilo Castro"
-                className="rounded-lg shadow-xl"
-              />
-              <div className="absolute -left-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
+              <img src={SobreImage1} alt="Danilo Castro" className="rounded-2xl w-full object-cover shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)]" />
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Rocket className="h-8 w-8 text-[#54AE21]" />
-                <h2 className="text-3xl font-bold">A Trajetória de Danilo Castro</h2>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-10 h-[2px] bg-[#54AE21]" />
+                <span className="text-[#54AE21] text-sm font-medium tracking-wide uppercase">Fundador</span>
               </div>
-              <div className="space-y-6 text-lg text-gray-600">
-                 <p>
-                   A jornada de Danilo Castro com o basquete iniciou-se na infância, aos 7 anos, em São Bernardo. Guiado por mentores como Thelma Tavernari, sua paixão e talento o levaram rapidamente às categorias de base e, aos 16 anos, à equipe adulta, conciliando o esporte com a formação em Educação Física (FEFISA).
-                 </p>
-                 <p>
-                   Sua carreira profissional foi marcada por passagens em clubes renomados como Pirelli, Sírio (onde superou graves lesões), Mogi (conquistando o Paulista '96) e Campos (vencendo o Carioca), além de experiências internacionais e convocação para a Seleção Brasileira.
-                 </p>
-                 <p>
-                   Após décadas dedicadas às quadras como atleta, Danilo fundou a D14 Basketball Academy, canalizando sua vasta experiência e visão única para desenvolver a nova geração. Atuando hoje como head coach e comentarista na BandSports, o sucesso de sua abordagem é comprovado pelo encaminhamento de dezenas de atletas para programas de basquete nos Estados Unidos, consolidando o impacto da D14 no cenário nacional.
-                 </p>
+              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">A Trajetória de Danilo Castro</h2>
+              <div className="space-y-5 text-base text-gray-600 leading-relaxed">
+                <p>A jornada de Danilo Castro com o basquete iniciou-se na infância, aos 7 anos, em São Bernardo. Guiado por mentores como Thelma Tavernari, sua paixão e talento o levaram rapidamente às categorias de base e, aos 16 anos, à equipe adulta, conciliando o esporte com a formação em Educação Física (FEFISA).</p>
+                <p>Sua carreira profissional foi marcada por passagens em clubes renomados como Pirelli, Sírio (onde superou graves lesões), Mogi (conquistando o Paulista '96) e Campos (vencendo o Carioca), além de experiências internacionais e convocação para a Seleção Brasileira.</p>
+                <p>Após décadas dedicadas às quadras como atleta, Danilo fundou a D14 Basketball Academy, canalizando sua vasta experiência e visão única para desenvolver a nova geração. Atuando hoje como head coach e comentarista na BandSports, o sucesso de sua abordagem é comprovado pelo encaminhamento de dezenas de atletas para programas de basquete nos Estados Unidos, consolidando o impacto da D14 no cenário nacional.</p>
               </div>
-              <motion.a 
-                href="https://www.streetopia.me/m/news/608c01a47897bf12f23fa6ba/perfil-sttp-danilo-castro-012#:~:text=Em%20uma%20%C3%A9poca%20em%20que,n%C3%A3o%20sabe%20nada%2C%20voc%C3%AA%20joga" 
-                target="_blank" 
+              <motion.a
+                href="https://www.streetopia.me/m/news/608c01a47897bf12f23fa6ba/perfil-sttp-danilo-castro-012#:~:text=Em%20uma%20%C3%A9poca%20em%20que,n%C3%A3o%20sabe%20nada%2C%20voc%C3%AA%20joga"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-8 bg-black border border-white/30 text-white px-6 py-3 rounded-md font-semibold hover:border-[#54AE21] transition-colors group relative overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
+                className="inline-flex items-center gap-2 mt-8 text-[#54AE21] font-medium hover:text-[#54AE21]/90 transition-colors"
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
               >
-                <span className="relative z-10">Entrevista Completa (Streetopia)</span>
-                <ExternalLink className="h-4 w-4 relative z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                Entrevista Completa (Streetopia)
+                <ExternalLink className="h-4 w-4" />
               </motion.a>
             </motion.div>
           </motion.div>
@@ -448,36 +372,25 @@ export function Sobre() {
       </section>
 
       {/* Preparando Atletas para o Mundo */}
-      <section className="py-24 bg-black relative overflow-hidden">
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Globe className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold text-white">Preparando Atletas para o Mundo</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-4">
+              <Globe className="h-5 w-5 text-[#54AE21]" />
+              <span className="font-medium text-[#54AE21]">Em números</span>
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-[#F4F4F5] mb-4">Preparando Atletas para o Mundo</h2>
+            <p className="text-[#F4F4F5]/85 max-w-2xl mx-auto">
               Nossa missão é preparar atletas não apenas para o basquete, mas para a vida.
             </p>
           </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { number: "28", label: "Atletas nos EUA" },
               { number: "30+", label: "Anos de Experiência" },
@@ -486,19 +399,16 @@ export function Sobre() {
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="bg-black border border-white/10 p-8 rounded-lg text-center relative overflow-hidden group"
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl p-8 bg-[#111] text-center relative overflow-hidden group hover:border-[#54AE21]/40 transition-all duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 } 
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-gray-400">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-medium text-[#F4F4F5] mb-2 relative">{stat.number}</div>
+                <div className="text-[#F4F4F5]/85 text-sm relative">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -506,53 +416,39 @@ export function Sobre() {
       </section>
 
       {/* Competições e Crescimento */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+      <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Flag className="h-8 w-8 text-[#54AE21]" />
-                <h2 className="text-3xl font-bold">Competições e Crescimento</h2>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-10 h-[2px] bg-[#54AE21]" />
+                <span className="text-[#54AE21] text-sm font-medium tracking-wide uppercase">Base nacional</span>
               </div>
-              <div className="space-y-6 text-lg text-gray-600">
-                <p>
-                  Participamos ativamente das principais competições de base do Brasil,
-                  proporcionando aos nossos atletas experiências competitivas valiosas.
-                </p>
-                <p>
-                  Nossa academia tem se destacado em torneios estaduais e nacionais,
-                  consolidando nossa posição como referência no desenvolvimento de atletas.
-                </p>
-                <p>
-                  O ambiente competitivo é fundamental para o crescimento dos atletas,
-                  preparando-os para os desafios futuros em suas carreiras.
-                </p>
+              <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">Competições e Crescimento</h2>
+              <div className="space-y-5 text-base text-gray-600 leading-relaxed">
+                <p>Participamos ativamente das principais competições de base do Brasil, proporcionando aos nossos atletas experiências competitivas valiosas.</p>
+                <p>Nossa academia tem se destacado em torneios estaduais e nacionais, consolidando nossa posição como referência no desenvolvimento de atletas.</p>
+                <p>O ambiente competitivo é fundamental para o crescimento dos atletas, preparando-os para os desafios futuros em suas carreiras.</p>
               </div>
             </motion.div>
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <img
-                src={CampImage}
-                alt="Competições"
-                className="rounded-lg shadow-xl"
-              />
-              <div className="absolute -right-4 bottom-0 w-1 h-32 bg-gradient-to-t from-[#54AE21] to-transparent" />
+              <img src={CampImage} alt="Competições" className="rounded-2xl w-full object-cover shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)]" />
             </motion.div>
           </motion.div>
         </div>
@@ -562,38 +458,28 @@ export function Sobre() {
       <OndeEstamos />
 
       {/* Perguntas frequentes */}
-      <section id="perguntas-frequentes" className="py-24 bg-white relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 pointer-events-none opacity-50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute left-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute right-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section id="perguntas-frequentes" className="py-20 md:py-28 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-start md:justify-center gap-6 mb-4 mx-auto max-w-max">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <HelpCircle className="h-10 w-10 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold text-black">Perguntas Frequentes</h2>
+              <h2 className="text-4xl md:text-5xl font-medium text-black">Perguntas Frequentes</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-center">
+            <p className="text-black/70 max-w-2xl mx-auto">
               Tire suas dúvidas sobre nossos treinamentos e programas.
             </p>
           </motion.div>
           <motion.div
-            className="max-w-3xl mx-auto"
+            className="max-w-3xl mx-auto space-y-3"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
           >
             {faqData.map((faq, index) => (
@@ -604,61 +490,47 @@ export function Sobre() {
       </section>
 
       {/* Equipe */}
-      <section id="nossa-equipe" className="py-24 bg-black relative overflow-hidden">
-        <motion.div 
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-          <div className="absolute left-0 bottom-0 w-96 h-96 bg-[#54AE21]/5 rounded-full blur-3xl" />
-        </motion.div>
-        
-        <div className="container mx-auto px-4">
+      <section id="nossa-equipe" className="py-20 md:py-28 bg-site relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Users className="h-8 w-8 text-[#54AE21]" />
-              <h2 className="text-4xl font-bold text-white">Nossa Equipe</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#54AE21]/10 rounded-full mb-4">
+              <Users className="h-5 w-5 text-[#54AE21]" />
+              <span className="font-medium text-[#54AE21]">Quem faz a D14</span>
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">Nossa Equipe</h2>
+            <p className="text-white/85 max-w-2xl mx-auto">
               Profissionais dedicados e apaixonados pelo desenvolvimento de atletas.
             </p>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
-                className="bg-black border border-white/10 rounded-lg overflow-hidden group relative cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
+                className="border-2 border-white/20 rounded-2xl overflow-hidden bg-[#111] group relative cursor-pointer hover:border-[#54AE21]/40 transition-all duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  opacity: { type: "tween", ease: "easeOut", duration: 0.5, delay: index * 0.1 },
-                  y: { type: "tween", ease: "easeInOut", duration: 0.2 }
-                }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true }}
                 onClick={() => openModal(member)}
               >
-                <div className="overflow-hidden h-[500px]">
+                <div className="overflow-hidden h-[420px]">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <div className="p-6 relative flex flex-col min-h-[210px]">
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className="text-[#54AE21] font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-400 text-sm flex-grow">{member.description}</p>
+                <div className="p-6 relative z-10 flex flex-col min-h-[200px] bg-[#111]">
+                  <h3 className="text-lg font-medium text-white mb-2">{member.name}</h3>
+                  <p className="text-[#54AE21] font-medium mb-3">{member.role}</p>
+                  <p className="text-white/80 text-sm flex-grow leading-relaxed">{member.description}</p>
                   <div className="inline-flex items-center gap-1 text-xs text-[#54AE21] hover:text-[#54AE21]/80 transition-colors font-semibold mt-4 self-start sm:hidden">
                     Ver Mais
                     <ChevronRight className="h-3 w-3" />

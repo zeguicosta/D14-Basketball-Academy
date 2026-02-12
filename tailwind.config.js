@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        site: 'var(--bg-site, #080808)',
         customGreen: '#46951A',
         customGreen2: '#0A9015',
         customGreen3: '#0BA618',
@@ -14,7 +15,8 @@ export default {
         customGreen5: '#408718'
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['var(--font-body)', 'sans-serif'],
+        heading: ['var(--font-heading)', 'sans-serif'],
       },
       zIndex: {
         '60': '60',

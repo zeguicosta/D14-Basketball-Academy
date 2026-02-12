@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { ShoppingBasket as Basketball, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { InteractiveHoverButton } from './ui/interactive-hover-button';
 import Logo from '../assets/logo.png';
 import LogoPreta from '../assets/logopreta.png';
 import Instagram from '../assets/instagram.png';
@@ -41,8 +42,8 @@ const Nav = () => {
     };
   }, []);
 
-  // Determine text color based on scroll and mobile menu state
-  const isNavbarDark = isScrolled || isMobileMenuOpen;
+  // On Loja the hero is light, so always show dark nav for contrast
+  const isNavbarDark = isScrolled || isMobileMenuOpen || location.pathname === '/loja';
   const textColorClass = isNavbarDark ? 'text-white' : 'text-white';
   const activeTextColorClass = 'text-[#54AE21]'; // Active color remains the same
 
@@ -60,17 +61,19 @@ const Nav = () => {
   };
 
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen ? 'bg-black/95 py-2' : 'bg-transparent py-6'
-      }`}
-    >
-      <nav className="container mx-auto px-8 sm:px-10">
+    <header className="fixed w-full z-50 pt-4 md:pt-6 transition-all duration-300">
+      <div className="container mx-auto px-8 sm:px-10">
+      <div
+        className={`relative w-full rounded-full transition-all duration-300 ${
+          isNavbarDark ? 'bg-black/95 py-2.5 px-8 sm:px-10 shadow-lg' : 'py-2 px-8 sm:px-10'
+        }`}
+      >
+        <nav>
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             {/* Logo now defaults to the white version */}
             <img 
-              className="h-16 w-auto -mt-2" 
+              className="h-16 w-auto mt-0" 
               src={Logo} 
               alt="D14 Logo" 
             />
@@ -83,8 +86,8 @@ const Nav = () => {
                 <NavLink
                   to={item.href}
                   className={({ isActive }) =>
-                    `text-sm uppercase font-bold tracking-wider hover:text-[#54AE21] transition-colors ${
-                      isActive ? activeTextColorClass : textColorClass // Use dynamic text color
+                    `text-base font-medium hover:text-[#54AE21] transition-colors ${
+                      isActive ? activeTextColorClass : textColorClass
                     }`
                   }
                 >
@@ -93,14 +96,11 @@ const Nav = () => {
               </li>
             ))}
             <li>
-              {/* Link the button to the Treinamentos page */}
               <Link to="/treinamentos">
-                <button 
-                  className="bg-[#54AE21] text-white px-6 py-2 rounded font-bold text-sm uppercase tracking-wider hover:bg-[#408718] transition-colors"
-                  // onClick={handleInscriptionClick} // Or use onClick if it's not a direct link
-                >
-                  Inscreva-se
-                </button>
+                <InteractiveHoverButton
+                  text="Inscreva-se"
+                  className="w-auto min-w-[12rem] whitespace-nowrap pl-5 pr-8 py-2.5"
+                />
               </Link>
             </li>
           </ul>
@@ -136,19 +136,20 @@ const Nav = () => {
             </AnimatePresence>
           </motion.button>
         </div>
+        </nav>
 
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="md:hidden absolute top-full left-0 w-full bg-black/95 overflow-hidden"
+              className="md:hidden absolute top-full left-0 right-0 mt-1.5 mx-2 sm:mx-4 rounded-b-3xl rounded-t-xl bg-black/95 overflow-hidden shadow-xl border-t border-white/5"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <motion.ul 
-                className="flex flex-col items-center gap-4 py-4"
+                className="flex flex-col items-center gap-1 py-5 px-4"
                 initial="closed"
                 animate="open"
                 exit="closed"
@@ -164,6 +165,7 @@ const Nav = () => {
                 {navigation.map((item) => (
                   <motion.li 
                     key={item.href}
+                    className="w-full text-center"
                     variants={{
                       open: { y: 0, opacity: 1 },
                       closed: { y: 20, opacity: 0 }
@@ -172,37 +174,36 @@ const Nav = () => {
                     <NavLink
                       to={item.href}
                       className={({ isActive }) =>
-                        `text-sm uppercase font-bold tracking-wider hover:text-[#54AE21] transition-colors ${
-                          isActive ? 'text-[#54AE21]' : 'text-white' // Mobile links always white on black bg
+                        `block py-3 text-base font-medium hover:text-[#54AE21] transition-colors ${
+                          isActive ? 'text-[#54AE21]' : 'text-white'
                         }`
                       }
-                      onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.title}
                     </NavLink>
                   </motion.li>
                 ))}
                 <motion.li
+                  className="w-full flex justify-center pt-2"
                   variants={{
                     open: { y: 0, opacity: 1 },
                     closed: { y: 20, opacity: 0 }
                   }}
                 >
-                  {/* Link the button to the Treinamentos page */}
-                  <Link to="/treinamentos">
-                    <button 
-                      className="bg-[#54AE21] text-white px-6 py-2 rounded font-bold text-sm uppercase tracking-wider hover:bg-[#408718] transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)} // Close menu on button click
-                    >
-                      Inscreva-se
-                    </button>
+                  <Link to="/treinamentos" onClick={() => setIsMobileMenuOpen(false)}>
+                    <InteractiveHoverButton
+                      text="Inscreva-se"
+                      className="w-auto min-w-[12rem] whitespace-nowrap pl-5 pr-8 py-2.5"
+                    />
                   </Link>
                 </motion.li>
               </motion.ul>
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
+      </div>
+      </div>
     </header>
   );
 };

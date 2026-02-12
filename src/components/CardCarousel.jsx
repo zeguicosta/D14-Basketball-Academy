@@ -48,7 +48,7 @@ const CardCarousel = () => {
   };
 
   return (
-    <section className="bg-black" ref={ref}>
+    <section className="bg-site" ref={ref}>
       <div className="relative overflow-hidden p-4">
         {/* CARDS */}
         <div className="mx-auto max-w-6xl">

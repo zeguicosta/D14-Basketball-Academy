@@ -62,23 +62,23 @@ const Timer = () => {
     }, []);
 
     return (
-        <div>
-            <div className="text-3xl sm:text-5xl lg:6xl font-medium flex gap-5 sm:gap-10">
+        <div className="text-[#F4F4F5]">
+            <div className="text-3xl sm:text-5xl lg:text-6xl font-medium flex gap-5 sm:gap-10">
                 <div className="flex flex-col justify-center text-center gap-2">
                     {String(timeLeft.dias).padStart(2, '0')}
-                    <h3 className="text-xl">Dias</h3>
+                    <h3 className="text-xl text-[#F4F4F5]/85">Dias</h3>
                 </div>
                 <div className="flex flex-col justify-center text-center gap-2">
                     {String(timeLeft.horas).padStart(2, '0')}
-                    <h3 className="text-xl">Horas</h3>
+                    <h3 className="text-xl text-[#F4F4F5]/85">Horas</h3>
                 </div>
                 <div className="flex flex-col justify-center text-center gap-2">
                     {String(timeLeft.minutos).padStart(2, '0')}
-                    <h3 className="text-xl">Minutos</h3>
+                    <h3 className="text-xl text-[#F4F4F5]/85">Minutos</h3>
                 </div>
                 <div className="flex flex-col justify-center text-center gap-2">
                     {String(timeLeft.segundos).padStart(2, '0')}
-                    <h3 className="text-xl">Segundos</h3>
+                    <h3 className="text-xl text-[#F4F4F5]/85">Segundos</h3>
                 </div>
             </div>
         </div>

@@ -2,16 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Garante que .bg-site sempre aplique o fundo (evita purge/build) */
+@layer utilities {
+  .bg-site {
+    background-color: var(--bg-site);
+  }
+}
+
+/* ========== FONTES – ativa só um bloco ========== */
+/* Padrão: Montserrat (tudo) */
+:root {
+  --font-body: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  /* Preto do site (menos forte que #000 – altere aqui para validar antes de espalhar) */
+  --bg-site: #080808;
+  /* shadcn-style vars for InteractiveHoverButton */
+  --background: transparent;
+  --primary: #54AE21;
+  --primary-foreground: #fff;
+}
+/* Opção A – Artístico: Syne (títulos) + Manrope (texto). Descomente e comente o bloco acima; ative "Opção A" no index.html */
+/* :root {
+  --font-body: 'Manrope', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+} */
+/* Opção B – Moderno limpo: Outfit (títulos) + DM Sans (texto) */
+/* :root {
+  --font-body: 'DM Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+} */
+/* Opção C – Geométrico: Sora (títulos) + Nunito Sans (texto) */
+/* :root {
+  --font-body: 'Nunito Sans', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+} */
+/* Opção D – Esportivo: Bebas Neue (títulos) + Work Sans (texto) */
+/* :root {
+  --font-body: 'Work Sans', sans-serif;
+  --font-heading: 'Bebas Neue', sans-serif;
+} */
+
 html {
   scroll-behavior: smooth;
 }
 
 * {
-    @apply font-sans;
+  @apply font-sans;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 body {
     overflow-x: hidden;
+    background-color: var(--bg-site);
 }
 
 /* Custom Scrollbar Styles */
@@ -41,7 +86,7 @@ body {
 /* Aplica ao elemento raiz (geralmente html ou body) */
 html {
   scrollbar-width: thin; /* Define a largura como fina */
-  scrollbar-color: #54AE21 #000; /* Cor do polegar / Cor da trilha */
+  scrollbar-color: #54AE21 var(--bg-site); /* Cor do polegar / Cor da trilha */
 }
 
 /* Line clamp utility for product descriptions */
@@ -50,4 +95,48 @@ html {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Hero: YouTube iframe as background cover */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-video-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;
+  min-height: 100%;
+  min-width: 177.78vh;
+  transform: translate(-50%, -50%);
+}
+
+/* Text reveal animation (hero title & subtitle) */
+.text-reveal {
+  letter-spacing: -0.05em;
+  white-space: pre-wrap;
+  overflow: hidden;
+  /* Evita corte nas pontas do texto (direita e embaixo) */
+  padding-right: 0.08em;
+  padding-bottom: 0.06em;
+  box-sizing: content-box;
+}
+.text-reveal-char {
+  display: inline-block;
+  opacity: 0;
+  animation: text-reveal 0.5s ease-in-out forwards;
+  animation-delay: calc(var(--delay-base, 0s) + 0.02s * var(--index));
+}
+@keyframes text-reveal {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
