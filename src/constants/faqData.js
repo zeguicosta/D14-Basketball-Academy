@@ -17,7 +17,7 @@ export const faqData = [
   },
   {
     title: "Quais são os horários dos treinos?",
-    answer: "Na Unidade Paraíso (Av. Bernardino de Campos, 79), os treinos são aos sábados, das 9h às 12h. Na nova filial, às quintas-feiras, das 17h às 19h (endereço em breve). Estejam prontos para nossos jogos: finais de semana sempre cheios de muito basquete na D14!"
+    answer: "Na Unidade Paraíso (Av. Bernardino de Campos, 79), os treinos são aos sábados, das 9h às 12h. Na Mix Arena (Av. Prof. Celestino Bourroul, 753 - Limão, São Paulo - SP), às quintas-feiras, das 17h às 19h. Estejam prontos para nossos jogos: finais de semana sempre cheios de muito basquete na D14!"
   },
   {
     title: "O que preciso levar para os treinos?",

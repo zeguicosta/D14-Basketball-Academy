@@ -153,7 +153,7 @@ export function Loja() {
                 transition={{ duration: 0.35, delay: 0.65, ease: "easeOut" }}
               >
                 <motion.div
-                  className="relative flex w-full sm:w-auto rounded-full border-2 border-[#6bc429] overflow-hidden shadow-[0_8px_28px_-4px_rgba(84,174,33,0.25)] hover:border-[#7dd63a] hover:shadow-[0_20px_40px_-12px_rgba(84,174,33,0.35)] transition-all duration-300 group/btn"
+                  className="relative flex w-full sm:w-auto sm:min-w-[220px] rounded-full border-2 border-[#6bc429] overflow-hidden shadow-[0_8px_28px_-4px_rgba(84,174,33,0.25)] hover:border-[#7dd63a] hover:shadow-[0_20px_40px_-12px_rgba(84,174,33,0.35)] transition-all duration-300 group/btn"
                 >
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21] to-transparent z-10 pointer-events-none rounded-full" />
                   <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 pointer-events-none" />
