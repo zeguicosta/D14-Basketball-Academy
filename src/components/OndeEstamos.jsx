@@ -30,15 +30,17 @@ export default function OndeEstamos() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <motion.a
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+          <a
             href="https://www.google.com/maps/search/?api=1&query=Av.+Bernardino+de+Campos+79+Paraíso+São+Paulo+SP"
             target="_blank"
             rel="noopener noreferrer"
             className="relative overflow-hidden bg-[#111] backdrop-blur-sm border-2 border-white/20 p-8 rounded-2xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/45 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300 group block text-left !text-[#F4F4F5]"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            viewport={{ once: true }}
           >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/25 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
@@ -70,17 +72,20 @@ export default function OndeEstamos() {
               <Clock className="h-4 w-4 text-[#54AE21]" />
               Treinos: Sábados, 9h às 12h
             </p>
-          </motion.a>
+          </a>
+          </motion.div>
 
-          <motion.a
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+          >
+          <a
             href="https://maps.app.goo.gl/e7CH76B9ZyYtn5MK7"
             target="_blank"
             rel="noopener noreferrer"
             className="relative overflow-hidden bg-[#111] backdrop-blur-sm border-2 border-white/20 p-8 rounded-2xl shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/45 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300 group block text-left !text-[#F4F4F5]"
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-            viewport={{ once: true }}
           >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/25 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
@@ -112,7 +117,8 @@ export default function OndeEstamos() {
               <Clock className="h-4 w-4 text-[#54AE21]" />
               Treinos: Quinta-feira, 17h às 19h
             </p>
-          </motion.a>
+          </a>
+          </motion.div>
         </div>
       </div>
     </section>

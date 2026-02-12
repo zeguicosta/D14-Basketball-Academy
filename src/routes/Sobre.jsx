@@ -469,7 +469,7 @@ export function Sobre() {
           >
             <div className="flex items-center justify-center gap-3 mb-4">
               <HelpCircle className="h-10 w-10 text-[#54AE21]" />
-              <h2 className="text-4xl md:text-5xl font-medium text-black">Perguntas Frequentes</h2>
+              <h2 className="text-4xl md:text-5xl font-medium text-black">Perguntas <span className="whitespace-nowrap">Frequentes</span></h2>
             </div>
             <p className="text-black/70 max-w-2xl mx-auto">
               Tire suas dúvidas sobre nossos treinamentos e programas.
@@ -515,9 +515,8 @@ export function Sobre() {
                 className="border-2 border-white/20 rounded-2xl overflow-hidden bg-[#111] group relative cursor-pointer hover:border-[#54AE21]/40 transition-all duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
-                whileHover={{ y: -4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
                 onClick={() => openModal(member)}
               >
                 <div className="overflow-hidden h-[420px]">

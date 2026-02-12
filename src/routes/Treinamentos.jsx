@@ -521,7 +521,7 @@ export function Treinamentos() {
             <div className="flex items-start justify-center gap-6 mb-4 flex-wrap">
               <HelpCircle className="h-10 w-10 text-[#54AE21] shrink-0 mt-0.5 md:mt-1" />
               <h2 className="text-4xl md:text-5xl font-medium text-black overflow-visible min-w-0 leading-tight">
-                Perguntas Frequentes
+                Perguntas <span className="whitespace-nowrap">Frequentes</span>
               </h2>
             </div>
             <p className="text-black/70 max-w-2xl mx-auto text-base">

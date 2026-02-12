@@ -109,10 +109,10 @@ export function Home() {
 
           {/* Social Media and Location */}
           <div className="absolute bottom-8 left-0 right-0 container mx-auto px-4">
-            <div className="flex flex-col sm:flex-row justify-between items-center text-[#F4F4F5] gap-4 sm:gap-0 px-6 sm:px-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-[#F4F4F5] gap-4 sm:gap-0 px-6 sm:px-8">
               {/* Social Media Links */}
               <motion.div 
-                className="flex flex-wrap justify-center items-center gap-4 sm:gap-6"
+                className="flex flex-wrap justify-start sm:justify-center items-center gap-4 sm:gap-6"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: 0.8, ease: "easeOut" }}
@@ -142,7 +142,7 @@ export function Home() {
 
               {/* Localizações e FAQ */}
               <motion.div
-                className="flex flex-wrap justify-center sm:justify-end gap-4"
+                className="flex flex-wrap justify-start sm:justify-end gap-4"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: 0.8, ease: "easeOut" }}
@@ -224,9 +224,8 @@ export function Home() {
                 className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-                whileHover={{ y: -4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -241,9 +240,8 @@ export function Home() {
                 className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-                whileHover={{ y: -4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -258,9 +256,8 @@ export function Home() {
                 className="border-2 border-white/20 rounded-2xl p-6 bg-[#111] backdrop-blur-sm relative overflow-hidden group text-center shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)] hover:border-[#54AE21]/40 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.3)] transition-all duration-300"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, ease: "easeOut", delay: 0.15 }}
-                whileHover={{ y: -4 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-50px" }}
               >
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/30 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[#54AE21]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -401,7 +398,8 @@ export function Home() {
             <div className="flex items-start justify-center gap-6 mb-4 flex-wrap">
               <HelpCircle className="h-10 w-10 text-[#54AE21] shrink-0 mt-0.5 md:mt-1" />
               <h2 className="text-4xl md:text-5xl font-medium text-black overflow-visible min-w-0 leading-tight">
-                <TextReveal word="Perguntas Frequentes" className="text-4xl md:text-5xl font-medium text-black block" />
+                <TextReveal word="Perguntas " className="text-4xl md:text-5xl font-medium text-black inline-block" />
+                <span className="whitespace-nowrap"><TextReveal word="Frequentes" className="text-4xl md:text-5xl font-medium text-black inline-block" /></span>
               </h2>
             </div>
             <p className="text-black/70 max-w-2xl mx-auto text-base">
