@@ -64,7 +64,7 @@ export function Home() {
               className="pointer-events-none"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/75" />
 
           {/* Conteúdo: texto à esquerda, menor */}
           <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-start text-left pl-6 pr-6 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16">

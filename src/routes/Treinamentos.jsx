@@ -48,13 +48,16 @@ import slide8 from '../assets/slide8.jpg';
 import sobre1 from '../assets/sobre1.jpg';
 import sobre3 from '../assets/sobre3.jpg';
 import sobre4 from '../assets/sobre4.jpg';
+import tr2 from '../assets/tr2.jpg';
+import tr3 from '../assets/tr3.jpg';
+import tr5 from '../assets/tr5.jpg';
 
 // Lightbox Imports
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 // Prepare slides data for lightbox
-const galleryImages = [slide1, slide2, slide8, sobre1, sobre4, sobre3];
+const galleryImages = [slide1, slide2, slide8, sobre1, sobre4, sobre3, tr2, tr3, tr5];
 const slides = galleryImages.map(src => ({ src }));
 
 export function Treinamentos() {
