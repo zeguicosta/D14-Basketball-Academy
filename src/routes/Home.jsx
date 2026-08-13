@@ -22,6 +22,7 @@ import {
 import { Link, useNavigate } from 'react-router-dom';
 import LogoBlanco from '../assets/logo.png';
 import OndeEstamos from '../components/OndeEstamos';
+import Depoimentos from '../components/Depoimentos';
 import FAQAccordion from '../components/Accordion';
 import { InteractiveHoverButton } from '../components/ui/interactive-hover-button';
 import { TextReveal } from '../components/ui/text-reveal-animation';
@@ -56,7 +57,7 @@ export function Home() {
           {/* Vídeo YouTube como fundo (autoplay, mute, loop) */}
           <div className="hero-video-wrap">
             <iframe
-              src="https://www.youtube.com/embed/D4aF3BwAh6M?start=16&autoplay=1&mute=1&loop=1&playlist=D4aF3BwAh6M"
+              src="https://www.youtube-nocookie.com/embed/D4aF3BwAh6M?start=16&autoplay=1&mute=1&loop=1&playlist=D4aF3BwAh6M&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&cc_load_policy=0&disablekb=1&fs=0"
               title="D14 Basketball Academy - Camp"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -64,7 +65,7 @@ export function Home() {
               className="pointer-events-none"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/55 to-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
           {/* Conteúdo: texto à esquerda, menor */}
           <div className="relative container mx-auto px-4 min-h-screen flex items-center justify-start text-left pl-6 pr-6 md:pl-12 md:pr-12 lg:pl-16 lg:pr-16">
@@ -384,6 +385,9 @@ export function Home() {
 
       {/* Onde estamos */}
       <OndeEstamos />
+
+      {/* Depoimentos */}
+      <Depoimentos />
 
       {/* Perguntas frequentes */}
       <section id="perguntas-frequentes" className="py-20 md:py-28 bg-white relative overflow-x-hidden">

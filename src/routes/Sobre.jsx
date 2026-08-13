@@ -11,6 +11,7 @@ import LogoBlanco from '../assets/logo.png';
 import LogoGrande from '../assets/logogrande.png';
 import TeamMemberModal from '../components/TeamMemberModal';
 import OndeEstamos from '../components/OndeEstamos';
+import Depoimentos from '../components/Depoimentos';
 import FAQAccordion from '../components/Accordion';
 import { faqData } from '../constants/faqData';
 
@@ -456,6 +457,9 @@ export function Sobre() {
 
       {/* Onde estamos */}
       <OndeEstamos />
+
+      {/* Depoimentos */}
+      <Depoimentos />
 
       {/* Perguntas frequentes */}
       <section id="perguntas-frequentes" className="py-20 md:py-28 bg-white relative overflow-hidden">

@@ -32,6 +32,7 @@ import img2 from '../assets/treinopersonalizado.jpg';
 import img6 from '../assets/img6.jpg';
 import FAQAccordion from '../components/Accordion';
 import OndeEstamos from '../components/OndeEstamos';
+import Depoimentos from '../components/Depoimentos';
 import { InteractiveHoverButton } from '../components/ui/interactive-hover-button';
 import { TextReveal } from '../components/ui/text-reveal-animation';
 import { faqData } from '../constants/faqData';
@@ -510,6 +511,9 @@ export function Treinamentos() {
 
       {/* Onde estamos */}
       <OndeEstamos />
+
+      {/* Depoimentos */}
+      <Depoimentos />
 
       {/* FAQ */}
       <section id="perguntas-frequentes" className="py-20 md:py-28 bg-white relative overflow-x-hidden">
