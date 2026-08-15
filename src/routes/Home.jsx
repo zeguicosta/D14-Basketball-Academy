@@ -201,7 +201,7 @@ export function Home() {
               
               <p>
                 A D14 Basketball Academy está construindo um legado sólido ao formar atletas talentosos e comprometidos. 
-                Desde sua fundação, a D14 já preparou <span className="text-[#54AE21]">28 atletas</span> que seguiram seus estudos nos Estados Unidos.
+                Desde sua fundação, a D14 já preparou <span className="text-[#54AE21]">33 atletas</span> que seguiram seus estudos nos Estados Unidos.
               </p>
 
               <p>
@@ -233,7 +233,7 @@ export function Home() {
                 <div className="bg-[#54AE21]/20 w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative mx-auto group-hover:bg-[#54AE21]/25 transition-colors"> 
                   <Trophy className="h-6 w-6 text-[#54AE21]" />
                 </div>
-                <div className="text-2xl font-medium text-[#F4F4F5] mb-1">28</div>
+                <div className="text-2xl font-medium text-[#F4F4F5] mb-1">33</div>
                 <div className="text-[#F4F4F5]/85 text-sm">Atletas nos EUA</div>
               </motion.div>
 

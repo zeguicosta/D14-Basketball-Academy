@@ -393,7 +393,7 @@ export function Sobre() {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { number: "28", label: "Atletas nos EUA" },
+              { number: "33", label: "Atletas nos EUA" },
               { number: "30+", label: "Anos de Experiência" },
               { number: "100%", label: "Foco no Atleta" },
               { number: "4", label: "Coaches Especializados" }
