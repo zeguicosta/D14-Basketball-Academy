@@ -2,24 +2,24 @@ import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, MessageCircle, Play } from 'lucide-react';
 
-// TODO: adicionar os próximos 2 vídeos aqui
 const depoimentos = [
-  { nome: 'Leonardo', contexto: 'Carolina do Norte, EUA', video: '/videos/depoimento1.mp4' },
-  { nome: 'Luis Antônio', contexto: 'Pensilvânia, EUA', video: '/videos/depoimento2.mp4' },
+  { nome: 'Leonardo', contexto: 'Carolina do Norte, Estados Unidos', video: '/videos/depoimento1.mp4' },
+  { nome: 'Luis Antônio', contexto: 'Pensilvânia, Estados Unidos', video: '/videos/depoimento2.mp4' },
+  { nome: 'Arthur Borges', contexto: 'Do Setor Olímpico para os Estados Unidos', video: '/videos/depoimento3.mp4' },
+  { nome: 'Paulo', contexto: 'Massachusetts, Estados Unidos', video: '/videos/depoimento4.mp4' },
 ];
+
+// Proporção fixa (retrato 9:16) para todos os cards ficarem do mesmo tamanho no grid,
+// já que os vídeos vêm com proporções ligeiramente diferentes entre si.
+const CARD_RATIO = 9 / 16;
 
 function VideoTestemunho({ nome, contexto, video }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
-  // Chute inicial de retrato (9:16); ajustado assim que os metadados reais do vídeo carregam.
-  const [ratio, setRatio] = useState(9 / 16);
 
   const handleLoadedMetadata = () => {
     const el = videoRef.current;
     if (!el) return;
-    if (el.videoWidth && el.videoHeight) {
-      setRatio(el.videoWidth / el.videoHeight);
-    }
     // Sem isso o navegador (Chrome) mantém a tela preta em vez de mostrar o primeiro frame como prévia.
     if (el.currentTime === 0) {
       el.currentTime = 0.1;
@@ -38,7 +38,7 @@ function VideoTestemunho({ nome, contexto, video }) {
     <div className="w-full max-w-xs sm:max-w-sm mx-auto">
       <div
         className="group relative overflow-hidden rounded-2xl border-2 border-white/20 bg-black hover:border-[#54AE21]/40 transition-colors duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
-        style={{ aspectRatio: ratio }}
+        style={{ aspectRatio: CARD_RATIO }}
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#54AE21]/25 to-transparent group-hover:via-[#54AE21]/70 transition-colors duration-300 z-10" />
         <video
@@ -49,7 +49,7 @@ function VideoTestemunho({ nome, contexto, video }) {
           playsInline
           preload="metadata"
           onLoadedMetadata={handleLoadedMetadata}
-          className="w-full h-full object-contain bg-black"
+          className="w-full h-full object-cover bg-black"
         />
         {!playing && (
           <button
