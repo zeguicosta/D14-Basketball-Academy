@@ -7,6 +7,7 @@ const depoimentos = [
   { nome: 'Luis Antônio', contexto: 'Pensilvânia, Estados Unidos', video: '/videos/depoimento2.mp4' },
   { nome: 'Arthur Borges', contexto: 'Do Setor Olímpico para os Estados Unidos', video: '/videos/depoimento3.mp4' },
   { nome: 'Paulo', contexto: 'Massachusetts, Estados Unidos', video: '/videos/depoimento4.mp4' },
+  { nome: 'Henrique', contexto: 'Estados Unidos', video: '/videos/depoimento5.mp4' },
 ];
 
 // Proporção fixa (retrato 9:16) para todos os cards ficarem do mesmo tamanho no grid,
@@ -35,7 +36,7 @@ function VideoTestemunho({ nome, contexto, video }) {
   };
 
   return (
-    <div className="w-full max-w-xs sm:max-w-sm mx-auto">
+    <div className="w-64 sm:w-72">
       <div
         className="group relative overflow-hidden rounded-2xl border-2 border-white/20 bg-black hover:border-[#54AE21]/40 transition-colors duration-300 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.35)]"
         style={{ aspectRatio: CARD_RATIO }}
@@ -96,7 +97,7 @@ export default function Depoimentos() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto">
           {depoimentos.map((depoimento, index) => (
             <motion.div
               key={depoimento.video}
