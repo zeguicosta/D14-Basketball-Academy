@@ -106,11 +106,12 @@ export function Loja() {
 
   const featuredProducts = products.filter(product => product.featured);
 
-  // Function to handle purchase redirect
+  // Function to open WhatsApp with a message about the clicked product
   const handlePurchase = (product) => {
-    // Replace with actual partner payment URL
-    const paymentUrl = `https://partner-payment-site.com/checkout?product=${product.id}&name=${encodeURIComponent(product.name)}&price=${product.price}`;
-    window.open(paymentUrl, '_blank', 'noopener,noreferrer');
+    const baseUrl = 'https://api.whatsapp.com/send/?phone=5511973262444&text=';
+    const message = `Olá, gostaria de mais informações sobre o produto ${product.name}.`;
+    const url = `${baseUrl}${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
